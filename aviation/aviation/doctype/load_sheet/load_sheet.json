@@ -1,54 +1,221 @@
-{
-    "doctype": "DocType",
-    "name": "Load Sheet",
-    "module": "Aviation",
-    "autoname": "naming_series:",
-    "naming_series": "LS-.YYYY.MM.-",
-    "creation": "2025-01-01 00:00:00.000000",
-    "modified": "2025-01-01 00:00:00.000000",
-    "version": 2,
-    "issingle": 0,
-    "istable": 0,
-    "engine": "InnoDB",
-    "is_submittable": 1,
-    "track_changes": 1,
-    "fields": [
-        {"fieldname": "flight_operation", "label": "Flight Operation", "fieldtype": "Link", "options": "Flight Operation", "reqd": 1, "in_list_view": 1},
-        {"fieldname": "aircraft", "label": "Aircraft", "fieldtype": "Link", "options": "Aircraft", "reqd": 1, "in_list_view": 1},
-        {"fieldname": "flight_date", "label": "Flight Date", "fieldtype": "Date", "reqd": 1, "in_list_view": 1},
-        {"fieldname": "weights_section", "label": "Weights (kg)", "fieldtype": "Section Break"},
-        {"fieldname": "dry_operating_weight", "label": "Dry Operating Weight (DOW)", "fieldtype": "Float", "reqd": 1},
-        {"fieldname": "total_pax", "label": "Total PAX", "fieldtype": "Int"},
-        {"fieldname": "pax_weight_kg", "label": "PAX Weight (kg)", "fieldtype": "Float"},
-        {"fieldname": "cabin_baggage_kg", "label": "Cabin Baggage (kg)", "fieldtype": "Float"},
-        {"fieldname": "hold_baggage_kg", "label": "Hold Baggage (kg)", "fieldtype": "Float"},
-        {"fieldname": "cargo_kg", "label": "Cargo (kg)", "fieldtype": "Float"},
-        {"fieldname": "mail_kg", "label": "Mail (kg)", "fieldtype": "Float"},
-        {"fieldname": "column_break_wt", "fieldtype": "Column Break"},
-        {"fieldname": "zero_fuel_weight", "label": "Zero Fuel Weight (ZFW)", "fieldtype": "Float", "read_only": 1},
-        {"fieldname": "max_zero_fuel_weight", "label": "Max ZFW (MZFW)", "fieldtype": "Float"},
-        {"fieldname": "take_off_fuel_kg", "label": "Take-Off Fuel (kg)", "fieldtype": "Float", "reqd": 1},
-        {"fieldname": "take_off_weight", "label": "Take-Off Weight (TOW)", "fieldtype": "Float", "read_only": 1},
-        {"fieldname": "max_take_off_weight", "label": "Max TOW (MTOW)", "fieldtype": "Float"},
-        {"fieldname": "trip_fuel_kg", "label": "Trip Fuel (kg)", "fieldtype": "Float"},
-        {"fieldname": "landing_weight", "label": "Landing Weight (LW)", "fieldtype": "Float", "read_only": 1},
-        {"fieldname": "max_landing_weight", "label": "Max LW (MLW)", "fieldtype": "Float"},
-        {"fieldname": "cg_section", "label": "Centre of Gravity", "fieldtype": "Section Break"},
-        {"fieldname": "cg_takeoff_percent", "label": "CG at Takeoff (%MAC)", "fieldtype": "Float"},
-        {"fieldname": "cg_landing_percent", "label": "CG at Landing (%MAC)", "fieldtype": "Float"},
-        {"fieldname": "cg_fwd_limit", "label": "Fwd CG Limit (%MAC)", "fieldtype": "Float"},
-        {"fieldname": "cg_aft_limit", "label": "Aft CG Limit (%MAC)", "fieldtype": "Float"},
-        {"fieldname": "zones_section", "label": "Cargo Zone Loading", "fieldtype": "Section Break"},
-        {"fieldname": "zone_loading", "label": "Zone Loading", "fieldtype": "Table", "options": "Load Sheet Zone"},
-        {"fieldname": "prepared_by", "label": "Prepared By (Load Controller)", "fieldtype": "Link", "options": "User"},
-        {"fieldname": "captain_acceptance", "label": "Accepted by Captain", "fieldtype": "Check", "default": 0}
-    ],
-    "permissions": [
-        {"role": "System Manager", "permlevel": 0, "read": 1, "write": 1, "create": 1, "delete": 1, "submit": 1, "cancel": 1},
-        {"role": "Aviation Manager", "permlevel": 0, "read": 1, "write": 1, "create": 1, "submit": 1, "cancel": 1},
-        {"role": "Load Controller", "permlevel": 0, "read": 1, "write": 1, "create": 1, "submit": 1},
-        {"role": "Ground Operations Supervisor", "permlevel": 0, "read": 1, "write": 1}
-    ],
-    "sort_field": "flight_date",
-    "sort_order": "DESC"
+﻿{
+    "doctype":  "DocType",
+    "name":  "Load Sheet",
+    "module":  "Aviation",
+    "autoname":  "naming_series:",
+    "naming_series":  "LS-.YYYY.MM.-",
+    "creation":  "2025-01-01 00:00:00.000000",
+    "modified":  "2025-01-01 00:00:00.000000",
+    "version":  2,
+    "issingle":  0,
+    "istable":  0,
+    "engine":  "InnoDB",
+    "is_submittable":  1,
+    "track_changes":  1,
+    "fields":  [
+                   {
+                       "fieldname":  "naming_series",
+                       "label":  "Series",
+                       "fieldtype":  "Select",
+                       "options":  "LS-.YYYY.MM.-",
+                       "set_only_once":  1
+                   },
+                   {
+                       "fieldname":  "flight_operation",
+                       "label":  "Flight Operation",
+                       "fieldtype":  "Link",
+                       "options":  "Flight Operation",
+                       "reqd":  1,
+                       "in_list_view":  1
+                   },
+                   {
+                       "fieldname":  "aircraft",
+                       "label":  "Aircraft",
+                       "fieldtype":  "Link",
+                       "options":  "Aircraft",
+                       "reqd":  1,
+                       "in_list_view":  1
+                   },
+                   {
+                       "fieldname":  "flight_date",
+                       "label":  "Flight Date",
+                       "fieldtype":  "Date",
+                       "reqd":  1,
+                       "in_list_view":  1
+                   },
+                   {
+                       "fieldname":  "weights_section",
+                       "label":  "Weights (kg)",
+                       "fieldtype":  "Section Break"
+                   },
+                   {
+                       "fieldname":  "dry_operating_weight",
+                       "label":  "Dry Operating Weight (DOW)",
+                       "fieldtype":  "Float",
+                       "reqd":  1
+                   },
+                   {
+                       "fieldname":  "total_pax",
+                       "label":  "Total PAX",
+                       "fieldtype":  "Int"
+                   },
+                   {
+                       "fieldname":  "pax_weight_kg",
+                       "label":  "PAX Weight (kg)",
+                       "fieldtype":  "Float"
+                   },
+                   {
+                       "fieldname":  "cabin_baggage_kg",
+                       "label":  "Cabin Baggage (kg)",
+                       "fieldtype":  "Float"
+                   },
+                   {
+                       "fieldname":  "hold_baggage_kg",
+                       "label":  "Hold Baggage (kg)",
+                       "fieldtype":  "Float"
+                   },
+                   {
+                       "fieldname":  "cargo_kg",
+                       "label":  "Cargo (kg)",
+                       "fieldtype":  "Float"
+                   },
+                   {
+                       "fieldname":  "mail_kg",
+                       "label":  "Mail (kg)",
+                       "fieldtype":  "Float"
+                   },
+                   {
+                       "fieldname":  "column_break_wt",
+                       "fieldtype":  "Column Break"
+                   },
+                   {
+                       "fieldname":  "zero_fuel_weight",
+                       "label":  "Zero Fuel Weight (ZFW)",
+                       "fieldtype":  "Float",
+                       "read_only":  1
+                   },
+                   {
+                       "fieldname":  "max_zero_fuel_weight",
+                       "label":  "Max ZFW (MZFW)",
+                       "fieldtype":  "Float"
+                   },
+                   {
+                       "fieldname":  "take_off_fuel_kg",
+                       "label":  "Take-Off Fuel (kg)",
+                       "fieldtype":  "Float",
+                       "reqd":  1
+                   },
+                   {
+                       "fieldname":  "take_off_weight",
+                       "label":  "Take-Off Weight (TOW)",
+                       "fieldtype":  "Float",
+                       "read_only":  1
+                   },
+                   {
+                       "fieldname":  "max_take_off_weight",
+                       "label":  "Max TOW (MTOW)",
+                       "fieldtype":  "Float"
+                   },
+                   {
+                       "fieldname":  "trip_fuel_kg",
+                       "label":  "Trip Fuel (kg)",
+                       "fieldtype":  "Float"
+                   },
+                   {
+                       "fieldname":  "landing_weight",
+                       "label":  "Landing Weight (LW)",
+                       "fieldtype":  "Float",
+                       "read_only":  1
+                   },
+                   {
+                       "fieldname":  "max_landing_weight",
+                       "label":  "Max LW (MLW)",
+                       "fieldtype":  "Float"
+                   },
+                   {
+                       "fieldname":  "cg_section",
+                       "label":  "Centre of Gravity",
+                       "fieldtype":  "Section Break"
+                   },
+                   {
+                       "fieldname":  "cg_takeoff_percent",
+                       "label":  "CG at Takeoff (%MAC)",
+                       "fieldtype":  "Float"
+                   },
+                   {
+                       "fieldname":  "cg_landing_percent",
+                       "label":  "CG at Landing (%MAC)",
+                       "fieldtype":  "Float"
+                   },
+                   {
+                       "fieldname":  "cg_fwd_limit",
+                       "label":  "Fwd CG Limit (%MAC)",
+                       "fieldtype":  "Float"
+                   },
+                   {
+                       "fieldname":  "cg_aft_limit",
+                       "label":  "Aft CG Limit (%MAC)",
+                       "fieldtype":  "Float"
+                   },
+                   {
+                       "fieldname":  "zones_section",
+                       "label":  "Cargo Zone Loading",
+                       "fieldtype":  "Section Break"
+                   },
+                   {
+                       "fieldname":  "zone_loading",
+                       "label":  "Zone Loading",
+                       "fieldtype":  "Table",
+                       "options":  "Load Sheet Zone"
+                   },
+                   {
+                       "fieldname":  "prepared_by",
+                       "label":  "Prepared By (Load Controller)",
+                       "fieldtype":  "Link",
+                       "options":  "User"
+                   },
+                   {
+                       "fieldname":  "captain_acceptance",
+                       "label":  "Accepted by Captain",
+                       "fieldtype":  "Check",
+                       "default":  0
+                   }
+               ],
+    "permissions":  [
+                        {
+                            "role":  "System Manager",
+                            "permlevel":  0,
+                            "read":  1,
+                            "write":  1,
+                            "create":  1,
+                            "delete":  1,
+                            "submit":  1,
+                            "cancel":  1
+                        },
+                        {
+                            "role":  "Aviation Manager",
+                            "permlevel":  0,
+                            "read":  1,
+                            "write":  1,
+                            "create":  1,
+                            "submit":  1,
+                            "cancel":  1
+                        },
+                        {
+                            "role":  "Load Controller",
+                            "permlevel":  0,
+                            "read":  1,
+                            "write":  1,
+                            "create":  1,
+                            "submit":  1
+                        },
+                        {
+                            "role":  "Ground Operations Supervisor",
+                            "permlevel":  0,
+                            "read":  1,
+                            "write":  1
+                        }
+                    ],
+    "sort_field":  "flight_date",
+    "sort_order":  "DESC"
 }

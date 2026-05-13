@@ -1,49 +1,212 @@
-{
-    "doctype": "DocType",
-    "name": "Safety Occurrence Report",
-    "module": "Aviation",
-    "autoname": "naming_series:",
-    "naming_series": "SOR-.YYYY.MM.-",
-    "creation": "2025-01-01 00:00:00.000000",
-    "modified": "2025-01-01 00:00:00.000000",
-    "version": 2,
-    "issingle": 0,
-    "istable": 0,
-    "engine": "InnoDB",
-    "is_submittable": 1,
-    "track_changes": 1,
-    "fields": [
-        {"fieldname": "occurrence_date", "label": "Occurrence Date", "fieldtype": "Date", "reqd": 1, "in_list_view": 1},
-        {"fieldname": "occurrence_time_utc", "label": "Occurrence Time (UTC)", "fieldtype": "Time"},
-        {"fieldname": "occurrence_type", "label": "Occurrence Type", "fieldtype": "Select", "options": "Accident\nSerious Incident\nIncident\nHazard\nVoluntary Report", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1},
-        {"fieldname": "status", "label": "Status", "fieldtype": "Select", "options": "Draft\nSubmitted\nUnder Investigation\nClosed", "default": "Draft", "in_list_view": 1, "in_standard_filter": 1},
-        {"fieldname": "aircraft", "label": "Aircraft (if applicable)", "fieldtype": "Link", "options": "Aircraft"},
-        {"fieldname": "flight_number", "label": "Flight Number (if applicable)", "fieldtype": "Data"},
-        {"fieldname": "location_airport", "label": "Location Airport", "fieldtype": "Link", "options": "Airport"},
-        {"fieldname": "location_description", "label": "Location Description", "fieldtype": "Data"},
-        {"fieldname": "occurrence_section", "label": "Occurrence Details", "fieldtype": "Section Break"},
-        {"fieldname": "summary", "label": "Summary", "fieldtype": "Text", "reqd": 1, "in_list_view": 1},
-        {"fieldname": "narrative", "label": "Full Narrative", "fieldtype": "Text Editor"},
-        {"fieldname": "immediate_actions", "label": "Immediate Actions Taken", "fieldtype": "Text Editor"},
-        {"fieldname": "risk_section", "label": "Risk Assessment", "fieldtype": "Section Break"},
-        {"fieldname": "severity", "label": "Severity", "fieldtype": "Select", "options": "Negligible\nMinor\nModerate\nMajor\nCatastrophic", "reqd": 1, "in_list_view": 1},
-        {"fieldname": "likelihood", "label": "Likelihood", "fieldtype": "Select", "options": "Improbable\nRemote\nOccasional\nProbable\nFrequent"},
-        {"fieldname": "risk_index", "label": "Risk Index", "fieldtype": "Select", "options": "Low\nMedium\nHigh\nCritical", "read_only": 1},
-        {"fieldname": "reporting_section", "label": "Reporting", "fieldtype": "Section Break"},
-        {"fieldname": "reported_by", "label": "Reported By", "fieldtype": "Link", "options": "User", "reqd": 1},
-        {"fieldname": "is_anonymous", "label": "Anonymous Report", "fieldtype": "Check", "default": 0},
-        {"fieldname": "mandatory_regulatory_report", "label": "Mandatory Regulatory Report Required", "fieldtype": "Check", "default": 0},
-        {"fieldname": "authority_report_ref", "label": "Authority Report Reference", "fieldtype": "Data"},
-        {"fieldname": "actions_section", "label": "Corrective Actions", "fieldtype": "Section Break"},
-        {"fieldname": "corrective_actions", "label": "Corrective Actions", "fieldtype": "Table", "options": "Safety Report Action"}
-    ],
-    "permissions": [
-        {"role": "System Manager", "permlevel": 0, "read": 1, "write": 1, "create": 1, "delete": 1, "submit": 1, "cancel": 1},
-        {"role": "Aviation Manager", "permlevel": 0, "read": 1, "write": 1, "create": 1, "submit": 1, "cancel": 1},
-        {"role": "Safety Officer", "permlevel": 0, "read": 1, "write": 1, "create": 1, "submit": 1, "cancel": 1},
-        {"role": "Flight Operations Officer", "permlevel": 0, "read": 1, "write": 1, "create": 1, "submit": 1},
-        {"role": "Maintenance Engineer", "permlevel": 0, "read": 1, "write": 1, "create": 1, "submit": 1}
-    ],
-    "sort_field": "occurrence_date",
-    "sort_order": "DESC"
+﻿{
+    "doctype":  "DocType",
+    "name":  "Safety Occurrence Report",
+    "module":  "Aviation",
+    "autoname":  "naming_series:",
+    "naming_series":  "SOR-.YYYY.MM.-",
+    "creation":  "2025-01-01 00:00:00.000000",
+    "modified":  "2025-01-01 00:00:00.000000",
+    "version":  2,
+    "issingle":  0,
+    "istable":  0,
+    "engine":  "InnoDB",
+    "is_submittable":  1,
+    "track_changes":  1,
+    "fields":  [
+                   {
+                       "fieldname":  "naming_series",
+                       "label":  "Series",
+                       "fieldtype":  "Select",
+                       "options":  "SOR-.YYYY.MM.-",
+                       "set_only_once":  1
+                   },
+                   {
+                       "fieldname":  "occurrence_date",
+                       "label":  "Occurrence Date",
+                       "fieldtype":  "Date",
+                       "reqd":  1,
+                       "in_list_view":  1
+                   },
+                   {
+                       "fieldname":  "occurrence_time_utc",
+                       "label":  "Occurrence Time (UTC)",
+                       "fieldtype":  "Time"
+                   },
+                   {
+                       "fieldname":  "occurrence_type",
+                       "label":  "Occurrence Type",
+                       "fieldtype":  "Select",
+                       "options":  "Accident\nSerious Incident\nIncident\nHazard\nVoluntary Report",
+                       "reqd":  1,
+                       "in_list_view":  1,
+                       "in_standard_filter":  1
+                   },
+                   {
+                       "fieldname":  "status",
+                       "label":  "Status",
+                       "fieldtype":  "Select",
+                       "options":  "Draft\nSubmitted\nUnder Investigation\nClosed",
+                       "default":  "Draft",
+                       "in_list_view":  1,
+                       "in_standard_filter":  1
+                   },
+                   {
+                       "fieldname":  "aircraft",
+                       "label":  "Aircraft (if applicable)",
+                       "fieldtype":  "Link",
+                       "options":  "Aircraft"
+                   },
+                   {
+                       "fieldname":  "flight_number",
+                       "label":  "Flight Number (if applicable)",
+                       "fieldtype":  "Data"
+                   },
+                   {
+                       "fieldname":  "location_airport",
+                       "label":  "Location Airport",
+                       "fieldtype":  "Link",
+                       "options":  "Airport"
+                   },
+                   {
+                       "fieldname":  "location_description",
+                       "label":  "Location Description",
+                       "fieldtype":  "Data"
+                   },
+                   {
+                       "fieldname":  "occurrence_section",
+                       "label":  "Occurrence Details",
+                       "fieldtype":  "Section Break"
+                   },
+                   {
+                       "fieldname":  "summary",
+                       "label":  "Summary",
+                       "fieldtype":  "Text",
+                       "reqd":  1,
+                       "in_list_view":  1
+                   },
+                   {
+                       "fieldname":  "narrative",
+                       "label":  "Full Narrative",
+                       "fieldtype":  "Text Editor"
+                   },
+                   {
+                       "fieldname":  "immediate_actions",
+                       "label":  "Immediate Actions Taken",
+                       "fieldtype":  "Text Editor"
+                   },
+                   {
+                       "fieldname":  "risk_section",
+                       "label":  "Risk Assessment",
+                       "fieldtype":  "Section Break"
+                   },
+                   {
+                       "fieldname":  "severity",
+                       "label":  "Severity",
+                       "fieldtype":  "Select",
+                       "options":  "Negligible\nMinor\nModerate\nMajor\nCatastrophic",
+                       "reqd":  1,
+                       "in_list_view":  1
+                   },
+                   {
+                       "fieldname":  "likelihood",
+                       "label":  "Likelihood",
+                       "fieldtype":  "Select",
+                       "options":  "Improbable\nRemote\nOccasional\nProbable\nFrequent"
+                   },
+                   {
+                       "fieldname":  "risk_index",
+                       "label":  "Risk Index",
+                       "fieldtype":  "Select",
+                       "options":  "Low\nMedium\nHigh\nCritical",
+                       "read_only":  1
+                   },
+                   {
+                       "fieldname":  "reporting_section",
+                       "label":  "Reporting",
+                       "fieldtype":  "Section Break"
+                   },
+                   {
+                       "fieldname":  "reported_by",
+                       "label":  "Reported By",
+                       "fieldtype":  "Link",
+                       "options":  "User",
+                       "reqd":  1
+                   },
+                   {
+                       "fieldname":  "is_anonymous",
+                       "label":  "Anonymous Report",
+                       "fieldtype":  "Check",
+                       "default":  0
+                   },
+                   {
+                       "fieldname":  "mandatory_regulatory_report",
+                       "label":  "Mandatory Regulatory Report Required",
+                       "fieldtype":  "Check",
+                       "default":  0
+                   },
+                   {
+                       "fieldname":  "authority_report_ref",
+                       "label":  "Authority Report Reference",
+                       "fieldtype":  "Data"
+                   },
+                   {
+                       "fieldname":  "actions_section",
+                       "label":  "Corrective Actions",
+                       "fieldtype":  "Section Break"
+                   },
+                   {
+                       "fieldname":  "corrective_actions",
+                       "label":  "Corrective Actions",
+                       "fieldtype":  "Table",
+                       "options":  "Safety Report Action"
+                   }
+               ],
+    "permissions":  [
+                        {
+                            "role":  "System Manager",
+                            "permlevel":  0,
+                            "read":  1,
+                            "write":  1,
+                            "create":  1,
+                            "delete":  1,
+                            "submit":  1,
+                            "cancel":  1
+                        },
+                        {
+                            "role":  "Aviation Manager",
+                            "permlevel":  0,
+                            "read":  1,
+                            "write":  1,
+                            "create":  1,
+                            "submit":  1,
+                            "cancel":  1
+                        },
+                        {
+                            "role":  "Safety Officer",
+                            "permlevel":  0,
+                            "read":  1,
+                            "write":  1,
+                            "create":  1,
+                            "submit":  1,
+                            "cancel":  1
+                        },
+                        {
+                            "role":  "Flight Operations Officer",
+                            "permlevel":  0,
+                            "read":  1,
+                            "write":  1,
+                            "create":  1,
+                            "submit":  1
+                        },
+                        {
+                            "role":  "Maintenance Engineer",
+                            "permlevel":  0,
+                            "read":  1,
+                            "write":  1,
+                            "create":  1,
+                            "submit":  1
+                        }
+                    ],
+    "sort_field":  "occurrence_date",
+    "sort_order":  "DESC"
 }

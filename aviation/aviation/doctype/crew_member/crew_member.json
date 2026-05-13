@@ -1,48 +1,192 @@
-{
-    "doctype": "DocType",
-    "name": "Crew Member",
-    "module": "Aviation",
-    "autoname": "naming_series:",
-    "naming_series": "CREW-.YYYY.-",
-    "creation": "2025-01-01 00:00:00.000000",
-    "modified": "2025-01-01 00:00:00.000000",
-    "version": 2,
-    "issingle": 0,
-    "istable": 0,
-    "engine": "InnoDB",
-    "track_changes": 1,
-    "title_field": "full_name",
-    "fields": [
-        {"fieldname": "full_name", "label": "Full Name", "fieldtype": "Data", "reqd": 1, "in_list_view": 1, "bold": 1},
-        {"fieldname": "crew_type", "label": "Crew Type", "fieldtype": "Select", "options": "Flight Crew\nCabin Crew\nGround Crew\nEngineering Crew", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1},
-        {"fieldname": "employee_id", "label": "Employee ID", "fieldtype": "Link", "options": "Employee", "description": "Link to HR Employee record"},
-        {"fieldname": "status", "label": "Status", "fieldtype": "Select", "options": "Active\nOn Leave\nSuspended\nRetired\nTerminated", "default": "Active", "in_list_view": 1, "in_standard_filter": 1},
-        {"fieldname": "identity_section", "label": "Identity & Contact", "fieldtype": "Section Break"},
-        {"fieldname": "date_of_birth", "label": "Date of Birth", "fieldtype": "Date", "reqd": 1},
-        {"fieldname": "nationality", "label": "Nationality", "fieldtype": "Data"},
-        {"fieldname": "passport_number", "label": "Passport Number", "fieldtype": "Data"},
-        {"fieldname": "passport_expiry", "label": "Passport Expiry", "fieldtype": "Date"},
-        {"fieldname": "column_break_identity", "fieldtype": "Column Break"},
-        {"fieldname": "phone", "label": "Phone", "fieldtype": "Data"},
-        {"fieldname": "email", "label": "Email", "fieldtype": "Data"},
-        {"fieldname": "base_airport", "label": "Base Airport", "fieldtype": "Link", "options": "Airport"},
-        {"fieldname": "qualifications_section", "label": "Qualifications & Ratings", "fieldtype": "Section Break"},
-        {"fieldname": "ratings", "label": "Ratings", "fieldtype": "Table", "options": "Crew Rating"},
-        {"fieldname": "duty_limits_section", "label": "Duty Limits (CAR/DGCA)", "fieldtype": "Section Break"},
-        {"fieldname": "max_fdp_hours", "label": "Max FDP (Hours)", "fieldtype": "Float", "default": 13, "description": "Maximum Flight Duty Period"},
-        {"fieldname": "max_block_hours_day", "label": "Max Block Hours / Day", "fieldtype": "Float", "default": 10},
-        {"fieldname": "max_block_hours_28days", "label": "Max Block Hours / 28 Days", "fieldtype": "Float", "default": 100},
-        {"fieldname": "column_break_duty", "fieldtype": "Column Break"},
-        {"fieldname": "cumulative_block_hours_28days", "label": "Cumulative Block Hours (Last 28 Days)", "fieldtype": "Float", "read_only": 1},
-        {"fieldname": "cumulative_block_hours_year", "label": "Cumulative Block Hours (Year)", "fieldtype": "Float", "read_only": 1},
-        {"fieldname": "last_rest_period_end", "label": "Last Rest Period End", "fieldtype": "Datetime", "read_only": 1}
-    ],
-    "permissions": [
-        {"role": "System Manager", "permlevel": 0, "read": 1, "write": 1, "create": 1, "delete": 1},
-        {"role": "Aviation Manager", "permlevel": 0, "read": 1, "write": 1, "create": 1, "delete": 0},
-        {"role": "Crew Scheduler", "permlevel": 0, "read": 1, "write": 1, "create": 1},
-        {"role": "Flight Operations Officer", "permlevel": 0, "read": 1}
-    ],
-    "sort_field": "modified",
-    "sort_order": "DESC"
+﻿{
+    "doctype":  "DocType",
+    "name":  "Crew Member",
+    "module":  "Aviation",
+    "autoname":  "naming_series:",
+    "naming_series":  "CREW-.YYYY.-",
+    "creation":  "2025-01-01 00:00:00.000000",
+    "modified":  "2025-01-01 00:00:00.000000",
+    "version":  2,
+    "issingle":  0,
+    "istable":  0,
+    "engine":  "InnoDB",
+    "track_changes":  1,
+    "title_field":  "full_name",
+    "fields":  [
+                   {
+                       "fieldname":  "naming_series",
+                       "label":  "Series",
+                       "fieldtype":  "Select",
+                       "options":  "CM-.YYYY.-",
+                       "set_only_once":  1
+                   },
+                   {
+                       "fieldname":  "full_name",
+                       "label":  "Full Name",
+                       "fieldtype":  "Data",
+                       "reqd":  1,
+                       "in_list_view":  1,
+                       "bold":  1
+                   },
+                   {
+                       "fieldname":  "crew_type",
+                       "label":  "Crew Type",
+                       "fieldtype":  "Select",
+                       "options":  "Flight Crew\nCabin Crew\nGround Crew\nEngineering Crew",
+                       "reqd":  1,
+                       "in_list_view":  1,
+                       "in_standard_filter":  1
+                   },
+                   {
+                       "fieldname":  "employee_id",
+                       "label":  "Employee ID",
+                       "fieldtype":  "Link",
+                       "options":  "Employee",
+                       "description":  "Link to HR Employee record"
+                   },
+                   {
+                       "fieldname":  "status",
+                       "label":  "Status",
+                       "fieldtype":  "Select",
+                       "options":  "Active\nOn Leave\nSuspended\nRetired\nTerminated",
+                       "default":  "Active",
+                       "in_list_view":  1,
+                       "in_standard_filter":  1
+                   },
+                   {
+                       "fieldname":  "identity_section",
+                       "label":  "Identity \u0026 Contact",
+                       "fieldtype":  "Section Break"
+                   },
+                   {
+                       "fieldname":  "date_of_birth",
+                       "label":  "Date of Birth",
+                       "fieldtype":  "Date",
+                       "reqd":  1
+                   },
+                   {
+                       "fieldname":  "nationality",
+                       "label":  "Nationality",
+                       "fieldtype":  "Data"
+                   },
+                   {
+                       "fieldname":  "passport_number",
+                       "label":  "Passport Number",
+                       "fieldtype":  "Data"
+                   },
+                   {
+                       "fieldname":  "passport_expiry",
+                       "label":  "Passport Expiry",
+                       "fieldtype":  "Date"
+                   },
+                   {
+                       "fieldname":  "column_break_identity",
+                       "fieldtype":  "Column Break"
+                   },
+                   {
+                       "fieldname":  "phone",
+                       "label":  "Phone",
+                       "fieldtype":  "Data"
+                   },
+                   {
+                       "fieldname":  "email",
+                       "label":  "Email",
+                       "fieldtype":  "Data"
+                   },
+                   {
+                       "fieldname":  "base_airport",
+                       "label":  "Base Airport",
+                       "fieldtype":  "Link",
+                       "options":  "Airport"
+                   },
+                   {
+                       "fieldname":  "qualifications_section",
+                       "label":  "Qualifications \u0026 Ratings",
+                       "fieldtype":  "Section Break"
+                   },
+                   {
+                       "fieldname":  "ratings",
+                       "label":  "Ratings",
+                       "fieldtype":  "Table",
+                       "options":  "Crew Rating"
+                   },
+                   {
+                       "fieldname":  "duty_limits_section",
+                       "label":  "Duty Limits (CAR/DGCA)",
+                       "fieldtype":  "Section Break"
+                   },
+                   {
+                       "fieldname":  "max_fdp_hours",
+                       "label":  "Max FDP (Hours)",
+                       "fieldtype":  "Float",
+                       "default":  13,
+                       "description":  "Maximum Flight Duty Period"
+                   },
+                   {
+                       "fieldname":  "max_block_hours_day",
+                       "label":  "Max Block Hours / Day",
+                       "fieldtype":  "Float",
+                       "default":  10
+                   },
+                   {
+                       "fieldname":  "max_block_hours_28days",
+                       "label":  "Max Block Hours / 28 Days",
+                       "fieldtype":  "Float",
+                       "default":  100
+                   },
+                   {
+                       "fieldname":  "column_break_duty",
+                       "fieldtype":  "Column Break"
+                   },
+                   {
+                       "fieldname":  "cumulative_block_hours_28days",
+                       "label":  "Cumulative Block Hours (Last 28 Days)",
+                       "fieldtype":  "Float",
+                       "read_only":  1
+                   },
+                   {
+                       "fieldname":  "cumulative_block_hours_year",
+                       "label":  "Cumulative Block Hours (Year)",
+                       "fieldtype":  "Float",
+                       "read_only":  1
+                   },
+                   {
+                       "fieldname":  "last_rest_period_end",
+                       "label":  "Last Rest Period End",
+                       "fieldtype":  "Datetime",
+                       "read_only":  1
+                   }
+               ],
+    "permissions":  [
+                        {
+                            "role":  "System Manager",
+                            "permlevel":  0,
+                            "read":  1,
+                            "write":  1,
+                            "create":  1,
+                            "delete":  1
+                        },
+                        {
+                            "role":  "Aviation Manager",
+                            "permlevel":  0,
+                            "read":  1,
+                            "write":  1,
+                            "create":  1,
+                            "delete":  0
+                        },
+                        {
+                            "role":  "Crew Scheduler",
+                            "permlevel":  0,
+                            "read":  1,
+                            "write":  1,
+                            "create":  1
+                        },
+                        {
+                            "role":  "Flight Operations Officer",
+                            "permlevel":  0,
+                            "read":  1
+                        }
+                    ],
+    "sort_field":  "modified",
+    "sort_order":  "DESC"
 }

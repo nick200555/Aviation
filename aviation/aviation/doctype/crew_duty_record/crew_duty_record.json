@@ -1,38 +1,145 @@
-{
-    "doctype": "DocType",
-    "name": "Crew Duty Record",
-    "module": "Aviation",
-    "autoname": "naming_series:",
-    "naming_series": "CDR-.YYYY.MM.-",
-    "creation": "2025-01-01 00:00:00.000000",
-    "modified": "2025-01-01 00:00:00.000000",
-    "version": 2,
-    "issingle": 0,
-    "istable": 0,
-    "engine": "InnoDB",
-    "is_submittable": 1,
-    "track_changes": 1,
-    "fields": [
-        {"fieldname": "crew_member", "label": "Crew Member", "fieldtype": "Link", "options": "Crew Member", "reqd": 1, "in_list_view": 1},
-        {"fieldname": "duty_date", "label": "Duty Date", "fieldtype": "Date", "reqd": 1, "in_list_view": 1},
-        {"fieldname": "flight_operation", "label": "Flight Operation", "fieldtype": "Link", "options": "Flight Operation", "in_list_view": 1},
-        {"fieldname": "role_on_flight", "label": "Role", "fieldtype": "Select", "options": "Captain\nFirst Officer\nRelief Pilot\nCabin Crew (In-Charge)\nCabin Crew\nObserver", "reqd": 1},
-        {"fieldname": "duty_start_utc", "label": "Duty Start (UTC)", "fieldtype": "Datetime", "reqd": 1},
-        {"fieldname": "duty_end_utc", "label": "Duty End (UTC)", "fieldtype": "Datetime", "reqd": 1},
-        {"fieldname": "fdp_hours", "label": "FDP (Hours)", "fieldtype": "Float", "read_only": 1, "description": "Flight Duty Period"},
-        {"fieldname": "block_hours", "label": "Block Hours", "fieldtype": "Float"},
-        {"fieldname": "flight_time_hours", "label": "Flight Time (Hours)", "fieldtype": "Float"},
-        {"fieldname": "duty_compliance_section", "label": "Duty Limit Compliance", "fieldtype": "Section Break"},
-        {"fieldname": "fdp_exceeded", "label": "FDP Limit Exceeded", "fieldtype": "Check", "default": 0, "read_only": 1},
-        {"fieldname": "extension_approved", "label": "FDP Extension Approved", "fieldtype": "Check", "default": 0},
-        {"fieldname": "extension_approved_by", "label": "Extension Approved By", "fieldtype": "Data", "depends_on": "eval:doc.extension_approved==1"}
-    ],
-    "permissions": [
-        {"role": "System Manager", "permlevel": 0, "read": 1, "write": 1, "create": 1, "delete": 1, "submit": 1, "cancel": 1},
-        {"role": "Aviation Manager", "permlevel": 0, "read": 1, "write": 1, "create": 1, "submit": 1, "cancel": 1},
-        {"role": "Crew Scheduler", "permlevel": 0, "read": 1, "write": 1, "create": 1, "submit": 1},
-        {"role": "Flight Operations Officer", "permlevel": 0, "read": 1, "write": 1, "create": 1, "submit": 1}
-    ],
-    "sort_field": "duty_date",
-    "sort_order": "DESC"
+﻿{
+    "doctype":  "DocType",
+    "name":  "Crew Duty Record",
+    "module":  "Aviation",
+    "autoname":  "naming_series:",
+    "naming_series":  "CDR-.YYYY.MM.-",
+    "creation":  "2025-01-01 00:00:00.000000",
+    "modified":  "2025-01-01 00:00:00.000000",
+    "version":  2,
+    "issingle":  0,
+    "istable":  0,
+    "engine":  "InnoDB",
+    "is_submittable":  1,
+    "track_changes":  1,
+    "fields":  [
+                   {
+                       "fieldname":  "naming_series",
+                       "label":  "Series",
+                       "fieldtype":  "Select",
+                       "options":  "CDR-.YYYY.MM.-",
+                       "set_only_once":  1
+                   },
+                   {
+                       "fieldname":  "crew_member",
+                       "label":  "Crew Member",
+                       "fieldtype":  "Link",
+                       "options":  "Crew Member",
+                       "reqd":  1,
+                       "in_list_view":  1
+                   },
+                   {
+                       "fieldname":  "duty_date",
+                       "label":  "Duty Date",
+                       "fieldtype":  "Date",
+                       "reqd":  1,
+                       "in_list_view":  1
+                   },
+                   {
+                       "fieldname":  "flight_operation",
+                       "label":  "Flight Operation",
+                       "fieldtype":  "Link",
+                       "options":  "Flight Operation",
+                       "in_list_view":  1
+                   },
+                   {
+                       "fieldname":  "role_on_flight",
+                       "label":  "Role",
+                       "fieldtype":  "Select",
+                       "options":  "Captain\nFirst Officer\nRelief Pilot\nCabin Crew (In-Charge)\nCabin Crew\nObserver",
+                       "reqd":  1
+                   },
+                   {
+                       "fieldname":  "duty_start_utc",
+                       "label":  "Duty Start (UTC)",
+                       "fieldtype":  "Datetime",
+                       "reqd":  1
+                   },
+                   {
+                       "fieldname":  "duty_end_utc",
+                       "label":  "Duty End (UTC)",
+                       "fieldtype":  "Datetime",
+                       "reqd":  1
+                   },
+                   {
+                       "fieldname":  "fdp_hours",
+                       "label":  "FDP (Hours)",
+                       "fieldtype":  "Float",
+                       "read_only":  1,
+                       "description":  "Flight Duty Period"
+                   },
+                   {
+                       "fieldname":  "block_hours",
+                       "label":  "Block Hours",
+                       "fieldtype":  "Float"
+                   },
+                   {
+                       "fieldname":  "flight_time_hours",
+                       "label":  "Flight Time (Hours)",
+                       "fieldtype":  "Float"
+                   },
+                   {
+                       "fieldname":  "duty_compliance_section",
+                       "label":  "Duty Limit Compliance",
+                       "fieldtype":  "Section Break"
+                   },
+                   {
+                       "fieldname":  "fdp_exceeded",
+                       "label":  "FDP Limit Exceeded",
+                       "fieldtype":  "Check",
+                       "default":  0,
+                       "read_only":  1
+                   },
+                   {
+                       "fieldname":  "extension_approved",
+                       "label":  "FDP Extension Approved",
+                       "fieldtype":  "Check",
+                       "default":  0
+                   },
+                   {
+                       "fieldname":  "extension_approved_by",
+                       "label":  "Extension Approved By",
+                       "fieldtype":  "Data",
+                       "depends_on":  "eval:doc.extension_approved==1"
+                   }
+               ],
+    "permissions":  [
+                        {
+                            "role":  "System Manager",
+                            "permlevel":  0,
+                            "read":  1,
+                            "write":  1,
+                            "create":  1,
+                            "delete":  1,
+                            "submit":  1,
+                            "cancel":  1
+                        },
+                        {
+                            "role":  "Aviation Manager",
+                            "permlevel":  0,
+                            "read":  1,
+                            "write":  1,
+                            "create":  1,
+                            "submit":  1,
+                            "cancel":  1
+                        },
+                        {
+                            "role":  "Crew Scheduler",
+                            "permlevel":  0,
+                            "read":  1,
+                            "write":  1,
+                            "create":  1,
+                            "submit":  1
+                        },
+                        {
+                            "role":  "Flight Operations Officer",
+                            "permlevel":  0,
+                            "read":  1,
+                            "write":  1,
+                            "create":  1,
+                            "submit":  1
+                        }
+                    ],
+    "sort_field":  "duty_date",
+    "sort_order":  "DESC"
 }

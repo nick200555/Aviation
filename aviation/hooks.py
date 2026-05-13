@@ -75,36 +75,11 @@ fixtures = [
     }
 ]
 
-# Hook on document events
-doc_events = {
-    "Maintenance Work Order": {
-        "on_submit": "aviation.aviation.doctype.maintenance_work_order.maintenance_work_order.on_submit",
-        "on_cancel": "aviation.aviation.doctype.maintenance_work_order.maintenance_work_order.on_cancel",
-        "validate": "aviation.aviation.doctype.maintenance_work_order.maintenance_work_order.validate"
-    },
-    "Flight Plan": {
-        "validate": "aviation.aviation.doctype.flight_plan.flight_plan.validate",
-        "on_submit": "aviation.aviation.doctype.flight_plan.flight_plan.on_submit"
-    },
-    "Flight Operation": {
-        "validate": "aviation.aviation.doctype.flight_operation.flight_operation.validate",
-        "on_submit": "aviation.aviation.doctype.flight_operation.flight_operation.on_submit"
-    },
-    "Crew Duty Record": {
-        "validate": "aviation.aviation.doctype.crew_duty_record.crew_duty_record.validate",
-        "on_submit": "aviation.aviation.doctype.crew_duty_record.crew_duty_record.on_submit"
-    },
-    "Aircraft Certificate": {
-        "validate": "aviation.aviation.doctype.aircraft_certificate.aircraft_certificate.validate",
-        "on_update": "aviation.aviation.doctype.aircraft_certificate.aircraft_certificate.on_update"
-    },
-    "Safety Occurrence Report": {
-        "on_submit": "aviation.aviation.doctype.safety_occurrence_report.safety_occurrence_report.on_submit"
-    },
-    "AD Compliance Record": {
-        "on_submit": "aviation.aviation.doctype.ad_compliance_record.ad_compliance_record.on_submit"
-    }
-}
+# Hooks for document events are handled directly in each DocType's Python controller class.
+# Frappe automatically calls validate(), on_submit(), on_cancel(), on_update(), after_insert()
+# class methods without needing explicit doc_events registration here.
+doc_events = {}
+
 
 # Scheduled Tasks
 scheduler_events = {

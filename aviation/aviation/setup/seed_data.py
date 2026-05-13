@@ -55,14 +55,14 @@ def seed_airports():
 
 def seed_airlines():
     airlines = [
-        {"airline_code": "AIC", "iata_code": "AI", "airline_name": "Air India", "country": "India", "callsign": "AIRINDIA"},
-        {"airline_code": "IGO", "iata_code": "6E", "airline_name": "IndiGo", "country": "India", "callsign": "IFLY"},
-        {"airline_code": "UAE", "iata_code": "EK", "airline_name": "Emirates", "country": "United Arab Emirates", "callsign": "EMIRATES"},
-        {"airline_code": "DLH", "iata_code": "LH", "airline_name": "Lufthansa", "country": "Germany", "callsign": "LUFTHANSA"},
-        {"airline_code": "SIA", "iata_code": "SQ", "airline_name": "Singapore Airlines", "country": "Singapore", "callsign": "SINGAPORE"}
+        {"icao_designator": "AIC", "iata_code": "AI", "airline_name": "Air India", "telephony_callsign": "AIRINDIA"},
+        {"icao_designator": "IGO", "iata_code": "6E", "airline_name": "IndiGo", "telephony_callsign": "IFLY"},
+        {"icao_designator": "UAE", "iata_code": "EK", "airline_name": "Emirates", "telephony_callsign": "EMIRATES"},
+        {"icao_designator": "DLH", "iata_code": "LH", "airline_name": "Lufthansa", "telephony_callsign": "LUFTHANSA"},
+        {"icao_designator": "SIA", "iata_code": "SQ", "airline_name": "Singapore Airlines", "telephony_callsign": "SINGAPORE"}
     ]
     for al in airlines:
-        get_or_create("Airline", {"airline_code": al["airline_code"]}, al)
+        get_or_create("Airline", {"icao_designator": al["icao_designator"]}, al)
     print("Airlines seeded.")
 
 def seed_engine_types():
@@ -112,26 +112,26 @@ def seed_aircraft():
 
 def seed_routes():
     routes = [
-        {"route_code": "BOM-DEL", "departure_airport": "VABB", "destination_airport": "VIDP", "distance_nm": 612, "typical_flight_time_mins": 130},
-        {"route_code": "DEL-BLR", "departure_airport": "VIDP", "destination_airport": "VOBL", "distance_nm": 920, "typical_flight_time_mins": 160},
-        {"route_code": "BOM-DXB", "departure_airport": "VABB", "destination_airport": "OMDB", "distance_nm": 1040, "typical_flight_time_mins": 190},
-        {"route_code": "DEL-LHR", "departure_airport": "VIDP", "destination_airport": "EGLL", "distance_nm": 3630, "typical_flight_time_mins": 580},
-        {"route_code": "BOM-SIN", "departure_airport": "VABB", "destination_airport": "WSSS", "distance_nm": 2100, "typical_flight_time_mins": 330}
+        {"route_name": "BOM-DEL", "departure_airport": "VABB", "destination_airport": "VIDP", "distance_nm": 612, "estimated_time_hours": 2.1},
+        {"route_name": "DEL-BLR", "departure_airport": "VIDP", "destination_airport": "VOBL", "distance_nm": 920, "estimated_time_hours": 2.6},
+        {"route_name": "BOM-DXB", "departure_airport": "VABB", "destination_airport": "OMDB", "distance_nm": 1040, "estimated_time_hours": 3.1},
+        {"route_name": "DEL-LHR", "departure_airport": "VIDP", "destination_airport": "EGLL", "distance_nm": 3630, "estimated_time_hours": 9.6},
+        {"route_name": "BOM-SIN", "departure_airport": "VABB", "destination_airport": "WSSS", "distance_nm": 2100, "estimated_time_hours": 5.5}
     ]
     for r in routes:
-        get_or_create("Route", {"route_code": r["route_code"]}, r)
+        get_or_create("Route", {"route_name": r["route_name"]}, r)
     print("Routes seeded.")
 
 def seed_crew_qualifications():
     quals = [
-        {"qualification_code": "ATPL", "qualification_name": "Airline Transport Pilot Licence", "validity_months": 60},
-        {"qualification_code": "CPL", "qualification_name": "Commercial Pilot Licence", "validity_months": 60},
-        {"qualification_code": "MED1", "qualification_name": "Class 1 Medical", "validity_months": 12},
-        {"qualification_code": "SEP", "qualification_name": "Safety & Emergency Procedures", "validity_months": 12},
-        {"qualification_code": "CRM", "qualification_name": "Crew Resource Management", "validity_months": 12}
+        {"qualification_name": "ATPL", "category": "Flight Crew"},
+        {"qualification_name": "CPL", "category": "Flight Crew"},
+        {"qualification_name": "Class 1 Medical", "category": "Safety"},
+        {"qualification_name": "SEP", "category": "Safety"},
+        {"qualification_name": "CRM", "category": "Safety"}
     ]
     for q in quals:
-        get_or_create("Crew Qualification Type", {"qualification_code": q["qualification_code"]}, q)
+        get_or_create("Crew Qualification Type", {"qualification_name": q["qualification_name"]}, q)
     print("Crew Qualifications seeded.")
 
 def seed_crew_members():
@@ -191,12 +191,12 @@ def seed_hazard_types():
 
 def seed_ground_handling_companies():
     ghc = [
-        {"company_code": "AIASL", "company_name": "Air India Airport Services", "services_provided": "Passenger, Ramp, Cargo"},
-        {"company_code": "CELEBI", "company_name": "Celebi Aviation", "services_provided": "Ramp, Cargo"},
-        {"company_code": "DNATA", "company_name": "Dnata", "services_provided": "Passenger, Ramp, Cargo, Catering"}
+        {"company_name": "Air India Airport Services", "base_airport": "VIDP"},
+        {"company_name": "Celebi Aviation", "base_airport": "VABB"},
+        {"company_name": "Dnata", "base_airport": "OMDB"}
     ]
     for g in ghc:
-        get_or_create("Ground Handling Company", {"company_code": g["company_code"]}, g)
+        get_or_create("Ground Handling Company", {"company_name": g["company_name"]}, g)
     print("Ground Handling Companies seeded.")
 
 def seed_aircraft_certificates():

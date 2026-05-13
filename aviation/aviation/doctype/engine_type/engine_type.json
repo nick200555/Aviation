@@ -1,5 +1,4 @@
-
-    "doctype": "DocType",
+{"doctype": "DocType",
     "name": "Engine Type",
     "module": "Aviation",
     "autoname": "field:model_designation",

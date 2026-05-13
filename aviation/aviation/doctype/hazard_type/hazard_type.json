@@ -1,5 +1,4 @@
-
-    "doctype": "DocType",
+{"doctype": "DocType",
     "name": "Hazard Type",
     "module": "Aviation",
     "autoname": "field:hazard_type",

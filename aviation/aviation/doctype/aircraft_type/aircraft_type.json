@@ -1,5 +1,4 @@
-
-    "doctype": "DocType",
+{"doctype": "DocType",
     "name": "Aircraft Type",
     "module": "Aviation",
     "autoname": "field:type_designator",

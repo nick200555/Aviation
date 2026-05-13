@@ -1,5 +1,4 @@
-
-    "doctype": "DocType",
+{"doctype": "DocType",
     "name": "Engine",
     "module": "Aviation",
     "autoname": "field:serial_number",

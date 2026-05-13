@@ -1,5 +1,4 @@
-
-    "doctype": "DocType",
+{"doctype": "DocType",
     "name": "Load Sheet Zone",
     "module": "Aviation",
     "istable": 1,

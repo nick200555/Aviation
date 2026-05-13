@@ -1,5 +1,4 @@
-
-    "doctype": "DocType",
+{"doctype": "DocType",
     "name": "Work Order Task",
     "module": "Aviation",
     "istable": 1,

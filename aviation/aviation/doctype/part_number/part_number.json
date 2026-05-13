@@ -1,5 +1,4 @@
-
-    "doctype": "DocType",
+{"doctype": "DocType",
     "name": "Part Number",
     "module": "Aviation",
     "autoname": "field:part_number",

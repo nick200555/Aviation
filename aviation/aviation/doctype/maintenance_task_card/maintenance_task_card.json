@@ -1,5 +1,4 @@
-
-    "doctype": "DocType",
+{"doctype": "DocType",
     "name": "Maintenance Task Card",
     "module": "Aviation",
     "autoname": "field:task_id",

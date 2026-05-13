@@ -1,5 +1,4 @@
-
-    "doctype": "DocType",
+{"doctype": "DocType",
     "name": "Route",
     "module": "Aviation",
     "autoname": "field:route_name",

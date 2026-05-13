@@ -1,5 +1,4 @@
-
-    "doctype": "DocType",
+{"doctype": "DocType",
     "name": "Airworthiness Directive",
     "module": "Aviation",
     "autoname": "field:ad_number",

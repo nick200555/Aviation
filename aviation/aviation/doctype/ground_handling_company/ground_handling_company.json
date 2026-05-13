@@ -1,5 +1,4 @@
-
-    "doctype": "DocType",
+{"doctype": "DocType",
     "name": "Ground Handling Company",
     "module": "Aviation",
     "autoname": "field:company_name",

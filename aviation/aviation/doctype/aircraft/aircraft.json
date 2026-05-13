@@ -1,5 +1,4 @@
-
-    "doctype": "DocType",
+{"doctype": "DocType",
     "name": "Aircraft",
     "module": "Aviation",
     "autoname": "field:registration",

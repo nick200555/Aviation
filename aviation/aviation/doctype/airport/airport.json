@@ -1,5 +1,4 @@
-
-    "doctype": "DocType",
+{"doctype": "DocType",
     "name": "Airport",
     "module": "Aviation",
     "autoname": "field:icao_code",

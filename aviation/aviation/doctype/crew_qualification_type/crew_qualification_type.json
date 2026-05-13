@@ -1,5 +1,4 @@
-
-    "doctype": "DocType",
+{"doctype": "DocType",
     "name": "Crew Qualification Type",
     "module": "Aviation",
     "autoname": "field:qualification_name",

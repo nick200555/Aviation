@@ -1,0 +1,12 @@
+{
+    "doctype": "Notification",
+    "name": "Safety Report Received",
+    "subject": "SMS: New {{ doc.occurrence_type }} Report Submitted - {{ doc.name }}",
+    "document_type": "Safety Occurrence Report",
+    "event": "New",
+    "recipients": [
+        {"receiver_by_role": "Safety Officer"},
+        {"receiver_by_role": "Aviation Manager"}
+    ],
+    "message": "A new Safety Occurrence Report has been submitted.\n\nReport: {{ doc.name }}\nType: {{ doc.occurrence_type }}\nDate: {{ doc.occurrence_date }}\nSeverity: {{ doc.severity }}\nSummary: {{ doc.summary }}\n\nPlease review and take necessary action."
+}

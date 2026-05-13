@@ -1,0 +1,15 @@
+{
+    "doctype": "Notification",
+    "name": "Crew Licence Expiry Alert",
+    "subject": "ALERT: {{ doc.licence_type }} for {{ doc.crew_member }} expires on {{ doc.expiry_date }}",
+    "document_type": "Crew Licence",
+    "event": "Days Before",
+    "days_in_advance": 60,
+    "date_changed": "expiry_date",
+    "condition": "doc.status == 'Valid'",
+    "recipients": [
+        {"receiver_by_role": "Crew Scheduler"},
+        {"receiver_by_role": "Aviation Manager"}
+    ],
+    "message": "Crew Licence Expiry Alert\n\nThe {{ doc.licence_type }} (Licence No: {{ doc.licence_number }}) for {{ doc.crew_member }} is expiring on {{ doc.expiry_date }}.\n\nPlease arrange renewal or recurrency training."
+}

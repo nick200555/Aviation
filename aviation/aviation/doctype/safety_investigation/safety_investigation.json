@@ -1,0 +1,18 @@
+{
+    "doctype": "DocType",
+    "name": "Safety Investigation",
+    "module": "Aviation",
+    "autoname": "naming_series:",
+    "naming_series": "INV-.YYYY.MM.-",
+    "fields": [
+        {"fieldname": "safety_report", "label": "Related Safety Report", "fieldtype": "Link", "options": "Safety Occurrence Report", "reqd": 1},
+        {"fieldname": "investigation_title", "label": "Investigation Title", "fieldtype": "Data", "reqd": 1},
+        {"fieldname": "investigator", "label": "Lead Investigator", "fieldtype": "Link", "options": "User"},
+        {"fieldname": "start_date", "label": "Start Date", "fieldtype": "Date", "default": "today"},
+        {"fieldname": "findings", "label": "Investigation Findings", "fieldtype": "Text Editor"},
+        {"fieldname": "root_cause", "label": "Root Cause Analysis", "fieldtype": "Text Editor"},
+        {"fieldname": "recommendations", "label": "Recommendations", "fieldtype": "Text Editor"},
+        {"fieldname": "status", "label": "Status", "fieldtype": "Select", "options": "Ongoing\nCompleted\nReviewed", "default": "Ongoing"}
+    ],
+    "permissions": [{"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1}]
+}

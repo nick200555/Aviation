@@ -1,0 +1,20 @@
+{
+    "doctype": "Workflow",
+    "name": "Safety Report Workflow",
+    "document_type": "Safety Occurrence Report",
+    "workflow_name": "Safety Report Workflow",
+    "is_active": 1,
+    "override_status": 1,
+    "states": [
+        {"state": "Draft", "doc_status": "0", "allow_edit": "Flight Operations Officer"},
+        {"state": "Submitted", "doc_status": "1", "allow_edit": "Safety Officer"},
+        {"state": "Under Investigation", "doc_status": "1", "allow_edit": "Safety Officer"},
+        {"state": "Closed", "doc_status": "1", "allow_edit": "Aviation Manager"}
+    ],
+    "transitions": [
+        {"state": "Draft", "action": "Submit", "next_state": "Submitted", "allowed": "Flight Operations Officer"},
+        {"state": "Submitted", "action": "Open Investigation", "next_state": "Under Investigation", "allowed": "Safety Officer"},
+        {"state": "Under Investigation", "action": "Close", "next_state": "Closed", "allowed": "Aviation Manager"},
+        {"state": "Submitted", "action": "Close (No Action Required)", "next_state": "Closed", "allowed": "Safety Officer"}
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "doctype": "Dashboard Chart",
+    "chart_name": "Safety Reports Trend",
+    "chart_type": "Line",
+    "document_type": "Safety Occurrence Report",
+    "group_by_type": "Count",
+    "time_interval": "Monthly",
+    "based_on": "occurrence_date",
+    "filters_json": "[[\"Safety Occurrence Report\",\"docstatus\",\"!=\",\"2\",false]]",
+    "is_public": 1
+}

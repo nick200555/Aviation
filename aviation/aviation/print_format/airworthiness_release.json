@@ -1,0 +1,8 @@
+{
+    "doctype": "Print Format",
+    "name": "Airworthiness Release",
+    "doc_type": "Maintenance Work Order",
+    "module": "Aviation",
+    "standard": "No",
+    "html": "{% if doc.status == 'Completed' %}\n<div style='font-family: Arial; padding: 20px; border: 2px solid black;'>\n  <h2 style='text-align: center;'>CERTIFICATE OF RELEASE TO SERVICE (CRS)</h2>\n  <table width='100%'><tr>\n    <td><b>Aircraft Registration:</b> {{ doc.aircraft }}</td>\n    <td><b>Work Order No:</b> {{ doc.name }}</td>\n  </tr><tr>\n    <td><b>Maintenance Type:</b> {{ doc.maintenance_type }}</td>\n    <td><b>Release Date:</b> {{ doc.release_date }}</td>\n  </tr></table>\n  <hr/>\n  <p><b>Airworthiness Release Statement:</b></p>\n  <p>{{ doc.airworthiness_release_statement }}</p>\n  <br/>\n  <p><b>Released by:</b> {{ doc.release_to_service_by }}</p>\n  <p><b>LAME Licence No:</b> {{ doc.lame_licence_number }}</p>\n  <p><b>Signature:</b> _______________________</p>\n</div>\n{% endif %}"
+}

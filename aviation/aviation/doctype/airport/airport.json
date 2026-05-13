@@ -1,0 +1,39 @@
+{
+    "doctype": "DocType",
+    "name": "Airport",
+    "module": "Aviation",
+    "autoname": "field:icao_code",
+    "creation": "2025-01-01 00:00:00.000000",
+    "modified": "2025-01-01 00:00:00.000000",
+    "version": 2,
+    "issingle": 0,
+    "istable": 0,
+    "engine": "InnoDB",
+    "fields": [
+        {"fieldname": "icao_code", "label": "ICAO Code", "fieldtype": "Data", "reqd": 1, "unique": 1, "in_list_view": 1, "description": "4-letter ICAO aerodrome designator, e.g. VABB"},
+        {"fieldname": "iata_code", "label": "IATA Code", "fieldtype": "Data", "in_list_view": 1, "description": "3-letter IATA code, e.g. BOM"},
+        {"fieldname": "airport_name", "label": "Airport Name", "fieldtype": "Data", "reqd": 1, "in_list_view": 1},
+        {"fieldname": "city", "label": "City", "fieldtype": "Data", "in_list_view": 1, "in_standard_filter": 1},
+        {"fieldname": "country", "label": "Country", "fieldtype": "Data", "reqd": 1, "in_standard_filter": 1},
+        {"fieldname": "timezone", "label": "Timezone (UTC Offset)", "fieldtype": "Data", "description": "E.g. +05:30, -05:00"},
+        {"fieldname": "position_section", "label": "Position", "fieldtype": "Section Break"},
+        {"fieldname": "latitude", "label": "Latitude (DD)", "fieldtype": "Float"},
+        {"fieldname": "longitude", "label": "Longitude (DD)", "fieldtype": "Float"},
+        {"fieldname": "elevation_ft", "label": "Elevation (ft AMSL)", "fieldtype": "Float"},
+        {"fieldname": "infrastructure_section", "label": "Infrastructure", "fieldtype": "Section Break"},
+        {"fieldname": "longest_runway_m", "label": "Longest Runway (m)", "fieldtype": "Float"},
+        {"fieldname": "runway_surface", "label": "Runway Surface", "fieldtype": "Select", "options": "Asphalt\nConcrete\nGravel\nGrass\nWater"},
+        {"fieldname": "airport_category", "label": "Airport Category", "fieldtype": "Select", "options": "International\nDomestic\nRegional\nGeneral Aviation"},
+        {"fieldname": "is_customs_port", "label": "Customs / International Entry Point", "fieldtype": "Check", "default": 0},
+        {"fieldname": "is_active", "label": "Is Active", "fieldtype": "Check", "default": 1, "in_list_view": 1}
+    ],
+    "permissions": [
+        {"role": "System Manager", "permlevel": 0, "read": 1, "write": 1, "create": 1, "delete": 1},
+        {"role": "Aviation Manager", "permlevel": 0, "read": 1, "write": 1, "create": 1},
+        {"role": "Flight Operations Officer", "permlevel": 0, "read": 1},
+        {"role": "Ground Operations Supervisor", "permlevel": 0, "read": 1}
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "naming_rule": "By fieldname"
+}

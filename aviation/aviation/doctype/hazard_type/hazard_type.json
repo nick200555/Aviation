@@ -1,0 +1,11 @@
+{
+    "doctype": "DocType",
+    "name": "Hazard Type",
+    "module": "Aviation",
+    "autoname": "field:hazard_type",
+    "fields": [
+        {"fieldname": "hazard_type", "label": "Hazard Type", "fieldtype": "Data", "reqd": 1, "unique": 1},
+        {"fieldname": "description", "label": "Description", "fieldtype": "Small Text"}
+    ],
+    "permissions": [{"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1}]
+}

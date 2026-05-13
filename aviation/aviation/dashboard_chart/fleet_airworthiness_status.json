@@ -1,0 +1,10 @@
+{
+    "doctype": "Dashboard Chart",
+    "chart_name": "Fleet Airworthiness Status",
+    "chart_type": "Pie",
+    "document_type": "Aircraft",
+    "group_by_type": "Count",
+    "group_by_based_on": "status",
+    "filters_json": "[]",
+    "is_public": 1
+}

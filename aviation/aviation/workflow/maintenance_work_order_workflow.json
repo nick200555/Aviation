@@ -1,0 +1,28 @@
+{
+    "doctype": "Workflow",
+    "name": "Maintenance Work Order Workflow",
+    "document_type": "Maintenance Work Order",
+    "workflow_name": "Maintenance Work Order Workflow",
+    "is_active": 1,
+    "override_status": 1,
+    "send_email_alert": 1,
+    "states": [
+        {"state": "Draft", "doc_status": "0", "allow_edit": "Maintenance Engineer"},
+        {"state": "Pending Approval", "doc_status": "0", "allow_edit": "Aviation Manager"},
+        {"state": "Approved", "doc_status": "0", "allow_edit": "Maintenance Engineer"},
+        {"state": "In Progress", "doc_status": "0", "allow_edit": "Maintenance Engineer"},
+        {"state": "Pending Parts", "doc_status": "0", "allow_edit": "Maintenance Engineer"},
+        {"state": "Completed", "doc_status": "1", "allow_edit": "Aviation Manager"},
+        {"state": "Cancelled", "doc_status": "2", "allow_edit": "Aviation Manager"}
+    ],
+    "transitions": [
+        {"state": "Draft", "action": "Submit for Approval", "next_state": "Pending Approval", "allowed": "Maintenance Engineer"},
+        {"state": "Pending Approval", "action": "Approve", "next_state": "Approved", "allowed": "Aviation Manager"},
+        {"state": "Pending Approval", "action": "Reject", "next_state": "Draft", "allowed": "Aviation Manager"},
+        {"state": "Approved", "action": "Start Work", "next_state": "In Progress", "allowed": "Maintenance Engineer"},
+        {"state": "In Progress", "action": "Parts Required", "next_state": "Pending Parts", "allowed": "Maintenance Engineer"},
+        {"state": "Pending Parts", "action": "Resume Work", "next_state": "In Progress", "allowed": "Maintenance Engineer"},
+        {"state": "In Progress", "action": "Complete", "next_state": "Completed", "allowed": "Maintenance Engineer"},
+        {"state": "Approved", "action": "Cancel", "next_state": "Cancelled", "allowed": "Aviation Manager"}
+    ]
+}

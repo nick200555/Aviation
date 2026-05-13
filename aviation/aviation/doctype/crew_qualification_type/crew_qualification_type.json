@@ -1,0 +1,11 @@
+{
+    "doctype": "DocType",
+    "name": "Crew Qualification Type",
+    "module": "Aviation",
+    "autoname": "field:qualification_name",
+    "fields": [
+        {"fieldname": "qualification_name", "label": "Qualification Name", "fieldtype": "Data", "reqd": 1, "unique": 1},
+        {"fieldname": "category", "label": "Category", "fieldtype": "Select", "options": "Flight Crew\nCabin Crew\nTechnical\nSafety\nSecurity"}
+    ],
+    "permissions": [{"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1}]
+}

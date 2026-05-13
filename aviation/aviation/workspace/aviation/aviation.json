@@ -1,0 +1,84 @@
+{
+    "doctype": "Workspace",
+    "name": "Aviation",
+    "label": "Aviation",
+    "icon": "airplane",
+    "module": "Aviation",
+    "is_standard": 1,
+    "shortcuts": [
+        {"label": "Aircraft", "type": "DocType", "link_to": "Aircraft"},
+        {"label": "Flight Plan", "type": "DocType", "link_to": "Flight Plan"},
+        {"label": "Flight Operation", "type": "DocType", "link_to": "Flight Operation"},
+        {"label": "Maintenance Work Order", "type": "DocType", "link_to": "Maintenance Work Order"},
+        {"label": "Crew Duty Record", "type": "DocType", "link_to": "Crew Duty Record"},
+        {"label": "Safety Report", "type": "DocType", "link_to": "Safety Occurrence Report"},
+        {"label": "Load Sheet", "type": "DocType", "link_to": "Load Sheet"}
+    ],
+    "links": [
+        {
+            "label": "Fleet Management",
+            "type": "Card Break",
+            "items": [
+                {"type": "DocType", "label": "Aircraft", "name": "Aircraft"},
+                {"type": "DocType", "label": "Aircraft Type", "name": "Aircraft Type"},
+                {"type": "DocType", "label": "Engine", "name": "Engine"},
+                {"type": "DocType", "label": "Engine Type", "name": "Engine Type"},
+                {"type": "DocType", "label": "Aircraft Certificate", "name": "Aircraft Certificate"},
+                {"type": "DocType", "label": "Part Number", "name": "Part Number"}
+            ]
+        },
+        {
+            "label": "Flight Operations",
+            "type": "Card Break",
+            "items": [
+                {"type": "DocType", "label": "Flight Plan", "name": "Flight Plan"},
+                {"type": "DocType", "label": "Flight Operation", "name": "Flight Operation"},
+                {"type": "DocType", "label": "Load Sheet", "name": "Load Sheet"},
+                {"type": "DocType", "label": "Ground Handling Order", "name": "Ground Handling Order"},
+                {"type": "DocType", "label": "Airport", "name": "Airport"},
+                {"type": "DocType", "label": "Airline", "name": "Airline"}
+            ]
+        },
+        {
+            "label": "Crew Management",
+            "type": "Card Break",
+            "items": [
+                {"type": "DocType", "label": "Crew Member", "name": "Crew Member"},
+                {"type": "DocType", "label": "Crew Licence", "name": "Crew Licence"},
+                {"type": "DocType", "label": "Crew Duty Record", "name": "Crew Duty Record"}
+            ]
+        },
+        {
+            "label": "Maintenance (MRO)",
+            "type": "Card Break",
+            "items": [
+                {"type": "DocType", "label": "Maintenance Work Order", "name": "Maintenance Work Order"},
+                {"type": "DocType", "label": "Airworthiness Directive", "name": "Airworthiness Directive"},
+                {"type": "DocType", "label": "AD Compliance Record", "name": "AD Compliance Record"},
+                {"type": "DocType", "label": "Service Bulletin", "name": "Service Bulletin"},
+                {"type": "DocType", "label": "Maintenance Task Card", "name": "Maintenance Task Card"},
+                {"type": "DocType", "label": "Component Overhaul Record", "name": "Component Overhaul Record"}
+            ]
+        },
+        {
+            "label": "Safety & SMS",
+            "type": "Card Break",
+            "items": [
+                {"type": "DocType", "label": "Safety Occurrence Report", "name": "Safety Occurrence Report"},
+                {"type": "DocType", "label": "Hazard Register", "name": "Hazard Register"},
+                {"type": "DocType", "label": "Safety Investigation", "name": "Safety Investigation"}
+            ]
+        },
+        {
+            "label": "Reports",
+            "type": "Card Break",
+            "items": [
+                {"type": "Report", "label": "Aircraft Utilization", "name": "Aircraft Utilization", "is_query_report": 1},
+                {"type": "Report", "label": "Maintenance Due Report", "name": "Maintenance Due Report", "is_query_report": 1},
+                {"type": "Report", "label": "AD/SB Compliance Report", "name": "AD SB Compliance Report", "is_query_report": 1},
+                {"type": "Report", "label": "Crew Duty Report", "name": "Crew Duty Report", "is_query_report": 1},
+                {"type": "Report", "label": "Safety Occurrence Summary", "name": "Safety Occurrence Report", "is_query_report": 1}
+            ]
+        }
+    ]
+}

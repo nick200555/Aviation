@@ -1,0 +1,33 @@
+{
+    "doctype": "DocType",
+    "name": "Part Number",
+    "module": "Aviation",
+    "autoname": "field:part_number",
+    "creation": "2025-01-01 00:00:00.000000",
+    "modified": "2025-01-01 00:00:00.000000",
+    "version": 2,
+    "issingle": 0,
+    "istable": 0,
+    "engine": "InnoDB",
+    "fields": [
+        {"fieldname": "part_number", "label": "Part Number", "fieldtype": "Data", "reqd": 1, "unique": 1, "in_list_view": 1},
+        {"fieldname": "description", "label": "Description", "fieldtype": "Data", "reqd": 1, "in_list_view": 1},
+        {"fieldname": "manufacturer_code", "label": "Manufacturer Code (CAGE)", "fieldtype": "Data"},
+        {"fieldname": "ata_chapter", "label": "ATA Chapter", "fieldtype": "Data", "description": "E.g. 21, 27, 32"},
+        {"fieldname": "part_category", "label": "Part Category", "fieldtype": "Select", "options": "Life Limited Part\nOverhaul Required\nOn Condition\nConsumable\nExpendable"},
+        {"fieldname": "life_limit_hours", "label": "Life Limit (Hours)", "fieldtype": "Float", "depends_on": "eval:doc.part_category=='Life Limited Part'"},
+        {"fieldname": "life_limit_cycles", "label": "Life Limit (Cycles)", "fieldtype": "Int", "depends_on": "eval:doc.part_category=='Life Limited Part'"},
+        {"fieldname": "overhaul_interval_hours", "label": "Overhaul Interval (Hours)", "fieldtype": "Float", "depends_on": "eval:doc.part_category=='Overhaul Required'"},
+        {"fieldname": "is_rotable", "label": "Is Rotable", "fieldtype": "Check", "default": 0},
+        {"fieldname": "is_traceable", "label": "Is Serialised / Traceable", "fieldtype": "Check", "default": 1},
+        {"fieldname": "is_active", "label": "Is Active", "fieldtype": "Check", "default": 1, "in_list_view": 1}
+    ],
+    "permissions": [
+        {"role": "System Manager", "permlevel": 0, "read": 1, "write": 1, "create": 1, "delete": 1},
+        {"role": "Aviation Manager", "permlevel": 0, "read": 1, "write": 1, "create": 1},
+        {"role": "Maintenance Engineer", "permlevel": 0, "read": 1, "write": 1, "create": 1}
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "naming_rule": "By fieldname"
+}

@@ -1,0 +1,12 @@
+{
+    "doctype": "DocType",
+    "name": "Crew Rating",
+    "module": "Aviation",
+    "istable": 1,
+    "editable_grid": 1,
+    "fields": [
+        {"fieldname": "aircraft_type", "label": "Aircraft Type", "fieldtype": "Link", "options": "Aircraft Type", "in_list_view": 1, "reqd": 1},
+        {"fieldname": "rating_type", "label": "Rating Type", "fieldtype": "Select", "options": "PIC\nSIC\nTRI\nTRE\nLTC\nLine Mechanic\nBase Mechanic", "in_list_view": 1, "reqd": 1},
+        {"fieldname": "valid_until", "label": "Valid Until", "fieldtype": "Date", "in_list_view": 1}
+    ]
+}

@@ -1,0 +1,5 @@
+include MANIFEST.in
+include requirements.txt
+include README.md
+include license.txt
+recursive-include aviation *.json *.py *.md *.txt *.css *.js *.html *.png *.jpg *.jpeg *.svg *.gif

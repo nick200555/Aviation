@@ -1,0 +1,16 @@
+{
+    "doctype": "DocType",
+    "name": "Work Order Task",
+    "module": "Aviation",
+    "istable": 1,
+    "editable_grid": 1,
+    "fields": [
+        {"fieldname": "task_card", "label": "Task Card", "fieldtype": "Link", "options": "Maintenance Task Card", "in_list_view": 1},
+        {"fieldname": "task_description", "label": "Description", "fieldtype": "Data", "in_list_view": 1, "reqd": 1},
+        {"fieldname": "ata_chapter", "label": "ATA", "fieldtype": "Data", "in_list_view": 1},
+        {"fieldname": "estimated_hours", "label": "Est. Hours", "fieldtype": "Float"},
+        {"fieldname": "completed", "label": "Completed", "fieldtype": "Check", "in_list_view": 1},
+        {"fieldname": "completed_by", "label": "By", "fieldtype": "Link", "options": "Crew Member", "description": "LAME/Technician who performed task"},
+        {"fieldname": "rts_statement", "label": "RTS Reference", "fieldtype": "Data"}
+    ]
+}

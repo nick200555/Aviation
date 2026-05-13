@@ -1,0 +1,15 @@
+{
+    "doctype": "Notification",
+    "name": "Maintenance Work Order Overdue",
+    "subject": "OVERDUE: Work Order {{ doc.name }} for {{ doc.aircraft }} is past planned completion",
+    "document_type": "Maintenance Work Order",
+    "event": "Days After",
+    "days_in_advance": 1,
+    "date_changed": "planned_completion_date",
+    "condition": "doc.status not in ('Completed', 'Cancelled')",
+    "recipients": [
+        {"receiver_by_role": "Aviation Manager"},
+        {"receiver_by_role": "Maintenance Engineer"}
+    ],
+    "message": "Maintenance Work Order Overdue\n\nWork Order: {{ doc.name }}\nAircraft: {{ doc.aircraft }}\nType: {{ doc.maintenance_type }}\nPlanned Completion: {{ doc.planned_completion_date }}\nStatus: {{ doc.status }}\n\nPlease update the work order status or escalate."
+}

@@ -1,0 +1,13 @@
+{
+    "doctype": "DocType",
+    "name": "Load Sheet Zone",
+    "module": "Aviation",
+    "istable": 1,
+    "editable_grid": 1,
+    "fields": [
+        {"fieldname": "zone_name", "label": "Zone / Compartment", "fieldtype": "Data", "in_list_view": 1, "reqd": 1, "description": "E.g. Zone A, Hold 1"},
+        {"fieldname": "weight_kg", "label": "Weight (kg)", "fieldtype": "Float", "in_list_view": 1, "reqd": 1},
+        {"fieldname": "max_capacity_kg", "label": "Max Capacity (kg)", "fieldtype": "Float"},
+        {"fieldname": "arm_m", "label": "Arm (m)", "fieldtype": "Float", "description": "Distance from datum for CG calculation"}
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "doctype": "DocType",
+    "name": "Airline",
+    "module": "Aviation",
+    "autoname": "field:icao_designator",
+    "creation": "2025-01-01 00:00:00.000000",
+    "modified": "2025-01-01 00:00:00.000000",
+    "version": 2,
+    "issingle": 0,
+    "istable": 0,
+    "engine": "InnoDB",
+    "fields": [
+        {"fieldname": "icao_designator", "label": "ICAO Designator", "fieldtype": "Data", "reqd": 1, "unique": 1, "in_list_view": 1, "description": "3-letter ICAO airline code, e.g. AIC"},
+        {"fieldname": "iata_code", "label": "IATA Code", "fieldtype": "Data", "in_list_view": 1, "description": "2-letter IATA airline code, e.g. AI"},
+        {"fieldname": "airline_name", "label": "Airline / Operator Name", "fieldtype": "Data", "reqd": 1, "in_list_view": 1},
+        {"fieldname": "telephony_callsign", "label": "Telephony Callsign", "fieldtype": "Data", "description": "ICAO radio telephony designator, e.g. AIR INDIA"},
+        {"fieldname": "aoc_number", "label": "AOC Number", "fieldtype": "Data", "description": "Air Operator Certificate number"},
+        {"fieldname": "aoc_issuing_authority", "label": "AOC Issuing Authority", "fieldtype": "Data"},
+        {"fieldname": "aoc_expiry_date", "label": "AOC Expiry Date", "fieldtype": "Date"},
+        {"fieldname": "headquarters_airport", "label": "HQ / Base Airport", "fieldtype": "Link", "options": "Airport"},
+        {"fieldname": "contact_section", "label": "Contact", "fieldtype": "Section Break"},
+        {"fieldname": "phone", "label": "Phone", "fieldtype": "Data"},
+        {"fieldname": "email", "label": "Email", "fieldtype": "Data"},
+        {"fieldname": "website", "label": "Website", "fieldtype": "Data"},
+        {"fieldname": "is_active", "label": "Is Active", "fieldtype": "Check", "default": 1, "in_list_view": 1}
+    ],
+    "permissions": [
+        {"role": "System Manager", "permlevel": 0, "read": 1, "write": 1, "create": 1, "delete": 1},
+        {"role": "Aviation Manager", "permlevel": 0, "read": 1, "write": 1, "create": 1, "delete": 0}
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "naming_rule": "By fieldname"
+}

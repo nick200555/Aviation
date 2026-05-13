@@ -1,0 +1,14 @@
+{
+    "doctype": "DocType",
+    "name": "Work Order Part",
+    "module": "Aviation",
+    "istable": 1,
+    "editable_grid": 1,
+    "fields": [
+        {"fieldname": "part_number", "label": "Part Number", "fieldtype": "Link", "options": "Part Number", "in_list_view": 1, "reqd": 1},
+        {"fieldname": "quantity", "label": "Quantity", "fieldtype": "Float", "default": 1, "in_list_view": 1},
+        {"fieldname": "serial_number_off", "label": "S/N Removed", "fieldtype": "Data", "in_list_view": 1},
+        {"fieldname": "serial_number_on", "label": "S/N Installed", "fieldtype": "Data", "in_list_view": 1},
+        {"fieldname": "release_certificate", "label": "Release Cert (EASA Form 1 / 8130)", "fieldtype": "Attach"}
+    ]
+}

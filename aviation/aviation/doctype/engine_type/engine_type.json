@@ -1,0 +1,30 @@
+{
+    "doctype": "DocType",
+    "name": "Engine Type",
+    "module": "Aviation",
+    "autoname": "field:model_designation",
+    "creation": "2025-01-01 00:00:00.000000",
+    "modified": "2025-01-01 00:00:00.000000",
+    "version": 2,
+    "issingle": 0,
+    "istable": 0,
+    "engine": "InnoDB",
+    "fields": [
+        {"fieldname": "model_designation", "label": "Model Designation", "fieldtype": "Data", "reqd": 1, "unique": 1, "in_list_view": 1, "description": "E.g. CFM56-7B, GE90-115B"},
+        {"fieldname": "manufacturer", "label": "Manufacturer", "fieldtype": "Data", "reqd": 1, "in_list_view": 1},
+        {"fieldname": "engine_variant", "label": "Variant", "fieldtype": "Data"},
+        {"fieldname": "thrust_kn", "label": "Rated Thrust (kN)", "fieldtype": "Float"},
+        {"fieldname": "bypass_ratio", "label": "Bypass Ratio", "fieldtype": "Float"},
+        {"fieldname": "on_condition_monitoring", "label": "On Condition Monitoring", "fieldtype": "Check", "default": 1},
+        {"fieldname": "time_between_overhaul_hours", "label": "TBO (Hours)", "fieldtype": "Int", "description": "Time Between Overhaul. Blank if on-condition."},
+        {"fieldname": "is_active", "label": "Is Active", "fieldtype": "Check", "default": 1, "in_list_view": 1}
+    ],
+    "permissions": [
+        {"role": "System Manager", "permlevel": 0, "read": 1, "write": 1, "create": 1, "delete": 1},
+        {"role": "Aviation Manager", "permlevel": 0, "read": 1, "write": 1, "create": 1},
+        {"role": "Maintenance Engineer", "permlevel": 0, "read": 1}
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "naming_rule": "By fieldname"
+}

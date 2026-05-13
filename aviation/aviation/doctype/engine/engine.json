@@ -1,0 +1,35 @@
+{
+    "doctype": "DocType",
+    "name": "Engine",
+    "module": "Aviation",
+    "autoname": "field:serial_number",
+    "creation": "2025-01-01 00:00:00.000000",
+    "modified": "2025-01-01 00:00:00.000000",
+    "version": 2,
+    "issingle": 0,
+    "istable": 0,
+    "engine": "InnoDB",
+    "track_changes": 1,
+    "fields": [
+        {"fieldname": "serial_number", "label": "Engine Serial Number (ESN)", "fieldtype": "Data", "reqd": 1, "unique": 1, "in_list_view": 1},
+        {"fieldname": "engine_type", "label": "Engine Type", "fieldtype": "Link", "options": "Engine Type", "reqd": 1, "in_list_view": 1},
+        {"fieldname": "installed_on_aircraft", "label": "Installed On Aircraft", "fieldtype": "Link", "options": "Aircraft", "in_list_view": 1},
+        {"fieldname": "engine_position", "label": "Engine Position", "fieldtype": "Select", "options": "\n1\n2\n3\n4"},
+        {"fieldname": "status", "label": "Status", "fieldtype": "Select", "options": "Installed\nServiceable (Pool)\nIn Shop\nScrapped", "default": "Installed", "in_list_view": 1, "in_standard_filter": 1},
+        {"fieldname": "times_section", "label": "Engine Times", "fieldtype": "Section Break"},
+        {"fieldname": "total_engine_hours", "label": "Total Engine Hours (TEH)", "fieldtype": "Float"},
+        {"fieldname": "total_engine_cycles", "label": "Total Engine Cycles (TEC)", "fieldtype": "Int"},
+        {"fieldname": "column_break_times", "fieldtype": "Column Break"},
+        {"fieldname": "hours_since_last_shop_visit", "label": "Hours Since Last Shop Visit", "fieldtype": "Float"},
+        {"fieldname": "cycles_since_last_shop_visit", "label": "Cycles Since Last Shop Visit", "fieldtype": "Int"},
+        {"fieldname": "next_shop_visit_due_hours", "label": "Next Shop Visit Due (Hours)", "fieldtype": "Float"}
+    ],
+    "permissions": [
+        {"role": "System Manager", "permlevel": 0, "read": 1, "write": 1, "create": 1, "delete": 1},
+        {"role": "Aviation Manager", "permlevel": 0, "read": 1, "write": 1, "create": 1},
+        {"role": "Maintenance Engineer", "permlevel": 0, "read": 1, "write": 1}
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "naming_rule": "By fieldname"
+}

@@ -1,0 +1,12 @@
+{
+    "doctype": "Dashboard",
+    "name": "Aviation Dashboard",
+    "dashboard_name": "Aviation Dashboard",
+    "is_default": 0,
+    "charts": [
+        {"chart": "Aircraft Utilization Trend"},
+        {"chart": "Fleet Airworthiness Status"},
+        {"chart": "Maintenance Workload"},
+        {"chart": "Safety Reports Trend"}
+    ]
+}

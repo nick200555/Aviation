@@ -1,0 +1,10 @@
+{
+    "doctype": "Dashboard Chart",
+    "chart_name": "Maintenance Workload",
+    "chart_type": "Bar",
+    "document_type": "Maintenance Work Order",
+    "group_by_type": "Count",
+    "group_by_based_on": "maintenance_type",
+    "filters_json": "[[\"Maintenance Work Order\",\"status\",\"in\",[\"Approved\",\"In Progress\",\"Pending Parts\"],false]]",
+    "is_public": 1
+}

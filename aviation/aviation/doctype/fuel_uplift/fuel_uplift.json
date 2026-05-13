@@ -1,0 +1,18 @@
+{
+    "doctype": "DocType",
+    "name": "Fuel Uplift",
+    "module": "Aviation",
+    "autoname": "naming_series:",
+    "naming_series": "FUEL-.YYYY.MM.-",
+    "fields": [
+        {"fieldname": "flight_operation", "label": "Flight Operation", "fieldtype": "Link", "options": "Flight Operation"},
+        {"fieldname": "aircraft", "label": "Aircraft", "fieldtype": "Link", "options": "Aircraft", "reqd": 1},
+        {"fieldname": "airport", "label": "Airport", "fieldtype": "Link", "options": "Airport"},
+        {"fieldname": "fuel_type", "label": "Fuel Type", "fieldtype": "Select", "options": "Jet-A\nJet-A1\nAvgas 100LL"},
+        {"fieldname": "quantity_litres", "label": "Quantity (Litres)", "fieldtype": "Float"},
+        {"fieldname": "quantity_kg", "label": "Quantity (kg)", "fieldtype": "Float"},
+        {"fieldname": "specific_gravity", "label": "Specific Gravity", "fieldtype": "Float"},
+        {"fieldname": "uplift_date", "label": "Uplift Date", "fieldtype": "Date", "default": "today"}
+    ],
+    "permissions": [{"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1}]
+}

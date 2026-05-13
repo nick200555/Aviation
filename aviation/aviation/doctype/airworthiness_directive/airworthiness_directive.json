@@ -1,0 +1,43 @@
+{
+    "doctype": "DocType",
+    "name": "Airworthiness Directive",
+    "module": "Aviation",
+    "autoname": "field:ad_number",
+    "creation": "2025-01-01 00:00:00.000000",
+    "modified": "2025-01-01 00:00:00.000000",
+    "version": 2,
+    "issingle": 0,
+    "istable": 0,
+    "engine": "InnoDB",
+    "track_changes": 1,
+    "fields": [
+        {"fieldname": "ad_number", "label": "AD Number", "fieldtype": "Data", "reqd": 1, "unique": 1, "in_list_view": 1, "description": "E.g. FAA 2024-01-01, EASA AD 2024-0001"},
+        {"fieldname": "issuing_authority", "label": "Issuing Authority", "fieldtype": "Select", "options": "DGCA\nFAA\nEASA\nCAA\nCASA\nTransport Canada\nOther", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1},
+        {"fieldname": "ad_title", "label": "Title / Subject", "fieldtype": "Data", "reqd": 1},
+        {"fieldname": "effective_date", "label": "Effective Date", "fieldtype": "Date", "reqd": 1, "in_list_view": 1},
+        {"fieldname": "applicability_section", "label": "Applicability", "fieldtype": "Section Break"},
+        {"fieldname": "applicable_aircraft_types", "label": "Applicable Aircraft Types", "fieldtype": "Table MultiSelect", "options": "Aircraft Type", "description": "Aircraft types this AD applies to"},
+        {"fieldname": "applicable_engine_types", "label": "Applicable Engine Types", "fieldtype": "Table MultiSelect", "options": "Engine Type"},
+        {"fieldname": "part_number_applicability", "label": "Applicable Part Numbers", "fieldtype": "Small Text"},
+        {"fieldname": "compliance_section", "label": "Compliance Requirements", "fieldtype": "Section Break"},
+        {"fieldname": "compliance_category", "label": "Compliance Category", "fieldtype": "Select", "options": "Immediate\nTerminating Action\nRepetitive\nOptional (Service Bulletin Only)", "reqd": 1},
+        {"fieldname": "initial_compliance_hours", "label": "Initial Compliance (Hours)", "fieldtype": "Float"},
+        {"fieldname": "initial_compliance_cycles", "label": "Initial Compliance (Cycles)", "fieldtype": "Int"},
+        {"fieldname": "initial_compliance_date", "label": "Initial Compliance (Date)", "fieldtype": "Date"},
+        {"fieldname": "column_break_comp", "fieldtype": "Column Break"},
+        {"fieldname": "repeat_interval_hours", "label": "Repeat Interval (Hours)", "fieldtype": "Float", "description": "For repetitive ADs"},
+        {"fieldname": "repeat_interval_cycles", "label": "Repeat Interval (Cycles)", "fieldtype": "Int"},
+        {"fieldname": "description", "label": "Description / Required Action", "fieldtype": "Text Editor"},
+        {"fieldname": "affected_aircraft", "label": "Affected Aircraft", "fieldtype": "Table", "options": "AD Affected Aircraft"},
+        {"fieldname": "is_active", "label": "Is Active", "fieldtype": "Check", "default": 1, "in_list_view": 1}
+    ],
+    "permissions": [
+        {"role": "System Manager", "permlevel": 0, "read": 1, "write": 1, "create": 1, "delete": 1},
+        {"role": "Aviation Manager", "permlevel": 0, "read": 1, "write": 1, "create": 1},
+        {"role": "Maintenance Engineer", "permlevel": 0, "read": 1, "write": 1, "create": 1},
+        {"role": "Flight Operations Officer", "permlevel": 0, "read": 1}
+    ],
+    "sort_field": "effective_date",
+    "sort_order": "DESC",
+    "naming_rule": "By fieldname"
+}

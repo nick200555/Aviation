@@ -1,0 +1,14 @@
+{
+    "doctype": "DocType",
+    "name": "Aircraft Config Item",
+    "module": "Aviation",
+    "istable": 1,
+    "editable_grid": 1,
+    "fields": [
+        {"fieldname": "item_name", "label": "Item Name", "fieldtype": "Data", "in_list_view": 1, "reqd": 1, "description": "E.g. Main Battery, ELT, Engine 1"},
+        {"fieldname": "part_number", "label": "Part Number", "fieldtype": "Link", "options": "Part Number", "in_list_view": 1},
+        {"fieldname": "serial_number", "label": "Serial Number", "fieldtype": "Data", "in_list_view": 1},
+        {"fieldname": "installation_date", "label": "Installation Date", "fieldtype": "Date"},
+        {"fieldname": "hours_at_installation", "label": "TSN at Installation", "fieldtype": "Float"}
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "doctype": "DocType",
+    "name": "Ground Handling Order",
+    "module": "Aviation",
+    "autoname": "naming_series:",
+    "naming_series": "GHO-.YYYY.MM.-",
+    "fields": [
+        {"fieldname": "flight_number", "label": "Flight Number", "fieldtype": "Data", "reqd": 1},
+        {"fieldname": "aircraft", "label": "Aircraft", "fieldtype": "Link", "options": "Aircraft"},
+        {"fieldname": "airport", "label": "Airport", "fieldtype": "Link", "options": "Airport", "reqd": 1},
+        {"fieldname": "handling_company", "label": "Handling Company", "fieldtype": "Link", "options": "Ground Handling Company"},
+        {"fieldname": "services_required", "label": "Services Required", "fieldtype": "Check", "options": "Pushback\nTowing\nCatering\nCleaning\nWater\nToilet\nGPU\nASU"},
+        {"fieldname": "status", "label": "Status", "fieldtype": "Select", "options": "Requested\nConfirmed\nCompleted\nCancelled", "default": "Requested"}
+    ],
+    "permissions": [{"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1}]
+}

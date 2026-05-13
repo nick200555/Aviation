@@ -1,0 +1,37 @@
+{
+    "doctype": "DocType",
+    "name": "Crew Licence",
+    "module": "Aviation",
+    "autoname": "naming_series:",
+    "naming_series": "LIC-.YYYY.-",
+    "creation": "2025-01-01 00:00:00.000000",
+    "modified": "2025-01-01 00:00:00.000000",
+    "version": 2,
+    "issingle": 0,
+    "istable": 0,
+    "engine": "InnoDB",
+    "track_changes": 1,
+    "fields": [
+        {"fieldname": "crew_member", "label": "Crew Member", "fieldtype": "Link", "options": "Crew Member", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1},
+        {"fieldname": "licence_type", "label": "Licence Type", "fieldtype": "Select", "options": "ATPL\nCPL\nMPL\nPPL\nCabin Crew Attestation\nAMEL / LAME\nDangerous Goods\nSecurity Awareness\nFirst Aid\nCRM\nOther", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1},
+        {"fieldname": "licence_number", "label": "Licence Number", "fieldtype": "Data", "reqd": 1, "in_list_view": 1},
+        {"fieldname": "issuing_authority", "label": "Issuing Authority", "fieldtype": "Data", "reqd": 1, "description": "E.g. DGCA, FAA, EASA"},
+        {"fieldname": "issue_date", "label": "Issue Date", "fieldtype": "Date", "reqd": 1},
+        {"fieldname": "expiry_date", "label": "Expiry Date", "fieldtype": "Date", "in_list_view": 1, "in_standard_filter": 1},
+        {"fieldname": "status", "label": "Status", "fieldtype": "Select", "options": "Valid\nExpired\nSuspended\nRevoked", "default": "Valid", "in_list_view": 1, "in_standard_filter": 1},
+        {"fieldname": "medical_section", "label": "Medical Certificate (for Flight Crew)", "fieldtype": "Section Break"},
+        {"fieldname": "medical_class", "label": "Medical Class", "fieldtype": "Select", "options": "\nClass 1\nClass 2\nClass 3\nBASIC MED"},
+        {"fieldname": "medical_expiry", "label": "Medical Expiry Date", "fieldtype": "Date"},
+        {"fieldname": "alert_days_before", "label": "Alert Days Before Expiry", "fieldtype": "Int", "default": 60},
+        {"fieldname": "document_attachment", "label": "Licence Document", "fieldtype": "Attach"},
+        {"fieldname": "remarks", "label": "Remarks", "fieldtype": "Small Text"}
+    ],
+    "permissions": [
+        {"role": "System Manager", "permlevel": 0, "read": 1, "write": 1, "create": 1, "delete": 1},
+        {"role": "Aviation Manager", "permlevel": 0, "read": 1, "write": 1, "create": 1},
+        {"role": "Crew Scheduler", "permlevel": 0, "read": 1, "write": 1, "create": 1},
+        {"role": "Flight Operations Officer", "permlevel": 0, "read": 1}
+    ],
+    "sort_field": "expiry_date",
+    "sort_order": "ASC"
+}

@@ -1,0 +1,15 @@
+{
+    "doctype": "Notification",
+    "name": "AD Compliance Due Alert",
+    "subject": "ACTION REQUIRED: AD {{ doc.airworthiness_directive }} due on {{ doc.aircraft }}",
+    "document_type": "AD Compliance Record",
+    "event": "Days Before",
+    "days_in_advance": 30,
+    "date_changed": "next_due_date",
+    "condition": "doc.compliance_status in ('Pending', 'Complied - Repetitive')",
+    "recipients": [
+        {"receiver_by_role": "Aviation Manager"},
+        {"receiver_by_role": "Maintenance Engineer"}
+    ],
+    "message": "Airworthiness Directive Due\n\nAD: {{ doc.airworthiness_directive }}\nAircraft: {{ doc.aircraft }}\nNext Due Date: {{ doc.next_due_date }}\nNext Due Hours: {{ doc.next_due_tah }}\n\nPlease schedule compliance work."
+}

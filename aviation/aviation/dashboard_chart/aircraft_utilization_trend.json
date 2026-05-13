@@ -1,0 +1,12 @@
+{
+    "doctype": "Dashboard Chart",
+    "chart_name": "Aircraft Utilization Trend",
+    "chart_type": "Line",
+    "document_type": "Flight Operation",
+    "group_by_type": "Sum",
+    "aggregate_function_based_on": "block_time_hours",
+    "time_interval": "Monthly",
+    "based_on": "flight_date",
+    "filters_json": "[[\"Flight Operation\",\"docstatus\",\"=\",\"1\",false]]",
+    "is_public": 1
+}

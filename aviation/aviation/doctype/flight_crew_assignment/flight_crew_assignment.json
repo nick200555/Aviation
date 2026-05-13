@@ -1,0 +1,12 @@
+{
+    "doctype": "DocType",
+    "name": "Flight Crew Assignment",
+    "module": "Aviation",
+    "istable": 1,
+    "editable_grid": 1,
+    "fields": [
+        {"fieldname": "crew_member", "label": "Crew Member", "fieldtype": "Link", "options": "Crew Member", "in_list_view": 1, "reqd": 1},
+        {"fieldname": "role", "label": "Role", "fieldtype": "Select", "options": "Captain\nFirst Officer\nRelief Pilot\nCabin Crew (In-Charge)\nCabin Crew\nObserver", "in_list_view": 1, "reqd": 1},
+        {"fieldname": "is_active_crew", "label": "Is Operating Crew", "fieldtype": "Check", "default": 1}
+    ]
+}

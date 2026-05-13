@@ -1,0 +1,15 @@
+{
+    "doctype": "Notification",
+    "name": "Aircraft Certificate Expiry Alert",
+    "subject": "ALERT: {{ doc.certificate_type }} for {{ doc.aircraft }} expires in {{ (doc.expiry_date | frappe.utils.date_diff(frappe.utils.today())) | int }} days",
+    "document_type": "Aircraft Certificate",
+    "event": "Days Before",
+    "days_in_advance": 60,
+    "date_changed": "expiry_date",
+    "condition": "doc.status == 'Valid'",
+    "recipients": [
+        {"receiver_by_role": "Aviation Manager"},
+        {"receiver_by_role": "Maintenance Engineer"}
+    ],
+    "message": "Certificate Expiry Alert\n\nThe {{ doc.certificate_type }} for aircraft {{ doc.aircraft }} is approaching its expiry date.\n\nExpiry Date: {{ doc.expiry_date }}\nIssuing Authority: {{ doc.issuing_authority }}\n\nPlease initiate renewal immediately."
+}

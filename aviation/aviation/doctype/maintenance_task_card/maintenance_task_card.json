@@ -1,0 +1,15 @@
+{
+    "doctype": "DocType",
+    "name": "Maintenance Task Card",
+    "module": "Aviation",
+    "autoname": "field:task_id",
+    "fields": [
+        {"fieldname": "task_id", "label": "Task ID", "fieldtype": "Data", "reqd": 1, "unique": 1},
+        {"fieldname": "description", "label": "Description", "fieldtype": "Text", "reqd": 1},
+        {"fieldname": "ata_chapter", "label": "ATA Chapter", "fieldtype": "Data"},
+        {"fieldname": "interval_hours", "label": "Interval (Hours)", "fieldtype": "Float"},
+        {"fieldname": "interval_cycles", "label": "Interval (Cycles)", "fieldtype": "Int"},
+        {"fieldname": "interval_days", "label": "Interval (Days)", "fieldtype": "Int"}
+    ],
+    "permissions": [{"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1}]
+}

@@ -1,0 +1,13 @@
+{
+    "doctype": "DocType",
+    "name": "Safety Report Action",
+    "module": "Aviation",
+    "istable": 1,
+    "editable_grid": 1,
+    "fields": [
+        {"fieldname": "action_description", "label": "Corrective / Preventive Action", "fieldtype": "Data", "in_list_view": 1, "reqd": 1},
+        {"fieldname": "responsible_department", "label": "Responsible Dept", "fieldtype": "Data", "in_list_view": 1},
+        {"fieldname": "due_date", "label": "Due Date", "fieldtype": "Date", "in_list_view": 1},
+        {"fieldname": "status", "label": "Status", "fieldtype": "Select", "options": "Pending\nCompleted\nVerified", "default": "Pending", "in_list_view": 1}
+    ]
+}

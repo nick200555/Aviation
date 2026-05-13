@@ -1,0 +1,12 @@
+{
+    "doctype": "DocType",
+    "name": "AD Affected Aircraft",
+    "module": "Aviation",
+    "istable": 1,
+    "editable_grid": 1,
+    "fields": [
+        {"fieldname": "aircraft", "label": "Aircraft", "fieldtype": "Link", "options": "Aircraft", "in_list_view": 1, "reqd": 1},
+        {"fieldname": "compliance_status", "label": "Status", "fieldtype": "Select", "options": "Pending\nComplied\nNot Applicable", "default": "Pending", "in_list_view": 1},
+        {"fieldname": "compliance_record", "label": "Compliance Record", "fieldtype": "Link", "options": "AD Compliance Record", "read_only": 1}
+    ]
+}

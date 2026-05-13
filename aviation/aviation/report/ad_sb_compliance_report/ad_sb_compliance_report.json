@@ -1,1 +1,9 @@
-{"report_name": "AD SB Compliance Report", "ref_doctype": "AD Compliance Record", "report_type": "Script Report", "is_standard": "Yes"}
+{
+    "doctype": "Report",
+    "name": "AD SB Compliance Report",
+    "report_name": "AD SB Compliance Report",
+    "ref_doctype": "AD Compliance Record",
+    "report_type": "Script Report",
+    "is_standard": "Yes",
+    "module": "Aviation"
+}

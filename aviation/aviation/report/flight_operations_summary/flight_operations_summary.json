@@ -1,1 +1,9 @@
-{"report_name": "Flight Operations Summary", "ref_doctype": "Flight Operation", "report_type": "Script Report", "is_standard": "Yes"}
+{
+    "doctype": "Report",
+    "name": "Flight Operations Summary",
+    "report_name": "Flight Operations Summary",
+    "ref_doctype": "Flight Operation",
+    "report_type": "Script Report",
+    "is_standard": "Yes",
+    "module": "Aviation"
+}

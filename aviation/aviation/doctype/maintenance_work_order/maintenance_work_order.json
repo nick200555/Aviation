@@ -1,5 +1,4 @@
-
-    "doctype":  "DocType",
+{"doctype":  "DocType",
     "name":  "Maintenance Work Order",
     "module":  "Aviation",
     "autoname":  "naming_series:",

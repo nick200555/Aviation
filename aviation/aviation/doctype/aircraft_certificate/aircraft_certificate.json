@@ -1,5 +1,4 @@
-
-    "doctype":  "DocType",
+{"doctype":  "DocType",
     "name":  "Aircraft Certificate",
     "module":  "Aviation",
     "autoname":  "naming_series:",

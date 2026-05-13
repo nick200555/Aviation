@@ -1,5 +1,4 @@
-
-    "doctype":  "DocType",
+{"doctype":  "DocType",
     "name":  "Crew Licence",
     "module":  "Aviation",
     "autoname":  "naming_series:",

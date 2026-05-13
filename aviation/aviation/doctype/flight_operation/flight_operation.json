@@ -1,5 +1,4 @@
-
-    "doctype":  "DocType",
+{"doctype":  "DocType",
     "name":  "Flight Operation",
     "module":  "Aviation",
     "autoname":  "naming_series:",

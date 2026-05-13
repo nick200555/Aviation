@@ -1,5 +1,4 @@
-
-    "doctype":  "DocType",
+{"doctype":  "DocType",
     "name":  "AD Compliance Record",
     "module":  "Aviation",
     "autoname":  "naming_series:",

@@ -1,5 +1,4 @@
-
-    "doctype":  "DocType",
+{"doctype":  "DocType",
     "name":  "Ground Handling Order",
     "module":  "Aviation",
     "autoname":  "naming_series:",

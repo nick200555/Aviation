@@ -1,5 +1,4 @@
-
-    "doctype":  "DocType",
+{"doctype":  "DocType",
     "name":  "Crew Member",
     "module":  "Aviation",
     "autoname":  "naming_series:",

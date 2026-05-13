@@ -1,84 +1,522 @@
 {
-    "doctype": "Workspace",
-    "name": "Aviation",
-    "label": "Aviation",
-    "icon": "airplane",
-    "module": "Aviation",
-    "is_standard": 1,
-    "shortcuts": [
-        {"label": "Aircraft", "type": "DocType", "link_to": "Aircraft"},
-        {"label": "Flight Plan", "type": "DocType", "link_to": "Flight Plan"},
-        {"label": "Flight Operation", "type": "DocType", "link_to": "Flight Operation"},
-        {"label": "Maintenance Work Order", "type": "DocType", "link_to": "Maintenance Work Order"},
-        {"label": "Crew Duty Record", "type": "DocType", "link_to": "Crew Duty Record"},
-        {"label": "Safety Report", "type": "DocType", "link_to": "Safety Occurrence Report"},
-        {"label": "Load Sheet", "type": "DocType", "link_to": "Load Sheet"}
-    ],
-    "links": [
-        {
-            "label": "Fleet Management",
-            "type": "Card Break",
-            "items": [
-                {"type": "DocType", "label": "Aircraft", "name": "Aircraft"},
-                {"type": "DocType", "label": "Aircraft Type", "name": "Aircraft Type"},
-                {"type": "DocType", "label": "Engine", "name": "Engine"},
-                {"type": "DocType", "label": "Engine Type", "name": "Engine Type"},
-                {"type": "DocType", "label": "Aircraft Certificate", "name": "Aircraft Certificate"},
-                {"type": "DocType", "label": "Part Number", "name": "Part Number"}
-            ]
-        },
-        {
-            "label": "Flight Operations",
-            "type": "Card Break",
-            "items": [
-                {"type": "DocType", "label": "Flight Plan", "name": "Flight Plan"},
-                {"type": "DocType", "label": "Flight Operation", "name": "Flight Operation"},
-                {"type": "DocType", "label": "Load Sheet", "name": "Load Sheet"},
-                {"type": "DocType", "label": "Ground Handling Order", "name": "Ground Handling Order"},
-                {"type": "DocType", "label": "Airport", "name": "Airport"},
-                {"type": "DocType", "label": "Airline", "name": "Airline"}
-            ]
-        },
-        {
-            "label": "Crew Management",
-            "type": "Card Break",
-            "items": [
-                {"type": "DocType", "label": "Crew Member", "name": "Crew Member"},
-                {"type": "DocType", "label": "Crew Licence", "name": "Crew Licence"},
-                {"type": "DocType", "label": "Crew Duty Record", "name": "Crew Duty Record"}
-            ]
-        },
-        {
-            "label": "Maintenance (MRO)",
-            "type": "Card Break",
-            "items": [
-                {"type": "DocType", "label": "Maintenance Work Order", "name": "Maintenance Work Order"},
-                {"type": "DocType", "label": "Airworthiness Directive", "name": "Airworthiness Directive"},
-                {"type": "DocType", "label": "AD Compliance Record", "name": "AD Compliance Record"},
-                {"type": "DocType", "label": "Service Bulletin", "name": "Service Bulletin"},
-                {"type": "DocType", "label": "Maintenance Task Card", "name": "Maintenance Task Card"},
-                {"type": "DocType", "label": "Component Overhaul Record", "name": "Component Overhaul Record"}
-            ]
-        },
-        {
-            "label": "Safety & SMS",
-            "type": "Card Break",
-            "items": [
-                {"type": "DocType", "label": "Safety Occurrence Report", "name": "Safety Occurrence Report"},
-                {"type": "DocType", "label": "Hazard Register", "name": "Hazard Register"},
-                {"type": "DocType", "label": "Safety Investigation", "name": "Safety Investigation"}
-            ]
-        },
-        {
-            "label": "Reports",
-            "type": "Card Break",
-            "items": [
-                {"type": "Report", "label": "Aircraft Utilization", "name": "Aircraft Utilization", "is_query_report": 1},
-                {"type": "Report", "label": "Maintenance Due Report", "name": "Maintenance Due Report", "is_query_report": 1},
-                {"type": "Report", "label": "AD/SB Compliance Report", "name": "AD SB Compliance Report", "is_query_report": 1},
-                {"type": "Report", "label": "Crew Duty Report", "name": "Crew Duty Report", "is_query_report": 1},
-                {"type": "Report", "label": "Safety Occurrence Summary", "name": "Safety Occurrence Report", "is_query_report": 1}
-            ]
-        }
-    ]
+ "charts": [],
+ "content": "[{\"id\": \"cb-fleet\", \"type\": \"card\", \"data\": {\"card_name\": \"Fleet Management\", \"col\": 12}}, {\"id\": \"cb-ops\", \"type\": \"card\", \"data\": {\"card_name\": \"Flight Operations\", \"col\": 12}}, {\"id\": \"cb-crew\", \"type\": \"card\", \"data\": {\"card_name\": \"Crew Management\", \"col\": 12}}, {\"id\": \"cb-mro\", \"type\": \"card\", \"data\": {\"card_name\": \"Maintenance (MRO)\", \"col\": 12}}, {\"id\": \"cb-safety\", \"type\": \"card\", \"data\": {\"card_name\": \"Safety & SMS\", \"col\": 12}}, {\"id\": \"cb-reports\", \"type\": \"card\", \"data\": {\"card_name\": \"Reports & Analytics\", \"col\": 12}}, {\"id\": \"cb-config\", \"type\": \"card\", \"data\": {\"card_name\": \"Configuration\", \"col\": 12}}]",
+ "creation": "2024-05-13 00:00:00.000000",
+ "developer_mode_only": 0,
+ "disable_user_customization": 0,
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "airplane",
+ "idx": 0,
+ "is_default": 0,
+ "is_hidden": 0,
+ "label": "Aviation",
+ "links": [
+  {
+   "hidden": 0,
+   "idx": 1,
+   "is_query_report": 0,
+   "label": "Fleet Management",
+   "link_count": 0,
+   "onboard": 1,
+   "title": "Fleet Management",
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 2,
+   "is_query_report": 0,
+   "label": "Aircraft",
+   "link_count": 0,
+   "link_to": "Aircraft",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 3,
+   "is_query_report": 0,
+   "label": "Aircraft Type",
+   "link_count": 0,
+   "link_to": "Aircraft Type",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 4,
+   "is_query_report": 0,
+   "label": "Engine",
+   "link_count": 0,
+   "link_to": "Engine",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 5,
+   "is_query_report": 0,
+   "label": "Engine Type",
+   "link_count": 0,
+   "link_to": "Engine Type",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 6,
+   "is_query_report": 0,
+   "label": "Aircraft Certificate",
+   "link_count": 0,
+   "link_to": "Aircraft Certificate",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 7,
+   "is_query_report": 0,
+   "label": "Part Number",
+   "link_count": 0,
+   "link_to": "Part Number",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "idx": 8,
+   "is_query_report": 0,
+   "label": "Flight Operations",
+   "link_count": 0,
+   "onboard": 1,
+   "title": "Flight Operations",
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 9,
+   "is_query_report": 0,
+   "label": "Flight Plan",
+   "link_count": 0,
+   "link_to": "Flight Plan",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 10,
+   "is_query_report": 0,
+   "label": "Flight Operation",
+   "link_count": 0,
+   "link_to": "Flight Operation",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 11,
+   "is_query_report": 0,
+   "label": "Load Sheet",
+   "link_count": 0,
+   "link_to": "Load Sheet",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 12,
+   "is_query_report": 0,
+   "label": "Ground Handling Order",
+   "link_count": 0,
+   "link_to": "Ground Handling Order",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 13,
+   "is_query_report": 0,
+   "label": "Airport",
+   "link_count": 0,
+   "link_to": "Airport",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 14,
+   "is_query_report": 0,
+   "label": "Airline",
+   "link_count": 0,
+   "link_to": "Airline",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "idx": 15,
+   "is_query_report": 0,
+   "label": "Crew Management",
+   "link_count": 0,
+   "onboard": 1,
+   "title": "Crew Management",
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 16,
+   "is_query_report": 0,
+   "label": "Crew Member",
+   "link_count": 0,
+   "link_to": "Crew Member",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 17,
+   "is_query_report": 0,
+   "label": "Crew Licence",
+   "link_count": 0,
+   "link_to": "Crew Licence",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 18,
+   "is_query_report": 0,
+   "label": "Crew Duty Record",
+   "link_count": 0,
+   "link_to": "Crew Duty Record",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "idx": 19,
+   "is_query_report": 0,
+   "label": "Maintenance (MRO)",
+   "link_count": 0,
+   "onboard": 0,
+   "title": "Maintenance (MRO)",
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 20,
+   "is_query_report": 0,
+   "label": "Maintenance Work Order",
+   "link_count": 0,
+   "link_to": "Maintenance Work Order",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 21,
+   "is_query_report": 0,
+   "label": "Airworthiness Directive",
+   "link_count": 0,
+   "link_to": "Airworthiness Directive",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 22,
+   "is_query_report": 0,
+   "label": "AD Compliance Record",
+   "link_count": 0,
+   "link_to": "AD Compliance Record",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 23,
+   "is_query_report": 0,
+   "label": "Service Bulletin",
+   "link_count": 0,
+   "link_to": "Service Bulletin",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 24,
+   "is_query_report": 0,
+   "label": "Maintenance Task Card",
+   "link_count": 0,
+   "link_to": "Maintenance Task Card",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 25,
+   "is_query_report": 0,
+   "label": "Component Overhaul Record",
+   "link_count": 0,
+   "link_to": "Component Overhaul Record",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "idx": 26,
+   "is_query_report": 0,
+   "label": "Safety & SMS",
+   "link_count": 0,
+   "onboard": 0,
+   "title": "Safety & SMS",
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 27,
+   "is_query_report": 0,
+   "label": "Safety Occurrence Report",
+   "link_count": 0,
+   "link_to": "Safety Occurrence Report",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 28,
+   "is_query_report": 0,
+   "label": "Hazard Register",
+   "link_count": 0,
+   "link_to": "Hazard Register",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 29,
+   "is_query_report": 0,
+   "label": "Safety Investigation",
+   "link_count": 0,
+   "link_to": "Safety Investigation",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "idx": 30,
+   "is_query_report": 0,
+   "label": "Reports & Analytics",
+   "link_count": 0,
+   "onboard": 0,
+   "title": "Reports & Analytics",
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 31,
+   "is_query_report": 1,
+   "label": "Aircraft Utilization",
+   "link_count": 0,
+   "link_to": "Aircraft Utilization",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 32,
+   "is_query_report": 1,
+   "label": "Maintenance Due Report",
+   "link_count": 0,
+   "link_to": "Maintenance Due Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 33,
+   "is_query_report": 1,
+   "label": "AD SB Compliance Report",
+   "link_count": 0,
+   "link_to": "AD SB Compliance Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 34,
+   "is_query_report": 1,
+   "label": "Crew Duty Report",
+   "link_count": 0,
+   "link_to": "Crew Duty Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "idx": 35,
+   "is_query_report": 0,
+   "label": "Configuration",
+   "link_count": 0,
+   "onboard": 0,
+   "title": "Configuration",
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 36,
+   "is_query_report": 0,
+   "label": "Route",
+   "link_count": 0,
+   "link_to": "Route",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 37,
+   "is_query_report": 0,
+   "label": "Fuel Uplift",
+   "link_count": 0,
+   "link_to": "Fuel Uplift",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "idx": 38,
+   "is_query_report": 0,
+   "label": "Ground Handling Company",
+   "link_count": 0,
+   "link_to": "Ground Handling Company",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2024-05-13 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Aviation",
+ "name": "Aviation",
+ "owner": "Administrator",
+ "public": 1,
+ "restrict_to_domain": "",
+ "roles": [],
+ "sequence_id": 1.0,
+ "shortcuts": [
+  {
+   "color": "Blue",
+   "format": "{} Active",
+   "label": "Aircraft",
+   "link_to": "Aircraft",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "format": "{} Open",
+   "label": "Flight Plans",
+   "link_to": "Flight Plan",
+   "stats_filter": "{\"docstatus\": 0}",
+   "type": "DocType"
+  },
+  {
+   "color": "Purple",
+   "format": "{} Operated",
+   "label": "Flight Operations",
+   "link_to": "Flight Operation",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "format": "{} Open",
+   "label": "Maintenance Orders",
+   "link_to": "Maintenance Work Order",
+   "stats_filter": "{\"status\": [\"not in\", [\"Completed\", \"Cancelled\"]]}",
+   "type": "DocType"
+  },
+  {
+   "color": "Red",
+   "format": "{} Pending",
+   "label": "Safety Reports",
+   "link_to": "Safety Occurrence Report",
+   "stats_filter": "{\"docstatus\": 0}",
+   "type": "DocType"
+  },
+  {
+   "color": "Teal",
+   "label": "Crew Duty Records",
+   "link_to": "Crew Duty Record",
+   "type": "DocType"
+  },
+  {
+   "color": "Gray",
+   "label": "Load Sheets",
+   "link_to": "Load Sheet",
+   "type": "DocType"
+  }
+ ],
+ "title": "Aviation"
 }

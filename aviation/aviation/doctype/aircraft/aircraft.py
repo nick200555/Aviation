@@ -20,5 +20,6 @@ class Aircraft(Document):
             doc.aircraft = self.name
             doc.certificate_type = "Certificate of Airworthiness"
             doc.issuing_authority = "DGCA"
+            doc.issue_date = today()
             doc.status = "Valid"
             doc.insert(ignore_permissions=True)

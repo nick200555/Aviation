@@ -48,6 +48,10 @@ fixtures = [
         "filters": [["name", "in", ["Aviation"]]]
     },
     {
+        "dt": "Module Def",
+        "filters": [["name", "in", ["Aviation"]]]
+    },
+    {
         "dt": "Dashboard",
         "filters": [["name", "in", ["Aviation Dashboard"]]]
     },

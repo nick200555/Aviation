@@ -114,3 +114,22 @@ def generate_weekly_safety_report():
                 subject=f"Weekly Safety Report - {from_date} to {today()}",
                 message=f"Total occurrences this week: {len(reports)}\n\n" + "\n".join([f"- [{r.occurrence_type}] {r.summary}" for r in reports])
             )
+
+def generate_crew_utilisation_report():
+    """Weekly: Summary of crew flight hours for the past week."""
+    from frappe.utils import add_days
+    from_date = add_days(today(), -7)
+    crew_hours = frappe.get_all(
+        "Crew Duty Record",
+        filters={"duty_date": [">=", from_date], "docstatus": 1},
+        fields=["crew_member", "sum(block_time_hours) as total_hours"],
+        group_by="crew_member"
+    )
+    if crew_hours:
+        schedulers = frappe.get_all("Has Role", filters={"role": "Crew Scheduler", "parenttype": "User"}, fields=["parent"])
+        for s in schedulers:
+            frappe.sendmail(
+                recipients=[s.parent],
+                subject=f"Weekly Crew Utilisation Report - {from_date} to {today()}",
+                message="Weekly flight hours per crew member:\n\n" + "\n".join([f"- {c.crew_member}: {round(c.total_hours, 2)} hrs" for c in crew_hours])
+            )

@@ -12,7 +12,7 @@
         {"fieldname": "quantity_litres", "label": "Quantity (Litres)", "fieldtype": "Float"},
         {"fieldname": "quantity_kg", "label": "Quantity (kg)", "fieldtype": "Float"},
         {"fieldname": "specific_gravity", "label": "Specific Gravity", "fieldtype": "Float"},
-        {"fieldname": "uplift_date", "label": "Uplift Date", "fieldtype": "Date", "default": "today"}
+        {"fieldname": "uplift_date", "label": "Uplift Date", "fieldtype": "Date"}
     ],
     "permissions": [{"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1}]
 }

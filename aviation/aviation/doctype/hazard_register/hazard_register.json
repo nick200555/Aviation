@@ -7,7 +7,7 @@
     "fields": [
         {"fieldname": "hazard_title", "label": "Hazard Title", "fieldtype": "Data", "reqd": 1},
         {"fieldname": "hazard_type", "label": "Hazard Type", "fieldtype": "Link", "options": "Hazard Type"},
-        {"fieldname": "identified_date", "label": "Identified Date", "fieldtype": "Date", "default": "today"},
+        {"fieldname": "identified_date", "label": "Identified Date", "fieldtype": "Date"},
         {"fieldname": "description", "label": "Description", "fieldtype": "Text Editor"},
         {"fieldname": "risk_assessment", "label": "Initial Risk Level", "fieldtype": "Select", "options": "Low\nMedium\nHigh\nCritical"},
         {"fieldname": "mitigation_plan", "label": "Mitigation Plan", "fieldtype": "Text Editor"},

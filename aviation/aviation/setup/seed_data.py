@@ -78,10 +78,10 @@ def seed_engine_types():
 
 def seed_engines():
     engines = [
-        {"serial_number": "890123", "engine_type_ref": "CFM56-7B26", "status": "Serviceable", "total_hours": 12000, "total_cycles": 8500},
-        {"serial_number": "890124", "engine_type_ref": "CFM56-7B26", "status": "Serviceable", "total_hours": 12050, "total_cycles": 8520},
-        {"serial_number": "990100", "engine_type_ref": "LEAP-1A26", "status": "Serviceable", "total_hours": 4500, "total_cycles": 3200},
-        {"serial_number": "990101", "engine_type_ref": "LEAP-1A26", "status": "Serviceable", "total_hours": 4510, "total_cycles": 3205},
+        {"serial_number": "890123", "engine_type_ref": "CFM56-7B26", "status": "Serviceable (Pool)", "total_hours": 12000, "total_cycles": 8500},
+        {"serial_number": "890124", "engine_type_ref": "CFM56-7B26", "status": "Serviceable (Pool)", "total_hours": 12050, "total_cycles": 8520},
+        {"serial_number": "990100", "engine_type_ref": "LEAP-1A26", "status": "Serviceable (Pool)", "total_hours": 4500, "total_cycles": 3200},
+        {"serial_number": "990101", "engine_type_ref": "LEAP-1A26", "status": "Serviceable (Pool)", "total_hours": 4510, "total_cycles": 3205},
         {"serial_number": "V12345", "engine_type_ref": "V2527-A5", "status": "In Shop", "total_hours": 25000, "total_cycles": 15000}
     ]
     for eng in engines:

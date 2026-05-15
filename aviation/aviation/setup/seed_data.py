@@ -160,18 +160,18 @@ def seed_part_numbers():
 
 def seed_maintenance_tasks():
     tasks = [
-        {"task_number": "A320-32-10-01", "title": "Main Landing Gear Lubrication", "aircraft_type": "A320", "task_type": "Routine", "interval_hours": 500},
-        {"task_number": "B738-29-00-01", "title": "Hydraulic Fluid Servicing", "aircraft_type": "B738", "task_type": "Routine", "interval_days": 7},
-        {"task_number": "ENG-72-00-01", "title": "Engine Borescope Inspection", "aircraft_type": "B77W", "task_type": "Detailed Inspection", "interval_cycles": 1000}
+        {"task_id": "A320-32-10-01", "description": "Main Landing Gear Lubrication", "aircraft_type": "A320", "task_type": "Routine", "interval_hours": 500},
+        {"task_id": "B738-29-00-01", "description": "Hydraulic Fluid Servicing", "aircraft_type": "B738", "task_type": "Routine", "interval_days": 7},
+        {"task_id": "ENG-72-00-01", "description": "Engine Borescope Inspection", "aircraft_type": "B77W", "task_type": "Detailed Inspection", "interval_cycles": 1000}
     ]
     for t in tasks:
-        get_or_create("Maintenance Task Card", {"task_number": t["task_number"]}, t)
+        get_or_create("Maintenance Task Card", {"task_id": t["task_id"]}, t)
     print("Maintenance Task Cards seeded.")
 
 def seed_airworthiness_directives():
     ads = [
-        {"ad_number": "FAA-2023-0123", "title": "Inspection of Forward Fuselage", "issuing_authority": "FAA", "issue_date": "2023-05-10", "effective_date": "2023-06-01", "compliance_type": "Mandatory", "applicability_description": "All B738"},
-        {"ad_number": "EASA-2024-0045", "title": "Engine Fan Blade Inspection", "issuing_authority": "EASA", "issue_date": "2024-01-15", "effective_date": "2024-02-01", "compliance_type": "Mandatory", "applicability_description": "A320 LEAP engines"}
+        {"ad_number": "FAA-2023-0123", "ad_title": "Inspection of Forward Fuselage", "issuing_authority": "FAA", "issue_date": "2023-05-10", "effective_date": "2023-06-01", "compliance_type": "Mandatory", "applicability_description": "All B738"},
+        {"ad_number": "EASA-2024-0045", "ad_title": "Engine Fan Blade Inspection", "issuing_authority": "EASA", "issue_date": "2024-01-15", "effective_date": "2024-02-01", "compliance_type": "Mandatory", "applicability_description": "A320 LEAP engines"}
     ]
     for ad in ads:
         get_or_create("Airworthiness Directive", {"ad_number": ad["ad_number"]}, ad)
@@ -179,14 +179,14 @@ def seed_airworthiness_directives():
 
 def seed_hazard_types():
     hazards = [
-        {"hazard_code": "BIRD", "hazard_category": "Environmental", "description": "Bird Strike Risk"},
-        {"hazard_code": "FOD", "hazard_category": "Operational", "description": "Foreign Object Debris on Ramp"},
-        {"hazard_code": "WX-TS", "hazard_category": "Environmental", "description": "Severe Thunderstorms"},
-        {"hazard_code": "FATIGUE", "hazard_category": "Human Factors", "description": "Crew Fatigue"},
-        {"hazard_code": "SYSTEM", "hazard_category": "Technical", "description": "Aircraft System Failure"}
+        {"hazard_type": "BIRD", "description": "Bird Strike Risk"},
+        {"hazard_type": "FOD", "description": "Foreign Object Debris on Ramp"},
+        {"hazard_type": "WX-TS", "description": "Severe Thunderstorms"},
+        {"hazard_type": "FATIGUE", "description": "Crew Fatigue"},
+        {"hazard_type": "SYSTEM", "description": "Aircraft System Failure"}
     ]
     for h in hazards:
-        get_or_create("Hazard Type", {"hazard_code": h["hazard_code"]}, h)
+        get_or_create("Hazard Type", {"hazard_type": h["hazard_type"]}, h)
     print("Hazard Types seeded.")
 
 def seed_ground_handling_companies():
@@ -201,10 +201,10 @@ def seed_ground_handling_companies():
 
 def seed_aircraft_certificates():
     certs = [
-        {"aircraft": "VT-ABX", "certificate_type": "Certificate of Registration (CofR)", "certificate_number": "CR-1234", "issue_date": "2015-05-15", "issuing_authority": "DGCA India", "status": "Valid"},
-        {"aircraft": "VT-ABX", "certificate_type": "Certificate of Airworthiness (CofA)", "certificate_number": "CA-1234", "issue_date": "2023-05-15", "expiry_date": add_days(today(), 180), "issuing_authority": "DGCA India", "status": "Valid"},
-        {"aircraft": "VT-IGO", "certificate_type": "Certificate of Registration (CofR)", "certificate_number": "CR-5678", "issue_date": "2019-11-25", "issuing_authority": "DGCA India", "status": "Valid"},
-        {"aircraft": "VT-IGO", "certificate_type": "Certificate of Airworthiness (CofA)", "certificate_number": "CA-5678", "issue_date": "2023-11-25", "expiry_date": add_days(today(), 200), "issuing_authority": "DGCA India", "status": "Valid"}
+        {"aircraft": "VT-ABX", "certificate_type": "Other", "certificate_number": "CR-1234", "issue_date": "2015-05-15", "issuing_authority": "DGCA India", "status": "Valid"},
+        {"aircraft": "VT-ABX", "certificate_type": "Certificate of Airworthiness", "certificate_number": "CA-1234", "issue_date": "2023-05-15", "expiry_date": add_days(today(), 180), "issuing_authority": "DGCA India", "status": "Valid"},
+        {"aircraft": "VT-IGO", "certificate_type": "Other", "certificate_number": "CR-5678", "issue_date": "2019-11-25", "issuing_authority": "DGCA India", "status": "Valid"},
+        {"aircraft": "VT-IGO", "certificate_type": "Certificate of Airworthiness", "certificate_number": "CA-5678", "issue_date": "2023-11-25", "expiry_date": add_days(today(), 200), "issuing_authority": "DGCA India", "status": "Valid"}
     ]
     for c in certs:
         get_or_create("Aircraft Certificate", {"aircraft": c["aircraft"], "certificate_type": c["certificate_type"]}, c)

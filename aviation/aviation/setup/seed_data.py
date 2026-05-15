@@ -220,6 +220,10 @@ def seed_flight_plans():
         {"flight_number": "SQ422", "aircraft": "9V-SWA", "flight_date": today(), "departure_airport": "WSSS", "destination_airport": "VABB", "etd_utc": now_datetime(), "eta_utc": frappe.utils.add_to_date(now_datetime(), hours=5), "trip_fuel_kg": 20000, "block_fuel_kg": 24000, "status": "Filed"}
     ]
     for fp in fps:
+        fp["crew_assignments"] = [
+            {"crew_member": "Capt. Rajan Sharma", "role": "Captain", "is_active_crew": 1},
+            {"crew_member": "FO. Aman Verma", "role": "First Officer", "is_active_crew": 1}
+        ]
         name = get_or_create("Flight Plan", {"flight_number": fp["flight_number"], "flight_date": fp["flight_date"]}, fp)
         # Attempt to submit if in valid state, but ignore if it fails
         try:

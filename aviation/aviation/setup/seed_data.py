@@ -149,8 +149,8 @@ def seed_crew_members():
 
 def seed_part_numbers():
     parts = [
-        {"part_number": "114-1000-01", "description": "Main Landing Gear Wheel", "part_category": "Rotable", "unit_of_measure": "Nos"},
-        {"part_number": "8-420-02", "description": "Brake Assembly", "part_category": "Rotable", "unit_of_measure": "Nos"},
+        {"part_number": "114-1000-01", "description": "Main Landing Gear Wheel", "part_category": "Overhaul Required", "unit_of_measure": "Nos"},
+        {"part_number": "8-420-02", "description": "Brake Assembly", "part_category": "Overhaul Required", "unit_of_measure": "Nos"},
         {"part_number": "NAS1149F0363P", "description": "Washer, Flat", "part_category": "Expendable", "unit_of_measure": "Nos"},
         {"part_number": "NYCO-GN22", "description": "Aero Grease", "part_category": "Consumable", "unit_of_measure": "Kg"}
     ]

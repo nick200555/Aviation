@@ -67,13 +67,13 @@ def seed_airlines():
 
 def seed_engine_types():
     types = [
-        {"engine_model": "CFM56-7B26", "manufacturer": "CFM International", "thrust_rating_lbf": 26000, "engine_type": "Turbofan"},
-        {"engine_model": "LEAP-1A26", "manufacturer": "CFM International", "thrust_rating_lbf": 26000, "engine_type": "Turbofan"},
-        {"engine_model": "V2527-A5", "manufacturer": "IAE", "thrust_rating_lbf": 26600, "engine_type": "Turbofan"},
-        {"engine_model": "GE90-115B", "manufacturer": "GE Aviation", "thrust_rating_lbf": 115000, "engine_type": "Turbofan"}
+        {"model_designation": "CFM56-7B26", "manufacturer": "CFM International", "thrust_kn": 115.6},
+        {"model_designation": "LEAP-1A26", "manufacturer": "CFM International", "thrust_kn": 115.6},
+        {"model_designation": "V2527-A5", "manufacturer": "IAE", "thrust_kn": 118.3},
+        {"model_designation": "GE90-115B", "manufacturer": "GE Aviation", "thrust_kn": 511.0}
     ]
     for et in types:
-        get_or_create("Engine Type", {"engine_model": et["engine_model"]}, et)
+        get_or_create("Engine Type", {"model_designation": et["model_designation"]}, et)
     print("Engine Types seeded.")
 
 def seed_engines():

@@ -270,7 +270,7 @@ def seed_crew_licences():
     licences = [
         {"crew_member": frappe.db.get_value("Crew Member", {"full_name": "Capt. Rajan Sharma"}, "name"), "licence_type": "ATPL", "licence_number": "ATPL-12345", "issue_date": "2010-01-01", "expiry_date": add_days(today(), 365), "status": "Valid"},
         {"crew_member": frappe.db.get_value("Crew Member", {"full_name": "FO. Aman Verma"}, "name"), "licence_type": "CPL", "licence_number": "CPL-98765", "issue_date": "2015-05-10", "expiry_date": add_days(today(), 180), "status": "Valid"},
-        {"crew_member": frappe.db.get_value("Crew Member", {"full_name": "Capt. Sarah Jenkins"}, "name"), "licence_type": "ATPL", "licence_number": "ATPL-55555", "issue_date": "2008-11-20", "expiry_date": add_days(today(), 30), "status": "Expiring Soon"}
+        {"crew_member": frappe.db.get_value("Crew Member", {"full_name": "Capt. Sarah Jenkins"}, "name"), "licence_type": "ATPL", "licence_number": "ATPL-55555", "issue_date": "2008-11-20", "expiry_date": add_days(today(), 30), "status": "Valid"}
     ]
     for l in licences:
         get_or_create("Crew Licence", {"licence_number": l["licence_number"]}, l)
@@ -279,14 +279,14 @@ def seed_crew_licences():
 def seed_crew_duty_records():
     import frappe.utils
     duties = [
-        {"crew_member": frappe.db.get_value("Crew Member", {"full_name": "Capt. Rajan Sharma"}, "name"), "duty_date": today(), "duty_type": "Flight Duty", "sign_on_time": now_datetime(), "sign_off_time": frappe.utils.add_to_date(now_datetime(), hours=8), "status": "Completed"},
-        {"crew_member": frappe.db.get_value("Crew Member", {"full_name": "FO. Aman Verma"}, "name"), "duty_date": today(), "duty_type": "Flight Duty", "sign_on_time": now_datetime(), "sign_off_time": frappe.utils.add_to_date(now_datetime(), hours=8), "status": "Completed"},
-        {"crew_member": frappe.db.get_value("Crew Member", {"full_name": "Priya Patel"}, "name"), "duty_date": today(), "duty_type": "Flight Duty", "sign_on_time": now_datetime(), "sign_off_time": frappe.utils.add_to_date(now_datetime(), hours=8), "status": "Completed"},
-        {"crew_member": frappe.db.get_value("Crew Member", {"full_name": "Rahul Singh"}, "name"), "duty_date": today(), "duty_type": "Standby", "sign_on_time": now_datetime(), "sign_off_time": frappe.utils.add_to_date(now_datetime(), hours=8), "status": "Completed"},
-        {"crew_member": frappe.db.get_value("Crew Member", {"full_name": "Capt. Sarah Jenkins"}, "name"), "duty_date": today(), "duty_type": "Training", "sign_on_time": now_datetime(), "sign_off_time": frappe.utils.add_to_date(now_datetime(), hours=8), "status": "Completed"}
+        {"crew_member": frappe.db.get_value("Crew Member", {"full_name": "Capt. Rajan Sharma"}, "name"), "duty_date": today(), "role_on_flight": "Captain", "duty_start_utc": now_datetime(), "duty_end_utc": frappe.utils.add_to_date(now_datetime(), hours=8)},
+        {"crew_member": frappe.db.get_value("Crew Member", {"full_name": "FO. Aman Verma"}, "name"), "duty_date": today(), "role_on_flight": "First Officer", "duty_start_utc": now_datetime(), "duty_end_utc": frappe.utils.add_to_date(now_datetime(), hours=8)},
+        {"crew_member": frappe.db.get_value("Crew Member", {"full_name": "Priya Patel"}, "name"), "duty_date": today(), "role_on_flight": "Cabin Crew (In-Charge)", "duty_start_utc": now_datetime(), "duty_end_utc": frappe.utils.add_to_date(now_datetime(), hours=8)},
+        {"crew_member": frappe.db.get_value("Crew Member", {"full_name": "Rahul Singh"}, "name"), "duty_date": today(), "role_on_flight": "Cabin Crew", "duty_start_utc": now_datetime(), "duty_end_utc": frappe.utils.add_to_date(now_datetime(), hours=8)},
+        {"crew_member": frappe.db.get_value("Crew Member", {"full_name": "Capt. Sarah Jenkins"}, "name"), "duty_date": today(), "role_on_flight": "Captain", "duty_start_utc": now_datetime(), "duty_end_utc": frappe.utils.add_to_date(now_datetime(), hours=8)}
     ]
     for d in duties:
-        name = get_or_create("Crew Duty Record", {"crew_member": d["crew_member"], "duty_date": d["duty_date"], "duty_type": d["duty_type"]}, d)
+        name = get_or_create("Crew Duty Record", {"crew_member": d["crew_member"], "duty_date": d["duty_date"]}, d)
         try:
             doc = frappe.get_doc("Crew Duty Record", name)
             if doc.docstatus == 0:

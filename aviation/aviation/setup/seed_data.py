@@ -212,6 +212,10 @@ def seed_aircraft_certificates():
 
 def seed_flight_plans():
     import frappe.utils
+    
+    capt_name = frappe.db.get_value("Crew Member", {"full_name": "Capt. Rajan Sharma"}, "name")
+    fo_name = frappe.db.get_value("Crew Member", {"full_name": "FO. Aman Verma"}, "name")
+    
     fps = [
         {"flight_number": "AI101", "aircraft": "VT-ALM", "flight_date": today(), "departure_airport": "VIDP", "destination_airport": "KJFK", "etd_utc": now_datetime(), "eta_utc": frappe.utils.add_to_date(now_datetime(), hours=15), "trip_fuel_kg": 95000, "block_fuel_kg": 100000, "status": "Activated"},
         {"flight_number": "6E204", "aircraft": "VT-IGO", "flight_date": today(), "departure_airport": "VABB", "destination_airport": "VIDP", "etd_utc": now_datetime(), "eta_utc": frappe.utils.add_to_date(now_datetime(), hours=2), "trip_fuel_kg": 4500, "block_fuel_kg": 6000, "status": "Filed"},
@@ -221,8 +225,8 @@ def seed_flight_plans():
     ]
     for fp in fps:
         fp["crew_assignments"] = [
-            {"crew_member": "Capt. Rajan Sharma", "role": "Captain", "is_active_crew": 1},
-            {"crew_member": "FO. Aman Verma", "role": "First Officer", "is_active_crew": 1}
+            {"crew_member": capt_name, "role": "Captain", "is_active_crew": 1},
+            {"crew_member": fo_name, "role": "First Officer", "is_active_crew": 1}
         ]
         name = get_or_create("Flight Plan", {"flight_number": fp["flight_number"], "flight_date": fp["flight_date"]}, fp)
         # Attempt to submit if in valid state, but ignore if it fails
@@ -264,9 +268,9 @@ def seed_flight_operations():
 
 def seed_crew_licences():
     licences = [
-        {"crew_member": "Capt. Rajan Sharma", "licence_type": "ATPL", "licence_number": "ATPL-12345", "issue_date": "2010-01-01", "expiry_date": add_days(today(), 365), "status": "Valid"},
-        {"crew_member": "FO. Aman Verma", "licence_type": "CPL", "licence_number": "CPL-98765", "issue_date": "2015-05-10", "expiry_date": add_days(today(), 180), "status": "Valid"},
-        {"crew_member": "Capt. Sarah Jenkins", "licence_type": "ATPL", "licence_number": "ATPL-55555", "issue_date": "2008-11-20", "expiry_date": add_days(today(), 30), "status": "Expiring Soon"}
+        {"crew_member": frappe.db.get_value("Crew Member", {"full_name": "Capt. Rajan Sharma"}, "name"), "licence_type": "ATPL", "licence_number": "ATPL-12345", "issue_date": "2010-01-01", "expiry_date": add_days(today(), 365), "status": "Valid"},
+        {"crew_member": frappe.db.get_value("Crew Member", {"full_name": "FO. Aman Verma"}, "name"), "licence_type": "CPL", "licence_number": "CPL-98765", "issue_date": "2015-05-10", "expiry_date": add_days(today(), 180), "status": "Valid"},
+        {"crew_member": frappe.db.get_value("Crew Member", {"full_name": "Capt. Sarah Jenkins"}, "name"), "licence_type": "ATPL", "licence_number": "ATPL-55555", "issue_date": "2008-11-20", "expiry_date": add_days(today(), 30), "status": "Expiring Soon"}
     ]
     for l in licences:
         get_or_create("Crew Licence", {"licence_number": l["licence_number"]}, l)
@@ -275,11 +279,11 @@ def seed_crew_licences():
 def seed_crew_duty_records():
     import frappe.utils
     duties = [
-        {"crew_member": "Capt. Rajan Sharma", "duty_date": today(), "duty_type": "Flight Duty", "sign_on_time": now_datetime(), "sign_off_time": frappe.utils.add_to_date(now_datetime(), hours=8), "status": "Completed"},
-        {"crew_member": "FO. Aman Verma", "duty_date": today(), "duty_type": "Flight Duty", "sign_on_time": now_datetime(), "sign_off_time": frappe.utils.add_to_date(now_datetime(), hours=8), "status": "Completed"},
-        {"crew_member": "Priya Patel", "duty_date": today(), "duty_type": "Flight Duty", "sign_on_time": now_datetime(), "sign_off_time": frappe.utils.add_to_date(now_datetime(), hours=8), "status": "Completed"},
-        {"crew_member": "Rahul Singh", "duty_date": today(), "duty_type": "Standby", "sign_on_time": now_datetime(), "sign_off_time": frappe.utils.add_to_date(now_datetime(), hours=8), "status": "Completed"},
-        {"crew_member": "Capt. Sarah Jenkins", "duty_date": today(), "duty_type": "Training", "sign_on_time": now_datetime(), "sign_off_time": frappe.utils.add_to_date(now_datetime(), hours=8), "status": "Completed"}
+        {"crew_member": frappe.db.get_value("Crew Member", {"full_name": "Capt. Rajan Sharma"}, "name"), "duty_date": today(), "duty_type": "Flight Duty", "sign_on_time": now_datetime(), "sign_off_time": frappe.utils.add_to_date(now_datetime(), hours=8), "status": "Completed"},
+        {"crew_member": frappe.db.get_value("Crew Member", {"full_name": "FO. Aman Verma"}, "name"), "duty_date": today(), "duty_type": "Flight Duty", "sign_on_time": now_datetime(), "sign_off_time": frappe.utils.add_to_date(now_datetime(), hours=8), "status": "Completed"},
+        {"crew_member": frappe.db.get_value("Crew Member", {"full_name": "Priya Patel"}, "name"), "duty_date": today(), "duty_type": "Flight Duty", "sign_on_time": now_datetime(), "sign_off_time": frappe.utils.add_to_date(now_datetime(), hours=8), "status": "Completed"},
+        {"crew_member": frappe.db.get_value("Crew Member", {"full_name": "Rahul Singh"}, "name"), "duty_date": today(), "duty_type": "Standby", "sign_on_time": now_datetime(), "sign_off_time": frappe.utils.add_to_date(now_datetime(), hours=8), "status": "Completed"},
+        {"crew_member": frappe.db.get_value("Crew Member", {"full_name": "Capt. Sarah Jenkins"}, "name"), "duty_date": today(), "duty_type": "Training", "sign_on_time": now_datetime(), "sign_off_time": frappe.utils.add_to_date(now_datetime(), hours=8), "status": "Completed"}
     ]
     for d in duties:
         name = get_or_create("Crew Duty Record", {"crew_member": d["crew_member"], "duty_date": d["duty_date"], "duty_type": d["duty_type"]}, d)

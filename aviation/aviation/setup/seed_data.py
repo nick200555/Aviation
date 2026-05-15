@@ -211,12 +211,13 @@ def seed_aircraft_certificates():
     print("Aircraft Certificates seeded.")
 
 def seed_flight_plans():
+    import frappe.utils
     fps = [
-        {"flight_number": "AI101", "aircraft": "VT-ALM", "flight_date": today(), "departure_airport": "VIDP", "destination_airport": "KJFK", "etd_utc": now_datetime(), "eta_utc": now_datetime(), "trip_fuel_kg": 95000, "block_fuel_kg": 100000, "status": "Activated"},
-        {"flight_number": "6E204", "aircraft": "VT-IGO", "flight_date": today(), "departure_airport": "VABB", "destination_airport": "VIDP", "etd_utc": now_datetime(), "eta_utc": now_datetime(), "trip_fuel_kg": 4500, "block_fuel_kg": 6000, "status": "Filed"},
-        {"flight_number": "AI805", "aircraft": "VT-ABX", "flight_date": today(), "departure_airport": "VIDP", "destination_airport": "VOBL", "etd_utc": now_datetime(), "eta_utc": now_datetime(), "trip_fuel_kg": 5000, "block_fuel_kg": 6500, "status": "Completed"},
-        {"flight_number": "EK500", "aircraft": "A6-EMA", "flight_date": today(), "departure_airport": "OMDB", "destination_airport": "VABB", "etd_utc": now_datetime(), "eta_utc": now_datetime(), "trip_fuel_kg": 12000, "block_fuel_kg": 15000, "status": "Completed"},
-        {"flight_number": "SQ422", "aircraft": "9V-SWA", "flight_date": today(), "departure_airport": "WSSS", "destination_airport": "VABB", "etd_utc": now_datetime(), "eta_utc": now_datetime(), "trip_fuel_kg": 20000, "block_fuel_kg": 24000, "status": "Filed"}
+        {"flight_number": "AI101", "aircraft": "VT-ALM", "flight_date": today(), "departure_airport": "VIDP", "destination_airport": "KJFK", "etd_utc": now_datetime(), "eta_utc": frappe.utils.add_to_date(now_datetime(), hours=15), "trip_fuel_kg": 95000, "block_fuel_kg": 100000, "status": "Activated"},
+        {"flight_number": "6E204", "aircraft": "VT-IGO", "flight_date": today(), "departure_airport": "VABB", "destination_airport": "VIDP", "etd_utc": now_datetime(), "eta_utc": frappe.utils.add_to_date(now_datetime(), hours=2), "trip_fuel_kg": 4500, "block_fuel_kg": 6000, "status": "Filed"},
+        {"flight_number": "AI805", "aircraft": "VT-ABX", "flight_date": today(), "departure_airport": "VIDP", "destination_airport": "VOBL", "etd_utc": now_datetime(), "eta_utc": frappe.utils.add_to_date(now_datetime(), hours=3), "trip_fuel_kg": 5000, "block_fuel_kg": 6500, "status": "Completed"},
+        {"flight_number": "EK500", "aircraft": "A6-EMA", "flight_date": today(), "departure_airport": "OMDB", "destination_airport": "VABB", "etd_utc": now_datetime(), "eta_utc": frappe.utils.add_to_date(now_datetime(), hours=4), "trip_fuel_kg": 12000, "block_fuel_kg": 15000, "status": "Completed"},
+        {"flight_number": "SQ422", "aircraft": "9V-SWA", "flight_date": today(), "departure_airport": "WSSS", "destination_airport": "VABB", "etd_utc": now_datetime(), "eta_utc": frappe.utils.add_to_date(now_datetime(), hours=5), "trip_fuel_kg": 20000, "block_fuel_kg": 24000, "status": "Filed"}
     ]
     for fp in fps:
         name = get_or_create("Flight Plan", {"flight_number": fp["flight_number"], "flight_date": fp["flight_date"]}, fp)
@@ -225,11 +226,12 @@ def seed_flight_plans():
             doc = frappe.get_doc("Flight Plan", name)
             if doc.docstatus == 0:
                 doc.submit()
-        except:
-            pass
+        except Exception as e:
+            print("Flight Plan Submit Error:", e)
     print("Flight Plans seeded.")
 
 def seed_flight_operations():
+    import frappe.utils
     # Only for completed flight plans
     fps = frappe.get_all("Flight Plan", filters={"status": "Completed"})
     for fp in fps:
@@ -242,9 +244,9 @@ def seed_flight_operations():
             "departure_airport": fdoc.departure_airport,
             "destination_airport": fdoc.destination_airport,
             "off_block_time": now_datetime(),
-            "takeoff_time": now_datetime(),
-            "landing_time": now_datetime(),
-            "on_block_time": now_datetime(),
+            "takeoff_time": frappe.utils.add_to_date(now_datetime(), minutes=15),
+            "landing_time": frappe.utils.add_to_date(now_datetime(), hours=2),
+            "on_block_time": frappe.utils.add_to_date(now_datetime(), hours=2, minutes=15),
             "status": "Completed"
         }
         name = get_or_create("Flight Operation", {"flight_plan": fdoc.name}, ops)
@@ -252,8 +254,8 @@ def seed_flight_operations():
             doc = frappe.get_doc("Flight Operation", name)
             if doc.docstatus == 0:
                 doc.submit()
-        except:
-            pass
+        except Exception as e:
+            print("Flight Operation Submit Error:", e)
     print("Flight Operations seeded.")
 
 def seed_crew_licences():
@@ -267,12 +269,13 @@ def seed_crew_licences():
     print("Crew Licences seeded.")
 
 def seed_crew_duty_records():
+    import frappe.utils
     duties = [
-        {"crew_member": "Capt. Rajan Sharma", "duty_date": today(), "duty_type": "Flight Duty", "sign_on_time": now_datetime(), "sign_off_time": now_datetime(), "status": "Completed"},
-        {"crew_member": "FO. Aman Verma", "duty_date": today(), "duty_type": "Flight Duty", "sign_on_time": now_datetime(), "sign_off_time": now_datetime(), "status": "Completed"},
-        {"crew_member": "Priya Patel", "duty_date": today(), "duty_type": "Flight Duty", "sign_on_time": now_datetime(), "sign_off_time": now_datetime(), "status": "Completed"},
-        {"crew_member": "Rahul Singh", "duty_date": today(), "duty_type": "Standby", "sign_on_time": now_datetime(), "sign_off_time": now_datetime(), "status": "Completed"},
-        {"crew_member": "Capt. Sarah Jenkins", "duty_date": today(), "duty_type": "Training", "sign_on_time": now_datetime(), "sign_off_time": now_datetime(), "status": "Completed"}
+        {"crew_member": "Capt. Rajan Sharma", "duty_date": today(), "duty_type": "Flight Duty", "sign_on_time": now_datetime(), "sign_off_time": frappe.utils.add_to_date(now_datetime(), hours=8), "status": "Completed"},
+        {"crew_member": "FO. Aman Verma", "duty_date": today(), "duty_type": "Flight Duty", "sign_on_time": now_datetime(), "sign_off_time": frappe.utils.add_to_date(now_datetime(), hours=8), "status": "Completed"},
+        {"crew_member": "Priya Patel", "duty_date": today(), "duty_type": "Flight Duty", "sign_on_time": now_datetime(), "sign_off_time": frappe.utils.add_to_date(now_datetime(), hours=8), "status": "Completed"},
+        {"crew_member": "Rahul Singh", "duty_date": today(), "duty_type": "Standby", "sign_on_time": now_datetime(), "sign_off_time": frappe.utils.add_to_date(now_datetime(), hours=8), "status": "Completed"},
+        {"crew_member": "Capt. Sarah Jenkins", "duty_date": today(), "duty_type": "Training", "sign_on_time": now_datetime(), "sign_off_time": frappe.utils.add_to_date(now_datetime(), hours=8), "status": "Completed"}
     ]
     for d in duties:
         name = get_or_create("Crew Duty Record", {"crew_member": d["crew_member"], "duty_date": d["duty_date"], "duty_type": d["duty_type"]}, d)
@@ -280,8 +283,8 @@ def seed_crew_duty_records():
             doc = frappe.get_doc("Crew Duty Record", name)
             if doc.docstatus == 0:
                 doc.submit()
-        except:
-            pass
+        except Exception as e:
+            print("Crew Duty Submit Error:", e)
     print("Crew Duty Records seeded.")
 
 def seed_maintenance_work_orders():

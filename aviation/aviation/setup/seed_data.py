@@ -257,11 +257,10 @@ def seed_flight_operations():
             "flight_date": fdoc.flight_date,
             "departure_airport": fdoc.departure_airport,
             "destination_airport": fdoc.destination_airport,
-            "off_block_time": now_datetime(),
-            "takeoff_time": frappe.utils.add_to_date(now_datetime(), minutes=15),
-            "landing_time": frappe.utils.add_to_date(now_datetime(), hours=2),
-            "on_block_time": frappe.utils.add_to_date(now_datetime(), hours=2, minutes=15),
-            "status": "Completed"
+            "off_block_utc": now_datetime(),
+            "takeoff_utc": frappe.utils.add_to_date(now_datetime(), minutes=15),
+            "landing_utc": frappe.utils.add_to_date(now_datetime(), hours=2),
+            "on_block_utc": frappe.utils.add_to_date(now_datetime(), hours=2, minutes=15)
         }
         name = get_or_create("Flight Operation", {"flight_plan": fdoc.name}, ops)
         try:
@@ -339,11 +338,11 @@ def seed_safety_reports():
 
 def seed_hazard_register():
     hazards = [
-        {"hazard_title": "Bird Strike Risk Near Runway 27L", "hazard_type": "BIRD", "location": "VABB", "identified_by": frappe.session.user, "identification_date": today(), "risk_assessment": "High", "status": "Open", "description": "Frequent bird activity observed near Runway 27L threshold during morning hours. Risk of bird strike on departure."},
-        {"hazard_title": "FOD on Taxiway Echo", "hazard_type": "FOD", "location": "VIDP", "identified_by": frappe.session.user, "identification_date": add_days(today(), -3), "risk_assessment": "Medium", "status": "Mitigated", "description": "Metallic debris found on Taxiway Echo during routine apron inspection. Area cordoned off and FOD removed."},
-        {"hazard_title": "Crew Fatigue - Long Haul Operations", "hazard_type": "FATIGUE", "location": "OMDB", "identified_by": frappe.session.user, "identification_date": add_days(today(), -7), "risk_assessment": "High", "status": "Open", "description": "Multiple crew members flagged fatigue concerns on OMDB-VIDP ultra-long-haul sectors. Cumulative FDP approaching regulatory limits."},
-        {"hazard_title": "Severe Thunderstorm Cell - Mumbai FIR", "hazard_type": "WX-TS", "location": "VABB", "identified_by": frappe.session.user, "identification_date": today(), "risk_assessment": "Critical", "status": "Open", "description": "Active CB cells embedded in monsoon cloud mass over Mumbai FIR. Multiple aircraft requesting deviation."},
-        {"hazard_title": "APU Start Failure Pattern - VT-IGO", "hazard_type": "SYSTEM", "location": "VOBL", "identified_by": frappe.session.user, "identification_date": add_days(today(), -5), "risk_assessment": "Medium", "status": "Mitigated", "description": "Recurring APU start failures on VT-IGO. Root cause identified as faulty starter motor. Part ordered and replacement scheduled."}
+        {"hazard_title": "Bird Strike Risk Near Runway 27L", "hazard_type": "BIRD", "identified_date": today(), "risk_assessment": "High", "status": "Open", "description": "Frequent bird activity observed near Runway 27L threshold during morning hours. Risk of bird strike on departure."},
+        {"hazard_title": "FOD on Taxiway Echo", "hazard_type": "FOD", "identified_date": add_days(today(), -3), "risk_assessment": "Medium", "status": "Mitigated", "description": "Metallic debris found on Taxiway Echo during routine apron inspection. Area cordoned off and FOD removed."},
+        {"hazard_title": "Crew Fatigue - Long Haul Operations", "hazard_type": "FATIGUE", "identified_date": add_days(today(), -7), "risk_assessment": "High", "status": "Open", "description": "Multiple crew members flagged fatigue concerns on OMDB-VIDP ultra-long-haul sectors. Cumulative FDP approaching regulatory limits."},
+        {"hazard_title": "Severe Thunderstorm Cell - Mumbai FIR", "hazard_type": "WX-TS", "identified_date": today(), "risk_assessment": "Critical", "status": "Open", "description": "Active CB cells embedded in monsoon cloud mass over Mumbai FIR. Multiple aircraft requesting deviation."},
+        {"hazard_title": "APU Start Failure Pattern - VT-IGO", "hazard_type": "SYSTEM", "identified_date": add_days(today(), -5), "risk_assessment": "Medium", "status": "Mitigated", "description": "Recurring APU start failures on VT-IGO. Root cause identified as faulty starter motor. Part ordered and replacement scheduled."}
     ]
     for h in hazards:
         get_or_create("Hazard Register", {"hazard_title": h["hazard_title"]}, h)
@@ -357,21 +356,21 @@ def seed_safety_investigations():
         get_or_create("Safety Investigation", {"safety_report": report_1}, {
             "safety_report": report_1,
             "investigation_title": "Ground Equipment Collision Investigation - VT-IGO",
-            "lead_investigator": frappe.session.user,
+            "investigator": frappe.session.user,
             "start_date": add_days(today(), -2),
             "status": "Ongoing",
             "findings": "Preliminary findings indicate inadequate clearance margins during pushback operation. Driver did not conduct full walk-around inspection before commencing tow.",
-            "corrective_actions": "1. Mandatory tow team briefing reinstated. 2. Enhanced lighting in pushback zone. 3. Wing-walker protocol made mandatory for all night operations."
+            "recommendations": "1. Mandatory tow team briefing reinstated. 2. Enhanced lighting in pushback zone. 3. Wing-walker protocol made mandatory for all night operations."
         })
     if report_2:
         get_or_create("Safety Investigation", {"safety_report": report_2}, {
             "safety_report": report_2,
             "investigation_title": "TCAS RA Event Investigation - AI805",
-            "lead_investigator": frappe.session.user,
+            "investigator": frappe.session.user,
             "start_date": add_days(today(), -10),
             "status": "Completed",
             "findings": "Traffic conflict with unidentified IFR traffic at FL350. ATC spacing failure identified. TCAS RA correctly executed by crew with no loss of separation.",
-            "corrective_actions": "1. Report filed with DGCA. 2. ATC unit notified for procedural review. 3. Crew debriefed and CRM refresher recommended."
+            "recommendations": "1. Report filed with DGCA. 2. ATC unit notified for procedural review. 3. Crew debriefed and CRM refresher recommended."
         })
     print("Safety Investigations seeded.")
 
@@ -394,10 +393,10 @@ def seed_ad_compliance_records():
 
 def seed_component_overhaul_records():
     records = [
-        {"part_number": "114-1000-01", "serial_number": "MLG-001-VT-ABX", "overhaul_date": add_days(today(), -90), "overhaul_facility": "Air India Engineering Services", "next_overhaul_due": add_days(today(), 3 * 365), "total_time_at_overhaul": 8500, "total_cycles_at_overhaul": 6200, "status": "Serviceable", "aircraft": "VT-ABX"},
-        {"part_number": "8-420-02", "serial_number": "BRK-L1-VT-IGO", "overhaul_date": add_days(today(), -45), "overhaul_facility": "Lufthansa Technik", "next_overhaul_due": add_days(today(), 2 * 365), "total_time_at_overhaul": 4200, "total_cycles_at_overhaul": 3100, "status": "Serviceable", "aircraft": "VT-IGO"},
-        {"part_number": "114-1000-01", "serial_number": "MLG-002-9V-SWA", "overhaul_date": add_days(today(), -120), "overhaul_facility": "ST Engineering", "next_overhaul_due": add_days(today(), 3 * 365 - 120), "total_time_at_overhaul": 14500, "total_cycles_at_overhaul": 9800, "status": "Serviceable", "aircraft": "9V-SWA"},
-        {"part_number": "8-420-02", "serial_number": "BRK-R2-VT-ALM", "overhaul_date": add_days(today(), -200), "overhaul_facility": "Air Works India", "next_overhaul_due": add_days(today(), 365), "total_time_at_overhaul": 20000, "total_cycles_at_overhaul": 11000, "status": "Serviceable", "aircraft": "VT-ALM"}
+        {"part_number": "114-1000-01", "serial_number": "MLG-001-VT-ABX", "overhaul_date": add_days(today(), -90), "overhaul_facility": "Air India Engineering Services", "hours_since_new": 8500, "cycles_since_new": 6200},
+        {"part_number": "8-420-02", "serial_number": "BRK-L1-VT-IGO", "overhaul_date": add_days(today(), -45), "overhaul_facility": "Lufthansa Technik", "hours_since_new": 4200, "cycles_since_new": 3100},
+        {"part_number": "114-1000-01", "serial_number": "MLG-002-9V-SWA", "overhaul_date": add_days(today(), -120), "overhaul_facility": "ST Engineering", "hours_since_new": 14500, "cycles_since_new": 9800},
+        {"part_number": "8-420-02", "serial_number": "BRK-R2-VT-ALM", "overhaul_date": add_days(today(), -200), "overhaul_facility": "Air Works India", "hours_since_new": 20000, "cycles_since_new": 11000}
     ]
     for r in records:
         get_or_create("Component Overhaul Record", {"part_number": r["part_number"], "serial_number": r["serial_number"]}, r)
@@ -417,7 +416,7 @@ def seed_ground_handling_orders():
 def seed_load_sheets():
     import frappe.utils
     # Get flight operations that were created
-    ops = frappe.get_all("Flight Operation", filters={"status": "Completed"}, fields=["name", "aircraft", "flight_date", "flight_number"])
+    ops = frappe.get_all("Flight Operation", filters={"docstatus": 1}, fields=["name", "aircraft", "flight_date", "flight_number"])
     if not ops:
         # Fallback: try to find any submitted flight operations
         ops = frappe.get_all("Flight Operation", fields=["name", "aircraft", "flight_date", "flight_number"], limit=3)

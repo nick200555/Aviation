@@ -27,7 +27,13 @@ def execute():
     seed_crew_duty_records()
     seed_maintenance_work_orders()
     seed_safety_reports()
-    
+    seed_hazard_register()
+    seed_safety_investigations()
+    seed_ad_compliance_records()
+    seed_component_overhaul_records()
+    seed_ground_handling_orders()
+    seed_load_sheets()
+
     frappe.db.commit()
     print("Seeding Complete!")
 
@@ -330,3 +336,106 @@ def seed_safety_reports():
         except:
             pass
     print("Safety Occurrence Reports seeded.")
+
+def seed_hazard_register():
+    hazards = [
+        {"hazard_title": "Bird Strike Risk Near Runway 27L", "hazard_type": "BIRD", "location": "VABB", "identified_by": frappe.session.user, "identification_date": today(), "risk_assessment": "High", "status": "Open", "description": "Frequent bird activity observed near Runway 27L threshold during morning hours. Risk of bird strike on departure."},
+        {"hazard_title": "FOD on Taxiway Echo", "hazard_type": "FOD", "location": "VIDP", "identified_by": frappe.session.user, "identification_date": add_days(today(), -3), "risk_assessment": "Medium", "status": "Mitigated", "description": "Metallic debris found on Taxiway Echo during routine apron inspection. Area cordoned off and FOD removed."},
+        {"hazard_title": "Crew Fatigue - Long Haul Operations", "hazard_type": "FATIGUE", "location": "OMDB", "identified_by": frappe.session.user, "identification_date": add_days(today(), -7), "risk_assessment": "High", "status": "Open", "description": "Multiple crew members flagged fatigue concerns on OMDB-VIDP ultra-long-haul sectors. Cumulative FDP approaching regulatory limits."},
+        {"hazard_title": "Severe Thunderstorm Cell - Mumbai FIR", "hazard_type": "WX-TS", "location": "VABB", "identified_by": frappe.session.user, "identification_date": today(), "risk_assessment": "Critical", "status": "Open", "description": "Active CB cells embedded in monsoon cloud mass over Mumbai FIR. Multiple aircraft requesting deviation."},
+        {"hazard_title": "APU Start Failure Pattern - VT-IGO", "hazard_type": "SYSTEM", "location": "VOBL", "identified_by": frappe.session.user, "identification_date": add_days(today(), -5), "risk_assessment": "Medium", "status": "Mitigated", "description": "Recurring APU start failures on VT-IGO. Root cause identified as faulty starter motor. Part ordered and replacement scheduled."}
+    ]
+    for h in hazards:
+        get_or_create("Hazard Register", {"hazard_title": h["hazard_title"]}, h)
+    print("Hazard Register seeded.")
+
+def seed_safety_investigations():
+    # Need safety report names first
+    report_1 = frappe.db.get_value("Safety Occurrence Report", {"summary": "Tug struck landing gear door"}, "name")
+    report_2 = frappe.db.get_value("Safety Occurrence Report", {"summary": "TCAS RA in cruise"}, "name")
+    if report_1:
+        get_or_create("Safety Investigation", {"safety_report": report_1}, {
+            "safety_report": report_1,
+            "investigation_title": "Ground Equipment Collision Investigation - VT-IGO",
+            "lead_investigator": frappe.session.user,
+            "start_date": add_days(today(), -2),
+            "status": "Ongoing",
+            "findings": "Preliminary findings indicate inadequate clearance margins during pushback operation. Driver did not conduct full walk-around inspection before commencing tow.",
+            "corrective_actions": "1. Mandatory tow team briefing reinstated. 2. Enhanced lighting in pushback zone. 3. Wing-walker protocol made mandatory for all night operations."
+        })
+    if report_2:
+        get_or_create("Safety Investigation", {"safety_report": report_2}, {
+            "safety_report": report_2,
+            "investigation_title": "TCAS RA Event Investigation - AI805",
+            "lead_investigator": frappe.session.user,
+            "start_date": add_days(today(), -10),
+            "status": "Completed",
+            "findings": "Traffic conflict with unidentified IFR traffic at FL350. ATC spacing failure identified. TCAS RA correctly executed by crew with no loss of separation.",
+            "corrective_actions": "1. Report filed with DGCA. 2. ATC unit notified for procedural review. 3. Crew debriefed and CRM refresher recommended."
+        })
+    print("Safety Investigations seeded.")
+
+def seed_ad_compliance_records():
+    ad1 = frappe.db.get_value("Airworthiness Directive", {"ad_number": "FAA-2023-0123"}, "name")
+    ad2 = frappe.db.get_value("Airworthiness Directive", {"ad_number": "EASA-2024-0045"}, "name")
+    records = []
+    if ad1:
+        records += [
+            {"airworthiness_directive": ad1, "aircraft": "VT-ABX", "compliance_status": "Complied - Terminating", "compliance_date": add_days(today(), -30), "next_due_date": None, "remarks": "Inspection completed by LAME Amit Kumar. No defects found. RTS signed."},
+            {"airworthiness_directive": ad1, "aircraft": "VT-ALM", "compliance_status": "Pending", "compliance_date": None, "next_due_date": add_days(today(), 10), "remarks": "Aircraft in C-Check. AD compliance to be incorporated during current check package."}
+        ]
+    if ad2:
+        records += [
+            {"airworthiness_directive": ad2, "aircraft": "VT-IGO", "compliance_status": "Complied - Repetitive", "compliance_date": add_days(today(), -15), "next_due_date": add_days(today(), 165), "remarks": "Fan blade inspection completed at 4500 cycles. Next inspection due at 5500 cycles."}
+        ]
+    for r in records:
+        get_or_create("AD Compliance Record", {"airworthiness_directive": r["airworthiness_directive"], "aircraft": r["aircraft"]}, r)
+    print("AD Compliance Records seeded.")
+
+def seed_component_overhaul_records():
+    records = [
+        {"part_number": "114-1000-01", "serial_number": "MLG-001-VT-ABX", "overhaul_date": add_days(today(), -90), "overhaul_facility": "Air India Engineering Services", "next_overhaul_due": add_days(today(), 3 * 365), "total_time_at_overhaul": 8500, "total_cycles_at_overhaul": 6200, "status": "Serviceable", "aircraft": "VT-ABX"},
+        {"part_number": "8-420-02", "serial_number": "BRK-L1-VT-IGO", "overhaul_date": add_days(today(), -45), "overhaul_facility": "Lufthansa Technik", "next_overhaul_due": add_days(today(), 2 * 365), "total_time_at_overhaul": 4200, "total_cycles_at_overhaul": 3100, "status": "Serviceable", "aircraft": "VT-IGO"},
+        {"part_number": "114-1000-01", "serial_number": "MLG-002-9V-SWA", "overhaul_date": add_days(today(), -120), "overhaul_facility": "ST Engineering", "next_overhaul_due": add_days(today(), 3 * 365 - 120), "total_time_at_overhaul": 14500, "total_cycles_at_overhaul": 9800, "status": "Serviceable", "aircraft": "9V-SWA"},
+        {"part_number": "8-420-02", "serial_number": "BRK-R2-VT-ALM", "overhaul_date": add_days(today(), -200), "overhaul_facility": "Air Works India", "next_overhaul_due": add_days(today(), 365), "total_time_at_overhaul": 20000, "total_cycles_at_overhaul": 11000, "status": "Serviceable", "aircraft": "VT-ALM"}
+    ]
+    for r in records:
+        get_or_create("Component Overhaul Record", {"part_number": r["part_number"], "serial_number": r["serial_number"]}, r)
+    print("Component Overhaul Records seeded.")
+
+def seed_ground_handling_orders():
+    orders = [
+        {"flight_number": "AI101", "airport": "VIDP", "handling_company": frappe.db.get_value("Ground Handling Company", {"company_name": "Air India Airport Services"}, "name"), "service_date": today(), "status": "Completed", "services_requested": "Passenger Handling, Baggage, Aircraft Cleaning, Catering", "pax_count": 280, "remarks": "On-time completion. No issues reported."},
+        {"flight_number": "6E204", "airport": "VABB", "handling_company": frappe.db.get_value("Ground Handling Company", {"company_name": "Celebi Aviation"}, "name"), "service_date": today(), "status": "Confirmed", "services_requested": "Passenger Handling, Baggage, Ramp Handling", "pax_count": 180, "remarks": "Gate change from B12 to B15. Bags to be retagged."},
+        {"flight_number": "EK500", "airport": "OMDB", "handling_company": frappe.db.get_value("Ground Handling Company", {"company_name": "Dnata"}, "name"), "service_date": today(), "status": "Completed", "services_requested": "Full Service - Pax, Ramp, Catering, Crew Transport", "pax_count": 350, "remarks": "VIP passenger in row 1. Dnata crew briefed."},
+        {"flight_number": "AI805", "airport": "VIDP", "handling_company": frappe.db.get_value("Ground Handling Company", {"company_name": "Air India Airport Services"}, "name"), "service_date": today(), "status": "Completed", "services_requested": "Passenger Handling, Baggage", "pax_count": 170, "remarks": "2 wheelchairs. WCHR assistance arranged."}
+    ]
+    for o in orders:
+        get_or_create("Ground Handling Order", {"flight_number": o["flight_number"], "airport": o["airport"]}, o)
+    print("Ground Handling Orders seeded.")
+
+def seed_load_sheets():
+    import frappe.utils
+    # Get flight operations that were created
+    ops = frappe.get_all("Flight Operation", filters={"status": "Completed"}, fields=["name", "aircraft", "flight_date", "flight_number"])
+    if not ops:
+        # Fallback: try to find any submitted flight operations
+        ops = frappe.get_all("Flight Operation", fields=["name", "aircraft", "flight_date", "flight_number"], limit=3)
+    for op in ops:
+        ls_data = {
+            "flight_operation": op.name,
+            "aircraft": op.aircraft,
+            "flight_date": op.flight_date or today(),
+            "dry_operating_weight": 41500,
+            "take_off_fuel_kg": 15000,
+            "pax_count": 165,
+            "pax_weight_kg": 13200,
+            "checked_baggage_kg": 2800,
+            "cargo_kg": 500,
+            "max_takeoff_weight": 79015,
+            "max_landing_weight": 66360,
+            "zero_fuel_weight": 62000,
+            "remarks": "Load sheet prepared and confirmed by Load Controller."
+        }
+        get_or_create("Load Sheet", {"flight_operation": op.name}, ls_data)
+    print("Load Sheets seeded.")

@@ -1,7 +1,7 @@
-﻿import frappe
+import frappe
 from frappe.model.document import Document
 
 
-class AdAffectedAircraft(Document):
+class ADAffectedAircraft(Document):
     pass
 

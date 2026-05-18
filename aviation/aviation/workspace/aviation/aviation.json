@@ -439,7 +439,7 @@
    "hidden": 0,
    "idx": 37,
    "is_query_report": 1,
-   "label": "Safety Occurrence Report",
+   "label": "Safety Occurrence Report (Report)",
    "link_count": 0,
    "link_to": "Safety Occurrence Report",
    "link_type": "Report",
@@ -456,45 +456,6 @@
  "restrict_to_domain": "",
  "roles": [],
  "sequence_id": 1.0,
- "shortcuts": [
-  {
-   "color": "Blue",
-   "format": "{} Active",
-   "label": "Aircraft",
-   "link_to": "Aircraft",
-   "type": "DocType"
-  },
-  {
-   "color": "Green",
-   "format": "{} Open",
-   "label": "Flight Plans",
-   "link_to": "Flight Plan",
-   "stats_filter": "{\"docstatus\": 0}",
-   "type": "DocType"
-  },
-  {
-   "color": "Purple",
-   "format": "{} Operated",
-   "label": "Flight Operations",
-   "link_to": "Flight Operation",
-   "type": "DocType"
-  },
-  {
-   "color": "Orange",
-   "format": "{} Open",
-   "label": "Maintenance Orders",
-   "link_to": "Maintenance Work Order",
-   "stats_filter": "{\"status\": [\"!=\", \"Completed\"]}",
-   "type": "DocType"
-  },
-  {
-   "color": "Red",
-   "format": "{} Pending",
-   "label": "Safety Reports",
-   "link_to": "Safety Occurrence Report",
-   "stats_filter": "{\"docstatus\": 0}",
-   "type": "DocType"
-  }
- ],
+ "shortcuts": [],
  "title": "Aviation"
 }

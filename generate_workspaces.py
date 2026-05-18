@@ -61,7 +61,7 @@ def create_aviation_workspace():
             {"dependencies": "", "hidden": 0, "idx": 34, "is_query_report": 1, "label": "Crew Duty Report", "link_count": 0, "link_to": "Crew Duty Report", "link_type": "Report", "onboard": 1, "type": "Link"},
             {"dependencies": "", "hidden": 0, "idx": 35, "is_query_report": 1, "label": "Maintenance Due Report", "link_count": 0, "link_to": "Maintenance Due Report", "link_type": "Report", "onboard": 1, "type": "Link"},
             {"dependencies": "", "hidden": 0, "idx": 36, "is_query_report": 1, "label": "AD SB Compliance Report", "link_count": 0, "link_to": "AD SB Compliance Report", "link_type": "Report", "onboard": 1, "type": "Link"},
-            {"dependencies": "", "hidden": 0, "idx": 37, "is_query_report": 1, "label": "Safety Occurrence Report", "link_count": 0, "link_to": "Safety Occurrence Report", "link_type": "Report", "onboard": 1, "type": "Link"}
+            {"dependencies": "", "hidden": 0, "idx": 37, "is_query_report": 1, "label": "Safety Occurrence Report (Report)", "link_count": 0, "link_to": "Safety Occurrence Report", "link_type": "Report", "onboard": 1, "type": "Link"}
         ],
         "modified": "2024-05-18 00:00:00.000000",
         "modified_by": "Administrator",
@@ -72,13 +72,7 @@ def create_aviation_workspace():
         "restrict_to_domain": "",
         "roles": [],
         "sequence_id": 1.0,
-        "shortcuts": [
-            {"color": "Blue", "format": "{} Active", "label": "Aircraft", "link_to": "Aircraft", "type": "DocType"},
-            {"color": "Green", "format": "{} Open", "label": "Flight Plans", "link_to": "Flight Plan", "stats_filter": "{\"docstatus\": 0}", "type": "DocType"},
-            {"color": "Purple", "format": "{} Operated", "label": "Flight Operations", "link_to": "Flight Operation", "type": "DocType"},
-            {"color": "Orange", "format": "{} Open", "label": "Maintenance Orders", "link_to": "Maintenance Work Order", "stats_filter": "{\"status\": [\"!=\", \"Completed\"]}", "type": "DocType"},
-            {"color": "Red", "format": "{} Pending", "label": "Safety Reports", "link_to": "Safety Occurrence Report", "stats_filter": "{\"docstatus\": 0}", "type": "DocType"}
-        ],
+        "shortcuts": [],
         "title": "Aviation"
     }
 
@@ -140,14 +134,7 @@ def create_aerospaceos_workspace(aviation):
     links.extend(space_reports)
     ws["links"] = links
     
-    shortcuts = list(ws["shortcuts"])
-    shortcuts.extend([
-        {"color": "Blue", "format": "{} Active", "label": "Spacecraft", "link_to": "Spacecraft Asset", "stats_filter": "{\"status\": \"Active\"}", "type": "DocType"},
-        {"color": "Green", "format": "{} Campaigns", "label": "Launch Campaigns", "link_to": "Launch Campaign", "stats_filter": "{\"status\": [\"!=\", \"Completed\"]}", "type": "DocType"},
-        {"color": "Red", "format": "{} Open", "label": "Conjunctions", "link_to": "Conjunction Assessment", "stats_filter": "{\"status\": \"Open\"}", "type": "DocType"},
-        {"color": "Purple", "format": "{} Open", "label": "NCRs", "link_to": "Aerospace Quality NCR", "stats_filter": "{\"status\": [\"!=\", \"Closed\"]}", "type": "DocType"}
-    ])
-    ws["shortcuts"] = shortcuts
+    ws["shortcuts"] = []
     
     return ws
 

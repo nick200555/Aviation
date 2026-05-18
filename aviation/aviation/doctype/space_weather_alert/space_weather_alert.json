@@ -1,0 +1,108 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2024-05-18 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "alert_utc",
+  "solar_flare_class",
+  "geomagnetic_storm_kp_index",
+  "solar_radiation_level",
+  "action_taken",
+  "section_impact",
+  "affected_satellites",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "SWA-.YYYY.-"
+  },
+  {
+   "fieldname": "alert_utc",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Alert Time (UTC)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "solar_flare_class",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Solar Flare Class",
+   "options": "\nA-Class\nB-Class\nC-Class\nM-Class\nX-Class"
+  },
+  {
+   "fieldname": "geomagnetic_storm_kp_index",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Geomagnetic Storm Kp Index (0-9)"
+  },
+  {
+   "fieldname": "solar_radiation_level",
+   "fieldtype": "Float",
+   "label": "Solar Radiation Level (pfu)"
+  },
+  {
+   "fieldname": "action_taken",
+   "fieldtype": "Select",
+   "label": "Action Taken",
+   "options": "None\nSafe Mode Triggered\nBattery Charging Optimized\nCrew Shielding Protocol\nAntenna Repointed\nPayload Shutdown"
+  },
+  {
+   "fieldname": "section_impact",
+   "fieldtype": "Section Break",
+   "label": "Affected Spacecraft"
+  },
+  {
+   "fieldname": "affected_satellites",
+   "fieldtype": "Table",
+   "label": "Affected Satellites",
+   "options": "Affected Satellites"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes / NOAA Alert Reference"
+  }
+ ],
+ "links": [],
+ "modified": "2024-05-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Aviation",
+ "name": "Space Weather Alert",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Aviation Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Safety Officer",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "alert_utc",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,196 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2024-05-18 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "ncr_id",
+  "originating_work_order",
+  "part_number",
+  "serial_number",
+  "status",
+  "section_nc",
+  "non_conformance_description",
+  "severity",
+  "disposition",
+  "section_capa",
+  "corrective_and_preventive_action_required",
+  "capa_description",
+  "capa_due_date",
+  "section_sign",
+  "quality_manager_signature",
+  "sign_off_date",
+  "as9100_clause_reference",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "NCR-.YYYY.-"
+  },
+  {
+   "fieldname": "ncr_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "NCR Reference ID"
+  },
+  {
+   "fieldname": "originating_work_order",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Originating Work Order",
+   "options": "Maintenance Work Order"
+  },
+  {
+   "fieldname": "part_number",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Part Number",
+   "options": "Part Number"
+  },
+  {
+   "fieldname": "serial_number",
+   "fieldtype": "Data",
+   "label": "Serial Number"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "NCR Status",
+   "options": "Open\nUnder Review\nDispositioned\nClosed\nEscalated",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_nc",
+   "fieldtype": "Section Break",
+   "label": "Non-Conformance Details"
+  },
+  {
+   "fieldname": "non_conformance_description",
+   "fieldtype": "Small Text",
+   "label": "Non-Conformance Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "severity",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Severity",
+   "options": "Minor\nMajor\nCritical",
+   "reqd": 1
+  },
+  {
+   "fieldname": "disposition",
+   "fieldtype": "Select",
+   "label": "Disposition",
+   "options": "\nScrap\nRework\nUse-As-Is\nRepair\nReturn to Vendor"
+  },
+  {
+   "fieldname": "section_capa",
+   "fieldtype": "Section Break",
+   "label": "CAPA (AS9100)"
+  },
+  {
+   "fieldname": "corrective_and_preventive_action_required",
+   "fieldtype": "Check",
+   "label": "CAPA Required"
+  },
+  {
+   "fieldname": "capa_description",
+   "fieldtype": "Text",
+   "label": "CAPA Description"
+  },
+  {
+   "fieldname": "capa_due_date",
+   "fieldtype": "Date",
+   "label": "CAPA Due Date"
+  },
+  {
+   "fieldname": "section_sign",
+   "fieldtype": "Section Break",
+   "label": "Quality Sign-Off"
+  },
+  {
+   "fieldname": "quality_manager_signature",
+   "fieldtype": "Link",
+   "label": "Quality Manager",
+   "options": "User"
+  },
+  {
+   "fieldname": "sign_off_date",
+   "fieldtype": "Date",
+   "label": "Sign-Off Date"
+  },
+  {
+   "fieldname": "as9100_clause_reference",
+   "fieldtype": "Data",
+   "label": "AS9100 Clause Reference"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-05-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Aviation",
+ "name": "Aerospace Quality NCR",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Aviation Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Maintenance Engineer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Safety Officer",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {"color": "Red", "title": "Open"},
+  {"color": "Orange", "title": "Under Review"},
+  {"color": "Blue", "title": "Dispositioned"},
+  {"color": "Green", "title": "Closed"},
+  {"color": "Purple", "title": "Escalated"}
+ ],
+ "track_changes": 1
+}

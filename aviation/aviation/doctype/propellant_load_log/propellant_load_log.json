@@ -1,0 +1,169 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2024-05-18 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "launch_campaign",
+  "propellant_type",
+  "target_loading_mass_kg",
+  "actual_loaded_mass_kg",
+  "loading_variance_kg",
+  "section_cryo",
+  "cryo_temperature_kelvin",
+  "tank_pressure_psi",
+  "boil_off_rate_kg_min",
+  "section_timing",
+  "loading_start_utc",
+  "loading_end_utc",
+  "loading_duration_minutes",
+  "section_safety",
+  "authorized_by",
+  "safety_clearance",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "PLL-.YYYY.-"
+  },
+  {
+   "fieldname": "launch_campaign",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Launch Campaign",
+   "options": "Launch Campaign",
+   "reqd": 1
+  },
+  {
+   "fieldname": "propellant_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Propellant Type",
+   "options": "Liquid Oxygen (LOX)\nLiquid Hydrogen (LH2)\nRP-1 Rocket Kerosene\nLiquid Methane (LCH4)\nHydrazine\nNitrogen Tetroxide (NTO)\nXenon Gas\nHelium Pressurant",
+   "reqd": 1
+  },
+  {
+   "fieldname": "target_loading_mass_kg",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Target Loading Mass (kg)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "actual_loaded_mass_kg",
+   "fieldtype": "Float",
+   "label": "Actual Loaded Mass (kg)"
+  },
+  {
+   "fieldname": "loading_variance_kg",
+   "fieldtype": "Float",
+   "label": "Loading Variance (kg)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_cryo",
+   "fieldtype": "Section Break",
+   "label": "Cryogenic Conditions"
+  },
+  {
+   "fieldname": "cryo_temperature_kelvin",
+   "fieldtype": "Float",
+   "label": "Cryo Temperature (K)"
+  },
+  {
+   "fieldname": "tank_pressure_psi",
+   "fieldtype": "Float",
+   "label": "Tank Pressure (PSI)"
+  },
+  {
+   "fieldname": "boil_off_rate_kg_min",
+   "fieldtype": "Float",
+   "label": "Boil-off Rate (kg/min)"
+  },
+  {
+   "fieldname": "section_timing",
+   "fieldtype": "Section Break",
+   "label": "Loading Timeline"
+  },
+  {
+   "fieldname": "loading_start_utc",
+   "fieldtype": "Datetime",
+   "label": "Loading Start (UTC)"
+  },
+  {
+   "fieldname": "loading_end_utc",
+   "fieldtype": "Datetime",
+   "label": "Loading End (UTC)"
+  },
+  {
+   "fieldname": "loading_duration_minutes",
+   "fieldtype": "Float",
+   "label": "Loading Duration (min)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_safety",
+   "fieldtype": "Section Break",
+   "label": "Safety & Authorization"
+  },
+  {
+   "fieldname": "authorized_by",
+   "fieldtype": "Link",
+   "label": "Authorized By",
+   "options": "User"
+  },
+  {
+   "fieldname": "safety_clearance",
+   "fieldtype": "Check",
+   "label": "Safety Clearance Obtained"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-05-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Aviation",
+ "name": "Propellant Load Log",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Aviation Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Ground Operations Supervisor",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

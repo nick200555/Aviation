@@ -1,0 +1,18 @@
+{
+ "attach_print": 0,
+ "channel": "System",
+ "conditions": "doc.severity == 'Critical' and doc.status in ['Open', 'Escalated']",
+ "creation": "2024-05-18 00:00:00.000000",
+ "document_type": "Aerospace Quality NCR",
+ "doctype": "Notification",
+ "enabled": 1,
+ "event": "New",
+ "message": "Critical NCR {{ doc.name }} raised for Part {{ doc.part_number }} (S/N: {{ doc.serial_number }}). Description: {{ doc.non_conformance_description }}. AS9100 CAPA Required: {{ doc.corrective_and_preventive_action_required }}. Immediate quality management review required.",
+ "modified": "2024-05-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Aviation",
+ "name": "NCR Escalation",
+ "owner": "Administrator",
+ "send_to_all_assignees": 0,
+ "subject": "🔴 Critical NCR Raised: {{ doc.name }} — Part {{ doc.part_number }}"
+}

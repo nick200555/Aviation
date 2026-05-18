@@ -1,0 +1,136 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2024-05-18 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "spacecraft",
+  "ground_station_name",
+  "ground_station_location",
+  "pass_start_utc",
+  "pass_end_utc",
+  "max_elevation_deg",
+  "section_comms",
+  "downlink_frequency_mhz",
+  "uplink_frequency_mhz",
+  "telemetry_status",
+  "data_volume_mb",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "GSP-.YYYY.-"
+  },
+  {
+   "fieldname": "spacecraft",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Spacecraft",
+   "options": "Spacecraft Asset",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ground_station_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Ground Station Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ground_station_location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "pass_start_utc",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Pass Start (UTC)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "pass_end_utc",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Pass End (UTC)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "max_elevation_deg",
+   "fieldtype": "Float",
+   "label": "Max Elevation (°)"
+  },
+  {
+   "fieldname": "section_comms",
+   "fieldtype": "Section Break",
+   "label": "Communications"
+  },
+  {
+   "fieldname": "downlink_frequency_mhz",
+   "fieldtype": "Float",
+   "label": "Downlink Frequency (MHz)"
+  },
+  {
+   "fieldname": "uplink_frequency_mhz",
+   "fieldtype": "Float",
+   "label": "Uplink Frequency (MHz)"
+  },
+  {
+   "fieldname": "telemetry_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Telemetry Status",
+   "options": "Good\nDegraded\nNo Signal\nScheduled"
+  },
+  {
+   "fieldname": "data_volume_mb",
+   "fieldtype": "Float",
+   "label": "Data Volume Downlinked (MB)"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "links": [],
+ "modified": "2024-05-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Aviation",
+ "name": "Ground Station Pass",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Aviation Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Flight Operations Officer",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "pass_start_utc",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,137 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:component_id",
+ "creation": "2024-05-18 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "component_id",
+  "component_name",
+  "component_type",
+  "manufacturer",
+  "status",
+  "section_stats",
+  "number_of_launches",
+  "refurbishment_cycles",
+  "max_reuses",
+  "manufacture_date",
+  "last_flight_date",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "component_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Component ID",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "component_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Component Name"
+  },
+  {
+   "fieldname": "component_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Component Type",
+   "options": "First Stage Booster\nSecond Stage\nPayload Fairing Half\nLaunch Abort System\nEngine\nFairing",
+   "reqd": 1
+  },
+  {
+   "fieldname": "manufacturer",
+   "fieldtype": "Data",
+   "label": "Manufacturer"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "In Manufacturing\nRefurbishing\nReady for Flight\nExpended\nDestroyed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_stats",
+   "fieldtype": "Section Break",
+   "label": "Flight Statistics"
+  },
+  {
+   "fieldname": "number_of_launches",
+   "fieldtype": "Int",
+   "label": "Number of Launches"
+  },
+  {
+   "fieldname": "refurbishment_cycles",
+   "fieldtype": "Int",
+   "label": "Refurbishment Cycles Completed"
+  },
+  {
+   "fieldname": "max_reuses",
+   "fieldtype": "Int",
+   "label": "Max Approved Reuses"
+  },
+  {
+   "fieldname": "manufacture_date",
+   "fieldtype": "Date",
+   "label": "Manufacture Date"
+  },
+  {
+   "fieldname": "last_flight_date",
+   "fieldtype": "Date",
+   "label": "Last Flight Date"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  }
+ ],
+ "links": [],
+ "modified": "2024-05-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Aviation",
+ "name": "Launch Vehicle Component",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Aviation Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Maintenance Engineer",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {"color": "Blue", "title": "In Manufacturing"},
+  {"color": "Orange", "title": "Refurbishing"},
+  {"color": "Green", "title": "Ready for Flight"},
+  {"color": "Gray", "title": "Expended"},
+  {"color": "Red", "title": "Destroyed"}
+ ],
+ "title_field": "component_id",
+ "track_changes": 1
+}

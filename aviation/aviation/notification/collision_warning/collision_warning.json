@@ -1,0 +1,18 @@
+{
+ "attach_print": 0,
+ "channel": "System",
+ "conditions": "doc.risk_level in ['Critical', 'Red'] and doc.status == 'Open'",
+ "creation": "2024-05-18 00:00:00.000000",
+ "document_type": "Conjunction Assessment",
+ "doctype": "Notification",
+ "enabled": 1,
+ "event": "New",
+ "message": "CRITICAL: Conjunction Assessment {{ doc.name }} for spacecraft {{ doc.spacecraft }} vs debris {{ doc.debris_catalog_id }}. Risk Level: {{ doc.risk_level }}. Miss Distance: {{ doc.miss_distance_meters }}m. TCA: {{ doc.closest_approach_utc }} UTC. IMMEDIATE REVIEW REQUIRED.",
+ "modified": "2024-05-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Aviation",
+ "name": "Collision Warning",
+ "owner": "Administrator",
+ "send_to_all_assignees": 0,
+ "subject": "🚨 COLLISION WARNING [{{ doc.risk_level }}]: {{ doc.spacecraft }} vs {{ doc.debris_catalog_id }}"
+}

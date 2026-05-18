@@ -1,0 +1,287 @@
+{
+ "charts": [],
+ "content": "[{\"id\": \"cb-spacecraft\", \"type\": \"card\", \"data\": {\"card_name\": \"Spacecraft & Satellite Fleet\", \"col\": 12}}, {\"id\": \"cb-launch\", \"type\": \"card\", \"data\": {\"card_name\": \"Launch & Mission Control\", \"col\": 12}}, {\"id\": \"cb-orbital\", \"type\": \"card\", \"data\": {\"card_name\": \"Orbital Operations\", \"col\": 12}}, {\"id\": \"cb-spacesafety\", \"type\": \"card\", \"data\": {\"card_name\": \"Space Safety & Environment\", \"col\": 12}}, {\"id\": \"cb-cryo\", \"type\": \"card\", \"data\": {\"card_name\": \"Cryogenic & Propellant Logistics\", \"col\": 12}}, {\"id\": \"cb-itar\", \"type\": \"card\", \"data\": {\"card_name\": \"ITAR & Aerospace Compliance\", \"col\": 12}}, {\"id\": \"cb-quality\", \"type\": \"card\", \"data\": {\"card_name\": \"Aerospace Quality (AS9100)\", \"col\": 12}}, {\"id\": \"cb-spacereports\", \"type\": \"card\", \"data\": {\"card_name\": \"Space Reports & Analytics\", \"col\": 12}}]",
+ "creation": "2024-05-18 00:00:00.000000",
+ "developer_mode_only": 0,
+ "disable_user_customization": 0,
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "rocket",
+ "idx": 0,
+ "is_default": 0,
+ "is_hidden": 0,
+ "label": "AeroSpaceOS",
+ "links": [
+  {
+   "hidden": 0, "idx": 1, "is_query_report": 0,
+   "label": "Spacecraft & Satellite Fleet",
+   "link_count": 0, "onboard": 1,
+   "title": "Spacecraft & Satellite Fleet",
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "", "hidden": 0, "idx": 2, "is_query_report": 0,
+   "label": "Spacecraft Asset",
+   "link_count": 0, "link_to": "Spacecraft Asset",
+   "link_type": "DocType", "onboard": 1, "type": "Link"
+  },
+  {
+   "dependencies": "", "hidden": 0, "idx": 3, "is_query_report": 0,
+   "label": "Launch Vehicle Component",
+   "link_count": 0, "link_to": "Launch Vehicle Component",
+   "link_type": "DocType", "onboard": 1, "type": "Link"
+  },
+  {
+   "dependencies": "", "hidden": 0, "idx": 4, "is_query_report": 1,
+   "label": "Spacecraft Utilization Report",
+   "link_count": 0, "link_to": "Spacecraft Utilization Report",
+   "link_type": "Report", "onboard": 1, "type": "Link"
+  },
+  {
+   "hidden": 0, "idx": 5, "is_query_report": 0,
+   "label": "Launch & Mission Control",
+   "link_count": 0, "onboard": 1,
+   "title": "Launch & Mission Control",
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "", "hidden": 0, "idx": 6, "is_query_report": 0,
+   "label": "Launch Campaign",
+   "link_count": 0, "link_to": "Launch Campaign",
+   "link_type": "DocType", "onboard": 1, "type": "Link"
+  },
+  {
+   "dependencies": "", "hidden": 0, "idx": 7, "is_query_report": 1,
+   "label": "Launch Campaign Status Report",
+   "link_count": 0, "link_to": "Launch Campaign Status Report",
+   "link_type": "Report", "onboard": 1, "type": "Link"
+  },
+  {
+   "hidden": 0, "idx": 8, "is_query_report": 0,
+   "label": "Orbital Operations",
+   "link_count": 0, "onboard": 1,
+   "title": "Orbital Operations",
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "", "hidden": 0, "idx": 9, "is_query_report": 0,
+   "label": "Orbit Parameter",
+   "link_count": 0, "link_to": "Orbit Parameter",
+   "link_type": "DocType", "onboard": 1, "type": "Link"
+  },
+  {
+   "dependencies": "", "hidden": 0, "idx": 10, "is_query_report": 0,
+   "label": "Ground Station Pass",
+   "link_count": 0, "link_to": "Ground Station Pass",
+   "link_type": "DocType", "onboard": 1, "type": "Link"
+  },
+  {
+   "hidden": 0, "idx": 11, "is_query_report": 0,
+   "label": "Space Safety & Environment",
+   "link_count": 0, "onboard": 1,
+   "title": "Space Safety & Environment",
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "", "hidden": 0, "idx": 12, "is_query_report": 0,
+   "label": "Conjunction Assessment",
+   "link_count": 0, "link_to": "Conjunction Assessment",
+   "link_type": "DocType", "onboard": 1, "type": "Link"
+  },
+  {
+   "dependencies": "", "hidden": 0, "idx": 13, "is_query_report": 0,
+   "label": "Space Weather Alert",
+   "link_count": 0, "link_to": "Space Weather Alert",
+   "link_type": "DocType", "onboard": 1, "type": "Link"
+  },
+  {
+   "dependencies": "", "hidden": 0, "idx": 14, "is_query_report": 1,
+   "label": "Conjunction Risk Report",
+   "link_count": 0, "link_to": "Conjunction Risk Report",
+   "link_type": "Report", "onboard": 1, "type": "Link"
+  },
+  {
+   "dependencies": "", "hidden": 0, "idx": 15, "is_query_report": 1,
+   "label": "Space Weather Impact Report",
+   "link_count": 0, "link_to": "Space Weather Impact Report",
+   "link_type": "Report", "onboard": 0, "type": "Link"
+  },
+  {
+   "hidden": 0, "idx": 16, "is_query_report": 0,
+   "label": "Cryogenic & Propellant Logistics",
+   "link_count": 0, "onboard": 1,
+   "title": "Cryogenic & Propellant Logistics",
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "", "hidden": 0, "idx": 17, "is_query_report": 0,
+   "label": "Propellant Load Log",
+   "link_count": 0, "link_to": "Propellant Load Log",
+   "link_type": "DocType", "onboard": 1, "type": "Link"
+  },
+  {
+   "dependencies": "", "hidden": 0, "idx": 18, "is_query_report": 1,
+   "label": "Propellant Usage Report",
+   "link_count": 0, "link_to": "Propellant Usage Report",
+   "link_type": "Report", "onboard": 1, "type": "Link"
+  },
+  {
+   "hidden": 0, "idx": 19, "is_query_report": 0,
+   "label": "ITAR & Aerospace Compliance",
+   "link_count": 0, "onboard": 1,
+   "title": "ITAR & Aerospace Compliance",
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "", "hidden": 0, "idx": 20, "is_query_report": 0,
+   "label": "ITAR EAR Access Control",
+   "link_count": 0, "link_to": "ITAR EAR Access Control",
+   "link_type": "DocType", "onboard": 1, "type": "Link"
+  },
+  {
+   "dependencies": "", "hidden": 0, "idx": 21, "is_query_report": 1,
+   "label": "ITAR Compliance Report",
+   "link_count": 0, "link_to": "ITAR Compliance Report",
+   "link_type": "Report", "onboard": 1, "type": "Link"
+  },
+  {
+   "hidden": 0, "idx": 22, "is_query_report": 0,
+   "label": "Aerospace Quality (AS9100)",
+   "link_count": 0, "onboard": 1,
+   "title": "Aerospace Quality (AS9100)",
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "", "hidden": 0, "idx": 23, "is_query_report": 0,
+   "label": "Aerospace Quality NCR",
+   "link_count": 0, "link_to": "Aerospace Quality NCR",
+   "link_type": "DocType", "onboard": 1, "type": "Link"
+  },
+  {
+   "dependencies": "", "hidden": 0, "idx": 24, "is_query_report": 1,
+   "label": "Aerospace NCR Report",
+   "link_count": 0, "link_to": "Aerospace NCR Report",
+   "link_type": "Report", "onboard": 1, "type": "Link"
+  },
+  {
+   "hidden": 0, "idx": 25, "is_query_report": 0,
+   "label": "Space Reports & Analytics",
+   "link_count": 0, "onboard": 0,
+   "title": "Space Reports & Analytics",
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "", "hidden": 0, "idx": 26, "is_query_report": 1,
+   "label": "Spacecraft Utilization Report",
+   "link_count": 0, "link_to": "Spacecraft Utilization Report",
+   "link_type": "Report", "onboard": 0, "type": "Link"
+  },
+  {
+   "dependencies": "", "hidden": 0, "idx": 27, "is_query_report": 1,
+   "label": "Launch Campaign Status Report",
+   "link_count": 0, "link_to": "Launch Campaign Status Report",
+   "link_type": "Report", "onboard": 0, "type": "Link"
+  },
+  {
+   "dependencies": "", "hidden": 0, "idx": 28, "is_query_report": 1,
+   "label": "Propellant Usage Report",
+   "link_count": 0, "link_to": "Propellant Usage Report",
+   "link_type": "Report", "onboard": 0, "type": "Link"
+  },
+  {
+   "dependencies": "", "hidden": 0, "idx": 29, "is_query_report": 1,
+   "label": "Conjunction Risk Report",
+   "link_count": 0, "link_to": "Conjunction Risk Report",
+   "link_type": "Report", "onboard": 0, "type": "Link"
+  },
+  {
+   "dependencies": "", "hidden": 0, "idx": 30, "is_query_report": 1,
+   "label": "Space Weather Impact Report",
+   "link_count": 0, "link_to": "Space Weather Impact Report",
+   "link_type": "Report", "onboard": 0, "type": "Link"
+  },
+  {
+   "dependencies": "", "hidden": 0, "idx": 31, "is_query_report": 1,
+   "label": "ITAR Compliance Report",
+   "link_count": 0, "link_to": "ITAR Compliance Report",
+   "link_type": "Report", "onboard": 0, "type": "Link"
+  },
+  {
+   "dependencies": "", "hidden": 0, "idx": 32, "is_query_report": 1,
+   "label": "Aerospace NCR Report",
+   "link_count": 0, "link_to": "Aerospace NCR Report",
+   "link_type": "Report", "onboard": 0, "type": "Link"
+  }
+ ],
+ "modified": "2024-05-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Aviation",
+ "name": "AeroSpaceOS",
+ "owner": "Administrator",
+ "public": 1,
+ "restrict_to_domain": "",
+ "roles": [],
+ "sequence_id": 2.0,
+ "shortcuts": [
+  {
+   "color": "Blue",
+   "format": "{} Active",
+   "label": "Spacecraft",
+   "link_to": "Spacecraft Asset",
+   "stats_filter": "{\"status\": \"Active\"}",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "format": "{} Campaigns",
+   "label": "Launch Campaigns",
+   "link_to": "Launch Campaign",
+   "stats_filter": "{\"status\": [\"not in\", [\"Launched\", \"Aborted\", \"Scrubbed\"]]}",
+   "type": "DocType"
+  },
+  {
+   "color": "Red",
+   "format": "{} Open",
+   "label": "Conjunctions",
+   "link_to": "Conjunction Assessment",
+   "stats_filter": "{\"status\": \"Open\"}",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "format": "{} Alerts",
+   "label": "Space Weather",
+   "link_to": "Space Weather Alert",
+   "type": "DocType"
+  },
+  {
+   "color": "Purple",
+   "format": "{} Open",
+   "label": "NCRs",
+   "link_to": "Aerospace Quality NCR",
+   "stats_filter": "{\"status\": [\"not in\", [\"Closed\"]]}",
+   "type": "DocType"
+  },
+  {
+   "color": "Teal",
+   "label": "Orbit Parameters",
+   "link_to": "Orbit Parameter",
+   "type": "DocType"
+  },
+  {
+   "color": "Gray",
+   "label": "ITAR Records",
+   "link_to": "ITAR EAR Access Control",
+   "type": "DocType"
+  },
+  {
+   "color": "Yellow",
+   "label": "Propellant Logs",
+   "link_to": "Propellant Load Log",
+   "type": "DocType"
+  }
+ ],
+ "title": "AeroSpaceOS"
+}

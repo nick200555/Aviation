@@ -1,0 +1,18 @@
+{
+ "attach_print": 0,
+ "channel": "System",
+ "creation": "2024-05-18 00:00:00.000000",
+ "document_type": "Launch Campaign",
+ "doctype": "Notification",
+ "enabled": 1,
+ "event": "Change",
+ "message": "Launch Campaign {{ doc.mission_name }} ({{ doc.campaign_id }}) status has changed to {{ doc.status }}. Launch Window: {{ doc.launch_window_start_utc }} UTC.",
+ "modified": "2024-05-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Aviation",
+ "name": "Launch Countdown Alert",
+ "owner": "Administrator",
+ "send_to_all_assignees": 0,
+ "subject": "🚀 Launch Update: {{ doc.mission_name }} — {{ doc.status }}",
+ "value_changed": "status"
+}

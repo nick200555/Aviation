@@ -1,0 +1,164 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2024-05-18 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "spacecraft",
+  "debris_catalog_id",
+  "debris_description",
+  "closest_approach_utc",
+  "section_risk",
+  "miss_distance_meters",
+  "collision_probability",
+  "risk_level",
+  "section_action",
+  "action_required",
+  "mitigation_maneuver_plan",
+  "delta_v_required_mps",
+  "status",
+  "resolved_at",
+  "resolved_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "CA-.YYYY.-"
+  },
+  {
+   "fieldname": "spacecraft",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Spacecraft",
+   "options": "Spacecraft Asset",
+   "reqd": 1
+  },
+  {
+   "fieldname": "debris_catalog_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Debris / Object NORAD ID",
+   "reqd": 1
+  },
+  {
+   "fieldname": "debris_description",
+   "fieldtype": "Data",
+   "label": "Object Description"
+  },
+  {
+   "fieldname": "closest_approach_utc",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Time of Closest Approach (UTC)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_risk",
+   "fieldtype": "Section Break",
+   "label": "Risk Assessment"
+  },
+  {
+   "fieldname": "miss_distance_meters",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Miss Distance (m)"
+  },
+  {
+   "fieldname": "collision_probability",
+   "fieldtype": "Float",
+   "label": "Collision Probability (Pc)"
+  },
+  {
+   "fieldname": "risk_level",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Risk Level",
+   "options": "Green\nYellow\nRed\nCritical"
+  },
+  {
+   "fieldname": "section_action",
+   "fieldtype": "Section Break",
+   "label": "Mitigation"
+  },
+  {
+   "fieldname": "action_required",
+   "fieldtype": "Check",
+   "label": "Maneuver Action Required"
+  },
+  {
+   "fieldname": "mitigation_maneuver_plan",
+   "fieldtype": "Text",
+   "label": "Mitigation / Maneuver Plan"
+  },
+  {
+   "fieldname": "delta_v_required_mps",
+   "fieldtype": "Float",
+   "label": "Delta-V Required (m/s)"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Open\nManeuver Planned\nManeuver Executed\nMonitored - Safe\nClosed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "resolved_at",
+   "fieldtype": "Datetime",
+   "label": "Resolved At"
+  },
+  {
+   "fieldname": "resolved_by",
+   "fieldtype": "Link",
+   "label": "Resolved By",
+   "options": "User"
+  }
+ ],
+ "links": [],
+ "modified": "2024-05-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Aviation",
+ "name": "Conjunction Assessment",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Aviation Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Safety Officer",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "closest_approach_utc",
+ "sort_order": "DESC",
+ "states": [
+  {"color": "Green", "title": "Open"},
+  {"color": "Orange", "title": "Maneuver Planned"},
+  {"color": "Blue", "title": "Maneuver Executed"},
+  {"color": "Teal", "title": "Monitored - Safe"},
+  {"color": "Gray", "title": "Closed"}
+ ],
+ "track_changes": 1
+}

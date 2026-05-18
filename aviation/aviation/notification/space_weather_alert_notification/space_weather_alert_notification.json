@@ -1,0 +1,17 @@
+{
+ "attach_print": 0,
+ "channel": "System",
+ "creation": "2024-05-18 00:00:00.000000",
+ "document_type": "Space Weather Alert",
+ "doctype": "Notification",
+ "enabled": 1,
+ "event": "New",
+ "message": "New Space Weather Alert detected at {{ doc.alert_utc }} UTC. Solar Flare Class: {{ doc.solar_flare_class }}, Geomagnetic Kp Index: {{ doc.geomagnetic_storm_kp_index }}. Action Taken: {{ doc.action_taken }}. Please review affected spacecraft immediately.",
+ "modified": "2024-05-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Aviation",
+ "name": "Space Weather Alert Notification",
+ "owner": "Administrator",
+ "send_to_all_assignees": 0,
+ "subject": "🌞 Space Weather Alert: {{ doc.solar_flare_class }} Flare — Kp={{ doc.geomagnetic_storm_kp_index }}"
+}

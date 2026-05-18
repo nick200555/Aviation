@@ -1,0 +1,146 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "field:campaign_id",
+ "creation": "2024-05-18 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "campaign_id",
+  "mission_name",
+  "launch_vehicle_booster",
+  "launch_site",
+  "primary_payload",
+  "status",
+  "section_window",
+  "launch_window_start_utc",
+  "launch_window_end_utc",
+  "actual_launch_utc",
+  "section_checklist",
+  "countdown_checklist"
+ ],
+ "fields": [
+  {
+   "fieldname": "campaign_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Campaign ID",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "mission_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Mission Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "launch_vehicle_booster",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Launch Vehicle / Booster",
+   "options": "Launch Vehicle Component"
+  },
+  {
+   "fieldname": "launch_site",
+   "fieldtype": "Link",
+   "label": "Launch Site / Airport",
+   "options": "Airport"
+  },
+  {
+   "fieldname": "primary_payload",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Primary Payload (Spacecraft)",
+   "options": "Spacecraft Asset"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Planning\nWet Dress Rehearsal\nCountdown Active\nLaunched\nAborted\nScrubbed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_window",
+   "fieldtype": "Section Break",
+   "label": "Launch Window"
+  },
+  {
+   "fieldname": "launch_window_start_utc",
+   "fieldtype": "Datetime",
+   "label": "Launch Window Open (UTC)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "launch_window_end_utc",
+   "fieldtype": "Datetime",
+   "label": "Launch Window Close (UTC)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "actual_launch_utc",
+   "fieldtype": "Datetime",
+   "label": "Actual Launch Time (UTC)"
+  },
+  {
+   "fieldname": "section_checklist",
+   "fieldtype": "Section Break",
+   "label": "Launch Countdown Checklist"
+  },
+  {
+   "fieldname": "countdown_checklist",
+   "fieldtype": "Table",
+   "label": "Countdown Checklist",
+   "options": "Launch Countdown Checklist"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-05-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Aviation",
+ "name": "Launch Campaign",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Aviation Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Flight Operations Officer",
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {"color": "Blue", "title": "Planning"},
+  {"color": "Orange", "title": "Wet Dress Rehearsal"},
+  {"color": "Yellow", "title": "Countdown Active"},
+  {"color": "Green", "title": "Launched"},
+  {"color": "Red", "title": "Aborted"},
+  {"color": "Gray", "title": "Scrubbed"}
+ ],
+ "title_field": "mission_name",
+ "track_changes": 1
+}

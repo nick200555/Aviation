@@ -1,0 +1,145 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2024-05-18 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "spacecraft",
+  "epoch_utc",
+  "section_keplerian",
+  "semi_major_axis_km",
+  "eccentricity",
+  "inclination_deg",
+  "right_ascension_ascending_node_deg",
+  "argument_of_perigee_deg",
+  "section_derived",
+  "apogee_km",
+  "perigee_km",
+  "orbital_period_minutes",
+  "mean_motion_rev_per_day",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "ORB-.YYYY.-"
+  },
+  {
+   "fieldname": "spacecraft",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Spacecraft",
+   "options": "Spacecraft Asset",
+   "reqd": 1
+  },
+  {
+   "fieldname": "epoch_utc",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Epoch (UTC)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_keplerian",
+   "fieldtype": "Section Break",
+   "label": "Keplerian Elements"
+  },
+  {
+   "fieldname": "semi_major_axis_km",
+   "fieldtype": "Float",
+   "label": "Semi-Major Axis (km)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "eccentricity",
+   "fieldtype": "Float",
+   "label": "Eccentricity",
+   "reqd": 1
+  },
+  {
+   "fieldname": "inclination_deg",
+   "fieldtype": "Float",
+   "label": "Inclination (°)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "right_ascension_ascending_node_deg",
+   "fieldtype": "Float",
+   "label": "RAAN (°)"
+  },
+  {
+   "fieldname": "argument_of_perigee_deg",
+   "fieldtype": "Float",
+   "label": "Argument of Perigee (°)"
+  },
+  {
+   "fieldname": "section_derived",
+   "fieldtype": "Section Break",
+   "label": "Derived Orbital Data"
+  },
+  {
+   "fieldname": "apogee_km",
+   "fieldtype": "Float",
+   "label": "Apogee (km)"
+  },
+  {
+   "fieldname": "perigee_km",
+   "fieldtype": "Float",
+   "label": "Perigee (km)"
+  },
+  {
+   "fieldname": "orbital_period_minutes",
+   "fieldtype": "Float",
+   "label": "Orbital Period (min)"
+  },
+  {
+   "fieldname": "mean_motion_rev_per_day",
+   "fieldtype": "Float",
+   "label": "Mean Motion (rev/day)"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "links": [],
+ "modified": "2024-05-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Aviation",
+ "name": "Orbit Parameter",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Aviation Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Flight Operations Officer",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "epoch_utc",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,185 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:spacecraft_id",
+ "creation": "2024-05-18 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "spacecraft_id",
+  "spacecraft_name",
+  "owner_airline",
+  "spacecraft_type",
+  "status",
+  "section_orbital",
+  "orbit_type",
+  "mission_elapsed_time",
+  "estimated_lifetime_years",
+  "section_propellant",
+  "propellant_type",
+  "propellant_capacity_kg",
+  "current_propellant_level_kg",
+  "delta_v_budget_mps",
+  "section_telemetry",
+  "battery_voltage_v",
+  "solar_array_power_w",
+  "last_telemetry_utc"
+ ],
+ "fields": [
+  {
+   "fieldname": "spacecraft_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Spacecraft ID",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "spacecraft_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Spacecraft Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "owner_airline",
+   "fieldtype": "Link",
+   "label": "Owner / Operator",
+   "options": "Airline"
+  },
+  {
+   "fieldname": "spacecraft_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Spacecraft Type",
+   "options": "Satellite\nLaunch Vehicle Booster\nUpper Stage\nCrew Capsule\nSpace Station Module\nProbe",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Integration\nPre-Launch\nActive\nDecommissioned\nDe-orbited",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_orbital",
+   "fieldtype": "Section Break",
+   "label": "Orbital Parameters"
+  },
+  {
+   "fieldname": "orbit_type",
+   "fieldtype": "Select",
+   "label": "Orbit Type",
+   "options": "\nLEO\nMEO\nGEO\nSun-Synchronous\nLunar\nInterplanetary\nHEO"
+  },
+  {
+   "fieldname": "mission_elapsed_time",
+   "fieldtype": "Duration",
+   "label": "Mission Elapsed Time"
+  },
+  {
+   "fieldname": "estimated_lifetime_years",
+   "fieldtype": "Float",
+   "label": "Estimated Lifetime (Years)"
+  },
+  {
+   "fieldname": "section_propellant",
+   "fieldtype": "Section Break",
+   "label": "Propellant & Power"
+  },
+  {
+   "fieldname": "propellant_type",
+   "fieldtype": "Select",
+   "label": "Propellant Type",
+   "options": "\nHydrazine\nXenon\nCold Gas\nBipropellant\nMono-Propellant"
+  },
+  {
+   "fieldname": "propellant_capacity_kg",
+   "fieldtype": "Float",
+   "label": "Propellant Capacity (kg)"
+  },
+  {
+   "fieldname": "current_propellant_level_kg",
+   "fieldtype": "Float",
+   "label": "Current Propellant Level (kg)"
+  },
+  {
+   "fieldname": "delta_v_budget_mps",
+   "fieldtype": "Float",
+   "label": "Delta-V Budget Remaining (m/s)"
+  },
+  {
+   "fieldname": "section_telemetry",
+   "fieldtype": "Section Break",
+   "label": "Telemetry"
+  },
+  {
+   "fieldname": "battery_voltage_v",
+   "fieldtype": "Float",
+   "label": "Battery Voltage (V)"
+  },
+  {
+   "fieldname": "solar_array_power_w",
+   "fieldtype": "Float",
+   "label": "Solar Array Power (W)"
+  },
+  {
+   "fieldname": "last_telemetry_utc",
+   "fieldtype": "Datetime",
+   "label": "Last Telemetry UTC"
+  }
+ ],
+ "links": [],
+ "modified": "2024-05-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Aviation",
+ "name": "Spacecraft Asset",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Aviation Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Flight Operations Officer",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Safety Officer",
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {"color": "Blue", "title": "Integration"},
+  {"color": "Yellow", "title": "Pre-Launch"},
+  {"color": "Green", "title": "Active"},
+  {"color": "Gray", "title": "Decommissioned"},
+  {"color": "Red", "title": "De-orbited"}
+ ],
+ "title_field": "spacecraft_name",
+ "track_changes": 1
+}

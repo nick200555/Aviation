@@ -1,0 +1,150 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2024-05-18 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "ref_doctype",
+  "ref_docname",
+  "classification_title",
+  "jurisdiction",
+  "usml_category",
+  "eccn_number",
+  "section_access",
+  "export_license_required",
+  "export_license_id",
+  "export_license_expiry",
+  "authorized_nationalities",
+  "section_review",
+  "reviewed_by",
+  "review_date",
+  "next_review_date",
+  "compliance_notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "ITAR-.YYYY.-"
+  },
+  {
+   "fieldname": "ref_doctype",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Reference DocType",
+   "options": "Aircraft\nSpacecraft Asset\nMaintenance Work Order\nLaunch Vehicle Component\nPart Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ref_docname",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Reference Document",
+   "options": "ref_doctype",
+   "reqd": 1
+  },
+  {
+   "fieldname": "classification_title",
+   "fieldtype": "Data",
+   "label": "Classification Title"
+  },
+  {
+   "fieldname": "jurisdiction",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Jurisdiction",
+   "options": "ITAR\nEAR\nNon-Controlled\nEU Dual-Use",
+   "reqd": 1
+  },
+  {
+   "fieldname": "usml_category",
+   "fieldtype": "Data",
+   "label": "USML Category"
+  },
+  {
+   "fieldname": "eccn_number",
+   "fieldtype": "Data",
+   "label": "ECCN Number (EAR)"
+  },
+  {
+   "fieldname": "section_access",
+   "fieldtype": "Section Break",
+   "label": "Export License & Access"
+  },
+  {
+   "fieldname": "export_license_required",
+   "fieldtype": "Check",
+   "label": "Export License Required"
+  },
+  {
+   "fieldname": "export_license_id",
+   "fieldtype": "Data",
+   "label": "Export License ID / Number"
+  },
+  {
+   "fieldname": "export_license_expiry",
+   "fieldtype": "Date",
+   "label": "License Expiry Date"
+  },
+  {
+   "fieldname": "authorized_nationalities",
+   "fieldtype": "Table",
+   "label": "Authorized Nationalities",
+   "options": "Authorized Nationalities"
+  },
+  {
+   "fieldname": "section_review",
+   "fieldtype": "Section Break",
+   "label": "Compliance Review"
+  },
+  {
+   "fieldname": "reviewed_by",
+   "fieldtype": "Link",
+   "label": "Reviewed By",
+   "options": "User"
+  },
+  {
+   "fieldname": "review_date",
+   "fieldtype": "Date",
+   "label": "Review Date"
+  },
+  {
+   "fieldname": "next_review_date",
+   "fieldtype": "Date",
+   "label": "Next Review Date"
+  },
+  {
+   "fieldname": "compliance_notes",
+   "fieldtype": "Text",
+   "label": "Compliance Notes"
+  }
+ ],
+ "links": [],
+ "modified": "2024-05-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Aviation",
+ "name": "ITAR EAR Access Control",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Aviation Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

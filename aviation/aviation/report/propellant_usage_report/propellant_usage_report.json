@@ -1,0 +1,16 @@
+{
+ "add_total_row": 1,
+ "creation": "2024-05-18 00:00:00.000000",
+ "disabled": 0,
+ "doctype": "Report",
+ "is_standard": "Yes",
+ "modified": "2024-05-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Aviation",
+ "name": "Propellant Usage Report",
+ "owner": "Administrator",
+ "ref_doctype": "Propellant Load Log",
+ "report_name": "Propellant Usage Report",
+ "report_type": "Script Report",
+ "roles": [{"role": "Aviation Manager"}, {"role": "Ground Operations Supervisor"}]
+}

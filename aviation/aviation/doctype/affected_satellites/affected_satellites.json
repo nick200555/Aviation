@@ -1,0 +1,54 @@
+{
+ "actions": [],
+ "creation": "2024-05-18 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "spacecraft",
+  "spacecraft_name",
+  "impact_severity",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "spacecraft",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Spacecraft",
+   "options": "Spacecraft Asset",
+   "reqd": 1
+  },
+  {
+   "fieldname": "spacecraft_name",
+   "fieldtype": "Data",
+   "fetch_from": "spacecraft.spacecraft_name",
+   "in_list_view": 1,
+   "label": "Spacecraft Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "impact_severity",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Impact Severity",
+   "options": "Low\nMedium\nHigh\nCritical"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-05-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Aviation",
+ "name": "Affected Satellites",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

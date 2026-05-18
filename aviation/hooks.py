@@ -49,7 +49,7 @@ fixtures = [
     },
     {
         "dt": "Workspace",
-        "filters": [["name", "in", ["Aviation", "Space Operations"]]]
+        "filters": [["name", "in", ["AeroSpaceOS"]]]
     },
     {
         "dt": "Module Def",

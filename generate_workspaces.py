@@ -23,6 +23,7 @@ def create_aviation_workspace():
         "idx": 0,
         "is_default": 0,
         "is_hidden": 0,
+        "is_standard": 1,
         "label": "Aviation",
         "links": [
             {"hidden": 0, "idx": 1, "is_query_report": 0, "label": "Fleet Management", "link_count": 0, "onboard": 1, "title": "Fleet Management", "type": "Card Break"},
@@ -56,12 +57,12 @@ def create_aviation_workspace():
             {"dependencies": "", "hidden": 0, "idx": 29, "is_query_report": 0, "label": "Hazard Register", "link_count": 0, "link_to": "Hazard Register", "link_type": "DocType", "onboard": 0, "type": "Link"},
             {"dependencies": "", "hidden": 0, "idx": 30, "is_query_report": 0, "label": "Safety Investigation", "link_count": 0, "link_to": "Safety Investigation", "link_type": "DocType", "onboard": 0, "type": "Link"},
             {"hidden": 0, "idx": 31, "is_query_report": 0, "label": "Reports & Analytics", "link_count": 0, "onboard": 1, "title": "Reports & Analytics", "type": "Card Break"},
-            {"dependencies": "", "hidden": 0, "idx": 32, "is_query_report": 1, "label": "Aircraft Utilization", "link_count": 0, "link_to": "Aircraft Utilization", "link_type": "Report", "onboard": 1, "type": "Link"},
-            {"dependencies": "", "hidden": 0, "idx": 33, "is_query_report": 1, "label": "Flight Operations Summary", "link_count": 0, "link_to": "Flight Operations Summary", "link_type": "Report", "onboard": 1, "type": "Link"},
-            {"dependencies": "", "hidden": 0, "idx": 34, "is_query_report": 1, "label": "Crew Duty Report", "link_count": 0, "link_to": "Crew Duty Report", "link_type": "Report", "onboard": 1, "type": "Link"},
-            {"dependencies": "", "hidden": 0, "idx": 35, "is_query_report": 1, "label": "Maintenance Due Report", "link_count": 0, "link_to": "Maintenance Due Report", "link_type": "Report", "onboard": 1, "type": "Link"},
-            {"dependencies": "", "hidden": 0, "idx": 36, "is_query_report": 1, "label": "AD SB Compliance Report", "link_count": 0, "link_to": "AD SB Compliance Report", "link_type": "Report", "onboard": 1, "type": "Link"},
-            {"dependencies": "", "hidden": 0, "idx": 37, "is_query_report": 1, "label": "Safety Occurrence Report (Report)", "link_count": 0, "link_to": "Safety Occurrence Report", "link_type": "Report", "onboard": 1, "type": "Link"}
+            {"dependencies": "", "hidden": 0, "idx": 32, "is_query_report": 1, "label": "Aircraft Utilization", "link_count": 0, "link_to": "Aircraft Utilization", "link_type": "Report", "onboard": 0, "type": "Link"},
+            {"dependencies": "", "hidden": 0, "idx": 33, "is_query_report": 1, "label": "Flight Operations Summary", "link_count": 0, "link_to": "Flight Operations Summary", "link_type": "Report", "onboard": 0, "type": "Link"},
+            {"dependencies": "", "hidden": 0, "idx": 34, "is_query_report": 1, "label": "Crew Duty Report", "link_count": 0, "link_to": "Crew Duty Report", "link_type": "Report", "onboard": 0, "type": "Link"},
+            {"dependencies": "", "hidden": 0, "idx": 35, "is_query_report": 1, "label": "Maintenance Due Report", "link_count": 0, "link_to": "Maintenance Due Report", "link_type": "Report", "onboard": 0, "type": "Link"},
+            {"dependencies": "", "hidden": 0, "idx": 36, "is_query_report": 1, "label": "AD SB Compliance Report", "link_count": 0, "link_to": "AD SB Compliance Report", "link_type": "Report", "onboard": 0, "type": "Link"},
+            {"dependencies": "", "hidden": 0, "idx": 37, "is_query_report": 1, "label": "Safety Occurrence Report (Report)", "link_count": 0, "link_to": "Safety Occurrence Report", "link_type": "Report", "onboard": 0, "type": "Link"}
         ],
         "modified": "2024-05-18 00:00:00.000000",
         "modified_by": "Administrator",
@@ -102,7 +103,6 @@ def create_aerospaceos_workspace(aviation):
         
         {"hidden": 0, "idx": start_idx+3, "is_query_report": 0, "label": "Launch & Mission Control", "link_count": 0, "onboard": 1, "title": "Launch & Mission Control", "type": "Card Break"},
         {"dependencies": "", "hidden": 0, "idx": start_idx+4, "is_query_report": 0, "label": "Launch Campaign", "link_count": 0, "link_to": "Launch Campaign", "link_type": "DocType", "onboard": 1, "type": "Link"},
-        {"dependencies": "", "hidden": 0, "idx": start_idx+5, "is_query_report": 0, "label": "Launch Countdown Checklist", "link_count": 0, "link_to": "Launch Countdown Checklist", "link_type": "DocType", "onboard": 0, "type": "Link"},
         
         {"hidden": 0, "idx": start_idx+6, "is_query_report": 0, "label": "Orbital Operations", "link_count": 0, "onboard": 1, "title": "Orbital Operations", "type": "Card Break"},
         {"dependencies": "", "hidden": 0, "idx": start_idx+7, "is_query_report": 0, "label": "Orbit Parameter", "link_count": 0, "link_to": "Orbit Parameter", "link_type": "DocType", "onboard": 1, "type": "Link"},

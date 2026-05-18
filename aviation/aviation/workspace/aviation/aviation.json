@@ -12,6 +12,7 @@
  "idx": 0,
  "is_default": 0,
  "is_hidden": 0,
+ "is_standard": 1,
  "label": "Aviation",
  "links": [
   {
@@ -383,7 +384,7 @@
    "link_count": 0,
    "link_to": "Aircraft Utilization",
    "link_type": "Report",
-   "onboard": 1,
+   "onboard": 0,
    "type": "Link"
   },
   {
@@ -395,7 +396,7 @@
    "link_count": 0,
    "link_to": "Flight Operations Summary",
    "link_type": "Report",
-   "onboard": 1,
+   "onboard": 0,
    "type": "Link"
   },
   {
@@ -407,7 +408,7 @@
    "link_count": 0,
    "link_to": "Crew Duty Report",
    "link_type": "Report",
-   "onboard": 1,
+   "onboard": 0,
    "type": "Link"
   },
   {
@@ -419,7 +420,7 @@
    "link_count": 0,
    "link_to": "Maintenance Due Report",
    "link_type": "Report",
-   "onboard": 1,
+   "onboard": 0,
    "type": "Link"
   },
   {
@@ -431,7 +432,7 @@
    "link_count": 0,
    "link_to": "AD SB Compliance Report",
    "link_type": "Report",
-   "onboard": 1,
+   "onboard": 0,
    "type": "Link"
   },
   {
@@ -443,7 +444,7 @@
    "link_count": 0,
    "link_to": "Safety Occurrence Report",
    "link_type": "Report",
-   "onboard": 1,
+   "onboard": 0,
    "type": "Link"
   }
  ],

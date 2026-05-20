@@ -6,7 +6,7 @@ from frappe.model.document import Document
 from frappe.utils import getdate, nowdate, add_days
 
 
-class ItarEarAccessControl(Document):
+class ITAREARAccessControl(Document):
     def validate(self):
         self._validate_license_expiry()
         self._validate_jurisdiction_fields()

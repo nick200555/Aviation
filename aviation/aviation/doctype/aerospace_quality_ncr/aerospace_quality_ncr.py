@@ -6,7 +6,7 @@ from frappe.model.document import Document
 from frappe.utils import nowdate
 
 
-class AerospaceQualityNcr(Document):
+class AerospaceQualityNCR(Document):
     def validate(self):
         self._validate_capa_requirements()
         self._auto_escalate_critical()
